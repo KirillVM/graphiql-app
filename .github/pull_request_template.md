@@ -1,45 +1,37 @@
-# PR Details
+### `Type of change:`
 
-<!--- Provide a general summary of your changes in the Title above -->
+_Please delete options that are not relevant and this message_
 
-## Description
+- [x] **Refactor** (code improvement without changing functionality)
+- [x] **Optimization** (performance improvement without changing functionality)
+- [x] **Bug fix** (non-breaking change which fixes an issue)
+- [x] **New feature** (non-breaking change which adds functionality)
+- [x] **Breaking change** (fix or feature that would cause existing functionality to not work as expected)
+- [x] **Documentation update** (this change requires a documentation update)
 
-<!--- Describe your changes in detail -->
+### `Task:`
 
-## Related Issue
+**Week 1:** [Set up ESLint + Script](LinkToTask)
 
-<!--- This project only accepts pull requests related to open issues -->
-<!--- If suggesting a new feature or change, please discuss it in an issue first -->
-<!--- If fixing a bug, there should be an issue describing it with steps to reproduce -->
-<!--- Please link to the issue here: -->
+### `Description:`
 
-## Motivation and Context
+About the task
 
-<!--- Why is this change required? What problem does it solve? -->
+### `Execution steps:`
 
-## How Has This Been Tested
+1. Step 1.
+2. Step 2.
+3. Step 3.
+4. Step 4.
 
-<!--- Please describe in detail how you tested your changes. -->
-<!--- Include details of your testing environment, and the tests you ran to -->
-<!--- see how your change affects other areas of the code, etc. -->
+### `Screenshot (optional):`
 
-## Types of changes
+_If there are changes to the user interface_
 
-<!--- What types of changes does your code introduce? Put an `x` in all the boxes that apply: -->
+### `Reviewer's guide (optional):`
 
-- [ ] Docs change / refactoring / dependency upgrade
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to change)
+_What reviewers should pay attention to / where should they start the review / what is the main change_
 
-## Checklist
+### `About PR (optional):`
 
-<!--- Go over all the following points, and put an `x` in all the boxes that apply. -->
-<!--- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->
-
-- [ ] My code follows the code style of this project.
-- [ ] My change requires a change to the documentation.
-- [ ] I have updated the documentation accordingly.
-- [ ] I have read the **CONTRIBUTING** document.
-- [ ] I have added tests to cover my changes.
-- [ ] All new and existing tests passed.
+_Add a picture that best describes the task or how you feel about the task_
