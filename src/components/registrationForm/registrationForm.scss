@@ -1,0 +1,12 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  font-size: 2rem;
+}
+
+.form__row {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
