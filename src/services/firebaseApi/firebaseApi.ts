@@ -1,4 +1,4 @@
-// Import the functions you need from the SDKs you need
+import { firebaseConfig } from './firebaseConfig';
 import { initializeApp } from 'firebase/app';
 import {
   Auth,
@@ -7,58 +7,59 @@ import {
   signInWithCustomToken,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: `${import.meta.env.VITE_API_KEY}-FIZD-B74I3TCaDCY`,
-  authDomain: `${import.meta.env.VITE_PROJECT_ID}.firebaseapp.com`,
-  projectId: `${import.meta.env.VITE_PROJECT_ID}`,
-  storageBucket: `${import.meta.env.VITE_PROJECT_ID}.appspot.com`,
-  messagingSenderId: import.meta.env.VITE_SENDER_ID,
-  appId: import.meta.env.VITE_APP_ID,
-  measurementId: `G-${import.meta.env.VITE_MEASUREMENT_ID}`,
-};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
+// Sign up
 export const createUser = async (
   auth: Auth,
   email: string,
   password: string
-) => {
+): Promise<void> => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed up
       const user = userCredential.user;
+      signInUser(auth, email, password);
       console.log(user);
     })
     .catch((error) => {
-      const errorCode = error.code;
       const errorMessage = error.message;
-      console.log(errorCode, errorMessage);
+      switch (errorMessage) {
+        case 'EMAIL-EXIST':
+          console.log('User with this email already exist');
+      }
     });
 };
 
-export const signInUser = (auth: Auth, email: string, password: string) => {
+// Sign in
+export const signInUser = async (
+  auth: Auth,
+  email: string,
+  password: string
+): Promise<void> => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      console.log(user);
+      userCredential.user.getIdToken().then((refreshToken) => {
+        localStorage.setItem('refreshToken', refreshToken);
+      });
     })
     .catch((error) => {
-      const errorCode = error.code;
       const errorMessage = error.message;
-      console.log(errorCode, errorMessage);
+      console.log(errorMessage);
+      switch (errorMessage) {
+        case 'INVALID_LOGIN_CREDENTIALS':
+          console.log(`User with these credentials doesn't exist`);
+      }
     });
 };
 
-export const signInWithToken = (auth: Auth, token: string) => {
+// Sign in with token
+export const signInWithToken = async (
+  auth: Auth,
+  token: string
+): Promise<void> => {
   signInWithCustomToken(auth, token)
     .then((userCredential) => {
       // Signed in
@@ -66,10 +67,9 @@ export const signInWithToken = (auth: Auth, token: string) => {
       console.log(user);
     })
     .catch((error) => {
-      const errorCode = error.code;
-      //const errorMessage = error.message;
-      switch (errorCode) {
-        case 'invalid-custom-token':
+      const errorMessage = error.message;
+      switch (errorMessage) {
+        case 'INVALID_CUSTOM_TOKEN':
           console.log('The supplied token is not a Firebase custom token.');
       }
     });
