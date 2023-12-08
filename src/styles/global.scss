@@ -1,6 +1,12 @@
+@import 'normalize';
+@import 'fonts';
+@import 'placeholders';
+@import 'mixins';
+@import 'vars';
+
 body {
   min-height: 100vh;
   font-size: 10px;
-  min-width: 320rem;
+  min-width: 32rem;
   box-sizing: border-box;
 }
