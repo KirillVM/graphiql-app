@@ -1,11 +1,17 @@
-import React from 'react';
-import './App.css';
+import { Outlet } from 'react-router-dom';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import './App.scss';
 
-const App = (): JSX.Element => {
+const App = () => {
   return (
-    <>
-      <h1>Hellow World!</h1>
-    </>
+    <div className="app">
+      <Header />
+      <main className="main">
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
   );
 };
 
