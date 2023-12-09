@@ -14,7 +14,7 @@ export default {
     '^@constants/(.*)$': '<rootDir>/src/constants/$1',
     '^@hooks/(.*)$': '<rootDir>/src/hooks/$1',
     '^@pages/(.*)$': '<rootDir>/src/pages/$1',
-    '^@sass/(.*)$': '<rootDir>/src/sass/$1',
+    '^@styles/(.*)$': '<rootDir>/src/styles/$1',
     '^@store/(.*)$': '<rootDir>/src/store/$1',
     '^@types/(.*)$': '<rootDir>/src/types/$1',
     '^@utils/(.*)$': '<rootDir>/src/utils/$1',
