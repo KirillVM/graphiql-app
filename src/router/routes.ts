@@ -1,6 +1,6 @@
 enum ROUTES {
   ROOT = '/',
-  GRAPHQL = 'graphql',
+  GRAPHIQL = 'graphiql',
   SIGNUP = 'signup',
   SIGNIN = 'signin',
   NOT_FOUND = '404',
