@@ -1,4 +1,3 @@
-import './App.css';
 import RegistrationForm from './components/registrationForm/registrationForm';
 
 const App = (): JSX.Element => {
