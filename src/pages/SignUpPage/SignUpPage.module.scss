@@ -1,0 +1,29 @@
+@import '../../styles/vars';
+@import '../../styles/mixins';
+
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  row-gap: 5rem;
+  align-items: center;
+  background-color: $color-background;
+  padding: 5rem 56rem 10rem 56rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  text-align: center;
+
+  &__question {
+    color: $color-black;
+    @include font(1.5rem, $weight: 500 );
+  }
+  &__link {
+    color: $color-accent-dark;
+    @include font(1.5rem, $weight:700 );
+  }
+}

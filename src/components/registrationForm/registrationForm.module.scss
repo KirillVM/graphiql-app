@@ -1,31 +1,73 @@
+@import '../../styles/vars';
+@import '../../styles/mixins';
+
 .form {
+  width: 80rem;
+  height: 40.1rem;
+  background-color: $color-secondary;
+  align-items: center;
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
   font-size: 2rem;
+  padding: 5rem 23rem 7.5rem 24.8rem;
+  background-image: url('../../assets/images/grahh-img.png');
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: 40.8rem, 33.9rem;
+
+  &__row {
+    width: 32.2rem;
+    height: 5.2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  &__row-name {
+    width: 5.6rem;
+    margin:0;
+    font-size: 1.5rem;
+    padding-left: 1.7rem;
+    position: relative;
+    top: 1.05rem;
+    background-color: $color-secondary;
+  }
+
+  &__input {
+    width: 32rem;
+    height: 4REM;
+    font-size: 1.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid $color-disabled;
+    background: $color-secondary;
+  }
+
+  &__input:active {
+    border: 1px solid $color-disabled;
+  }
 }
+
+// .img {
+//   z-index: -1;
+//   position: absolute;
+//   background-image: url('../../assets/images/grahh-img.png');
+//   width: 40.8rem;
+//   height: 33.9rem;
+//   background-repeat: no-repeat;
+//   background-position: 0;
+//   align-self: flex-end;
+// }
 
 .button_submit {
-  width: 50%;
-  align-self: self-end;
-}
-
-.form__row {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
+  width: 32.2rem;
+  height: 4rem;
+  background-color: $color-black;
+  color: $color-secondary;
 }
 
 .error {
-  color: red;
+  color: $color-error;
   font-size: 1.2rem;
   min-width: 1.2rem;
-}
-
-.from__input {
-  font-size: 1.8rem;
-}
-
-.wrapper {
-  display: flex;
 }

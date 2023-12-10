@@ -1,7 +1,7 @@
-import classes from './registrationForm.module.scss';
+import classes from './RegistrationForm.module.scss';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { FormData } from './registrationForm.interfaces';
-import registrationFormSchema from './registrationForm.schema';
+import { FormData } from './RegistrationForm.interfaces';
+import registrationFormSchema from './RegistrationForm.schema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import clsx from 'clsx';
 // import { useNavigate } from 'react-router-dom';
@@ -24,70 +24,63 @@ const RegistrationForm = (): JSX.Element => {
     // navigate(to: '/main');
   };
   return (
-    <>
-      <div className={clsx(classes.wrapper)}>
-        <h1>Registration</h1>
-        <form
-          className={clsx(classes.form)}
-          onSubmit={handleSubmit(onSubmitHandler)}
-        >
-          {/* <label htmlFor="fname" className={clsx(classes.form__row)}>
-          Name
-          <input
-            {...register('fname', {
-              required: true,
-            })}
-            id="fname"
-            className="form__fname"
-            placeholder="Ivan"
-          ></input>
-          {fname ? <p>{fname.message}</p> : <p> </p>}
-        </label> */}
-          <label htmlFor="email" className={clsx(classes.form__row)}>
-            Email
-            <input
-              {...register('email', {
-                required: true,
-              })}
-              id="email"
-              className={clsx(classes.form__input)}
-              placeholder="email@gmail.com"
-            ></input>
-            {email ? <p>{email.message}</p> : <p> </p>}
-          </label>
-          <label htmlFor="password" className={clsx(classes.form__row)}>
-            Password
-            <input
-              {...register('password', {
-                required: true,
-              })}
-              id="password"
-              className={clsx(classes.form__input)}
-              placeholder="Password"
-            ></input>
-            {password ? <p>{password.message}</p> : <p> </p>}
-          </label>
-          <label htmlFor="confirm-password" className={clsx(classes.form__row)}>
-            Confirm password
-            <input
-              {...register('confirmPassword', {
-                required: true,
-              })}
-              id="confirm-password"
-              className={clsx(classes.form__input)}
-              placeholder="Confirm password"
-            ></input>
-            {confirmPassword ? <p>{confirmPassword.message}</p> : <p> </p>}
-          </label>
-          <button
-            className={clsx(classes.button_submit)}
-            disabled={Object.keys(errors).length > 0}
-          >
-            Submit
-          </button>
-        </form>
-      </div>
-    </>
+    <form
+      className={clsx(classes.form)}
+      onSubmit={handleSubmit(onSubmitHandler)}
+    >
+      {/* <div className={clsx(classes.img)}></div> */}
+      <label htmlFor="email" className={clsx(classes.form__row)}>
+        <p className={clsx(classes['form__row-name'])}>Email</p>
+        <input
+          {...register('email', {
+            required: true,
+          })}
+          id="email"
+          className={clsx(classes.form__input)}
+        ></input>
+        {email ? (
+          <p className={clsx(classes.error)}>{email.message}</p>
+        ) : (
+          <p className={clsx(classes.error)}> </p>
+        )}
+      </label>
+      <label htmlFor="password" className={clsx(classes.form__row)}>
+        <p className={clsx(classes['form__row-name'])}>Password</p>
+        <input
+          {...register('password', {
+            required: true,
+          })}
+          id="password"
+          className={clsx(classes.form__input)}
+        ></input>
+        {password ? (
+          <p className={clsx(classes.error)}>{password.message}</p>
+        ) : (
+          <p className={clsx(classes.error)}> </p>
+        )}
+      </label>
+      <label htmlFor="confirm-password" className={clsx(classes.form__row)}>
+        <p className={clsx(classes['form__row-name'])}>Confirm password</p>
+        <input
+          {...register('confirmPassword', {
+            required: true,
+          })}
+          id="confirm-password"
+          className={clsx(classes.form__input)}
+        ></input>
+        {confirmPassword ? (
+          <p className={clsx(classes.error)}>{confirmPassword.message}</p>
+        ) : (
+          <p className={clsx(classes.error)}> </p>
+        )}
+      </label>
+      <button
+        className={clsx(classes.button_submit)}
+        disabled={Object.keys(errors).length > 0}
+      >
+        Submit
+      </button>
+    </form>
   );
 };
 

@@ -5,12 +5,12 @@ import {
   createRoutesFromElements,
 } from 'react-router-dom';
 import ROUTES from './routes';
-import App from '../App';
-import WelcomePage from '../pages/WelcomePage/WelcomePage';
-import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
-import SignInPage from '../pages/SignInPage/SignInPage';
-import SignUpPage from '../pages/SignUpPage/SignUpPage';
-import GraphiqlPage from '../pages/GraphiqlPage/GraphiqlPage';
+import App from '@src/App';
+import WelcomePage from '@pages/welcomePage/welcomePage';
+import NotFoundPage from '@pages/NotFoundPage/NotFoundPage';
+import SignInPage from '@pages/SignInPage/SignInPage';
+import SignUpPage from '@pages/SignUpPage/SignUpPage';
+import GraphiqlPage from '@pages/GraphiqlPage/GraphiqlPage';
 import RequireAuth from '../hoc/RequireAuth/RequireAuth';
 
 const router = createBrowserRouter(
