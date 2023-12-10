@@ -9,7 +9,9 @@ body {
   width: 100vw;
   box-sizing: border-box;
   overflow: hidden;
+  font-family: 'Montserrat';
   font-size: 10px;
+  background: $color-background;
   @extend %font-prom;
 }
 
