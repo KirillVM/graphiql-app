@@ -1,11 +1,20 @@
-import RegistrationForm from './components/registrationForm/registrationForm';
+import { Outlet } from 'react-router-dom';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import { AuthProvider } from './context/AuthContext/AuthContext';
+import './App.scss';
 
-const App = (): JSX.Element => {
+const App = () => {
   return (
-    <>
-      <h1>Hellow World!</h1>
-      <RegistrationForm />
-    </>
+    <AuthProvider>
+      <div className="app">
+        <Header />
+        <main className="main">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+    </AuthProvider>
   );
 };
 
