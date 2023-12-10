@@ -1,0 +1,31 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  font-size: 2rem;
+}
+
+.button_submit {
+  width: 50%;
+  align-self: self-end;
+}
+
+.form__row {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.error {
+  color: red;
+  font-size: 1.2rem;
+  min-width: 1.2rem;
+}
+
+.from__input {
+  font-size: 1.8rem;
+}
+
+.wrapper {
+  display: flex;
+}
