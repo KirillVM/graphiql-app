@@ -1,10 +1,9 @@
 import rss_logo from '../../assets/icons/rss-logo.svg';
 import github_logo from '../../assets/icons/github.svg';
 import styles from './footer.module.scss';
+import { GITHUB_USERS } from '@src/constants/constants';
 
 const Footer = () => {
-  const githubUsers = ['climbingirl', 'kotangenss', 'KirillVM'];
-
   return (
     <footer>
       <div className={styles.container}>
@@ -13,7 +12,7 @@ const Footer = () => {
         </a>
         <p className={styles.year}>2023</p>
         <div className={styles.githubs}>
-          {githubUsers.map((developer) => (
+          {GITHUB_USERS.map((developer) => (
             <a
               key={developer}
               target="_blank"
