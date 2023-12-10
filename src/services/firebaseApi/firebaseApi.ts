@@ -6,6 +6,7 @@ import {
   getAuth,
   signInWithCustomToken,
   signInWithEmailAndPassword,
+  signOut,
 } from 'firebase/auth';
 
 // Initialize Firebase
@@ -62,7 +63,6 @@ export const signInWithToken = async (
 ): Promise<void> => {
   signInWithCustomToken(auth, token)
     .then((userCredential) => {
-      // Signed in
       const user = userCredential.user;
       console.log(user);
     })
@@ -72,5 +72,17 @@ export const signInWithToken = async (
         case 'INVALID_CUSTOM_TOKEN':
           console.log('The supplied token is not a Firebase custom token.');
       }
+    });
+};
+
+// Sign out with token
+export const signOutUser = async (auth: Auth): Promise<void> => {
+  signOut(auth)
+    .then(() => {
+      console.log('User succesfuly signed out');
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+      console.log(errorMessage);
     });
 };
