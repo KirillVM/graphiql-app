@@ -1,0 +1,36 @@
+@import '../../styles/vars.scss';
+
+footer {
+  display: flex;
+  justify-content: center;
+  background: $color-secondary;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px 10px;
+  max-width: 1192px;
+  width: 100%;
+}
+
+.year {
+  font-weight: 500;
+  font-size: 18px;
+  color: $color-black;
+}
+
+.githubs {
+  display: flex;
+  column-gap: 25px;
+}
+
+@media (max-width: 479px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5px;
+    padding: 15px 20px 5px;
+  }
+}

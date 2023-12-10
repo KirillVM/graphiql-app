@@ -19,7 +19,9 @@ Design-wise, the app prioritizes attention to detail, adaptive layout, interacti
 ## Dream team
 
 [Svetlana Ivanova](https://github.com/climbingirl)
+
 [Kirill Mezentsev](https://github.com/kirillvm)
+
 [Elizaveta Novikova](https://github.com/kotangenss)
 
 ## Team mentor
@@ -47,7 +49,7 @@ This app is built using the following technologies:
 2. Clone this [repository](https://github.com/KirillVM/graphiql-app) to your computer.
 3. Go to folder `graphiql-app`.
 4. Install all dependencies using `npm install`.
-5. Run `npm run start` in command line and enjoy 😉
+5. Run `npm run dev` in command line and enjoy 😉
 
 ## Available scripts
 
