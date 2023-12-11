@@ -4,3 +4,50 @@
   font-weight: $weight;
   font-style: $style;
 }
+
+@mixin text-link {
+  color: $color-black;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  transition: height 0.3s ease;
+  z-index: 2;
+
+  &:before {
+    content: '';
+    position: absolute;
+    background-color: $color-accent-light;
+    width: 106%;
+    height: 50%;
+    bottom: -3px;
+    left: -3px;
+    border-radius: 2px;
+    transition: height 0.3s ease;
+    z-index: -1;
+  }
+
+  &:hover {
+    &:before {
+      height: 115%;
+    }
+  }
+}
+
+@mixin welcome-page-container {
+  display: flex;
+  padding: 35px 30px 30px 40px;
+  background: $color-secondary;
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 0px 25px 25px -9px rgba(83, 83, 109, 0.11);
+
+  h3 {
+    margin: 0 0 15px 0;
+  }
+
+  p {
+    font-size: 1.5rem;
+    line-height: 150%;
+    margin: 10px 0;
+  }
+}

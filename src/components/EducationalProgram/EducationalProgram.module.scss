@@ -1,0 +1,44 @@
+@import '../../styles/vars.scss';
+@import '../../styles/mixins.scss';
+
+.container {
+  @include welcome-page-container;
+  align-items: center;
+  margin: 50px 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 408px;
+    height: 339px;
+    background: url('../../assets/images/graph-img.svg') no-repeat;
+    top: 0;
+    right: 0;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.rss-logo {
+  position: relative;
+  margin: 30px 0;
+  z-index: 2;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 225px;
+    height: 86px;
+    background: url('../../assets/images/tape-link-to-school.svg') no-repeat;
+    top: -30px;
+    left: 16px;
+    z-index: -1;
+  }
+}
+
+.image {
+  z-index: 0;
+}

@@ -1,0 +1,27 @@
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px 70px;
+  max-width: 1192px;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.team {
+  h3 {
+    text-align: center;
+  }
+}
+
+.developers {
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+}

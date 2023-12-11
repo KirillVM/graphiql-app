@@ -1,0 +1,22 @@
+@import '../../styles/vars.scss';
+@import '../../styles/mixins.scss';
+
+.container {
+  @include welcome-page-container;
+  flex-direction: column;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 180px;
+    height: 145px;
+    background: url('../../assets/images/tape-read-to-find-out-more.svg')
+      no-repeat;
+    top: 15px;
+    right: 35px;
+  }
+
+  a {
+    @include text-link;
+  }
+}
