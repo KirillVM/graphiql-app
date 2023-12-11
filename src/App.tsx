@@ -2,14 +2,14 @@ import { Outlet } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import { AuthProvider } from './context/AuthContext/AuthContext';
-import './App.scss';
+import styles from './App.module.scss';
 
 const App = () => {
   return (
     <AuthProvider>
-      <div className="app">
+      <div className={styles.app}>
         <Header />
-        <main className="main">
+        <main className={styles.main}>
           <Outlet />
         </main>
         <Footer />

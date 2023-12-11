@@ -1,0 +1,41 @@
+@import '../../styles/vars.scss';
+@import '../../styles/mixins.scss';
+
+.button {
+  height: 30px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  @include font(1.5rem);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    color: $color-disabled;
+    background-color: $color-light-gray-additional;
+    border: 1px solid $color-disabled;
+  }
+}
+
+.button_white {
+  color: $color-black;
+  border: 1px solid $color-black;
+  background-color: $color-secondary;
+
+  &:hover {
+    background-color: $color-light-gray-additional;
+  }
+}
+
+.button_black {
+  color: $color-secondary;
+  background-color: $color-black;
+
+  &:hover {
+    background-color: $color-gray-additional;
+  }
+}

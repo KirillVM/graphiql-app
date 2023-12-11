@@ -10,10 +10,10 @@ const SignUpPage = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const userToken = 'Token'; // presumably getting the token after registartion
+    const token = 'Token'; // presumably getting the token after registartion
 
-    if (userToken) {
-      signIn(userToken, () => navigate(ROUTES.ROOT + ROUTES.GRAPHIQL));
+    if (token) {
+      signIn(token, () => navigate(ROUTES.ROOT + ROUTES.GRAPHIQL));
     }
   };
 
