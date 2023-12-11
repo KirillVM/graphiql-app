@@ -20,3 +20,11 @@
     @include text-link;
   }
 }
+
+@media(max-width: 1023px) {
+  .container {
+    &::before {
+        display: none;
+      }
+  }
+}
