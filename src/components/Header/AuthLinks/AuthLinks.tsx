@@ -19,14 +19,14 @@ const AuthLink = ({ children, to, type }: AuthLinkProps) => {
 
 const AuthLinks = () => {
   return (
-    <div className={styles.btns_auth}>
+    <nav className={styles.btns_auth}>
       <AuthLink to={ROUTES.SIGNIN} type="white">
         Sign In
       </AuthLink>
       <AuthLink to={ROUTES.SIGNUP} type="black">
         Sign Up
       </AuthLink>
-    </div>
+    </nav>
   );
 };
 
