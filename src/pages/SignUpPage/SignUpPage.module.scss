@@ -3,6 +3,7 @@
 
 
 .wrapper {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content:space-around;
@@ -13,6 +14,7 @@
 }
 
 .header {
+  min-width: 26.1rem;
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
@@ -21,6 +23,7 @@
   &__question {
     color: $color-black;
     @include font(1.5rem, $weight: 500 );
+    margin: 0;
   }
   &__link {
     color: $color-accent-dark;

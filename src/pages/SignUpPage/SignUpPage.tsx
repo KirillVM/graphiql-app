@@ -29,9 +29,9 @@ const SignUpPage = () => {
       <div className={clsx(classes.header)}>
         <h1>SIGN UP</h1>
         <p className={clsx(classes.header__question)}>
-          {`Dont have an account? `}
-          <NavLink to={ROUTES.SIGNUP} className={classes.header__link}>
-            Sign Up
+          {`Have an account? `}
+          <NavLink to={ROUTES.SIGNIN} className={classes.header__link}>
+            Sign In
           </NavLink>
         </p>
       </div>

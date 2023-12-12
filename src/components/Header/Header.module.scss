@@ -1,7 +1,10 @@
+@import '../../styles/vars.scss';
+
 .nav__link {
   font-size: 5rem;
   text-decoration: none;
 }
-header {
-  height: 10vh;
+.header {
+  min-height: 8rem;
+  background-color: $color-secondary;
 }

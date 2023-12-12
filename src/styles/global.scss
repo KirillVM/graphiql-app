@@ -9,21 +9,21 @@
 }
 
 html {
-  font-size: 10px;
+  font-size: 62.5%;
 }
 
 body {
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
   font-family: 'Montserrat';
-  font-size: 10px;
+  font-size: 1.6rem;
   background: $color-background;
   @extend %font-prom;
 }
 
 h1 {
   margin: 0;
+  line-height: 7.8rem;
   @include font(6rem, $weight: bold);
 }
 
@@ -41,4 +41,11 @@ h4 {
 
 h5 {
   @include font(1.8rem, $weight: bold);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+     box-shadow: 0 0 0 30px $color-secondary inset !important;
 }

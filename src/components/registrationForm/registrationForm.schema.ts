@@ -3,10 +3,6 @@ import { object, ref, string } from 'yup';
 const requeredMessage = 'Field is requered';
 
 const registrationFormSchema = object().shape({
-  fname: string()
-    .required(requeredMessage)
-    .matches(/^[A-Z]/, 'First latter should be capital')
-    .matches(/\D+$/, `Name shouldn't contain numbers`),
   email: string().required(requeredMessage).email('Incorrect email'),
   password: string()
     .required(requeredMessage)
