@@ -3,6 +3,7 @@ import ROUTES from '../../router/routes';
 import AuthLink from './AuthLink/AuthLink';
 import { useAuth } from '../../hooks/useAuth';
 import SignOutBtn from './SignOutBtn/SignOutBtn';
+import ButtonsLang from './ButtonsLang/ButtonLang';
 
 const Header = () => {
   const { userToken } = useAuth();
@@ -23,7 +24,7 @@ const Header = () => {
   return (
     <header>
       <div className={styles.container}>
-        <div className={styles.btns_lang}></div>
+        <ButtonsLang />
         <div className={styles.btns_auth}>{btnAuthContent}</div>
       </div>
     </header>

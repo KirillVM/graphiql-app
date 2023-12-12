@@ -18,12 +18,5 @@ header {
 
 .btns_auth {
   display: flex;
-}
-
-.btns_auth > a {
-  margin-right: 15px;
-
-  &:last-child {
-    margin-right: 0;
-  }
+  column-gap: 15px;
 }

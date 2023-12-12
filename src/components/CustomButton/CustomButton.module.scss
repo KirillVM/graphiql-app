@@ -8,6 +8,7 @@
   align-items: center;
   border: none;
   border-radius: 5px;
+  text-transform: capitalize;
   @include font(1.5rem);
 
   &:hover {
@@ -27,7 +28,8 @@
   background-color: $color-secondary;
 
   &:hover {
-    background-color: $color-light-gray-additional;
+    outline-offset: -2px;
+    outline: 2px solid $color-black;
   }
 }
 
@@ -38,4 +40,31 @@
   &:hover {
     background-color: $color-gray-additional;
   }
+}
+
+.button_transparent {
+  background-color: transparent;
+
+  &:hover {
+    outline: 1px solid $color-black;
+  }
+}
+
+.button_small {
+  height: 27px;
+  padding: 0 7px;
+}
+
+.button_medium {
+  height: 30px;
+  padding: 0 20px;
+}
+
+.button_large {
+  height: 40px;
+  padding: 0 30px;
+}
+
+.button_active {
+  transform: scale(115%);
 }

@@ -1,4 +1,4 @@
-import Button from '../../Button/Button';
+import Button from '../../CustomButton/CustomButton';
 import log_out from '../../../assets/icons/log-out.svg';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
@@ -14,7 +14,7 @@ const SignOutBtn = () => {
   };
 
   return (
-    <Button type="white" onClick={handleClick}>
+    <Button type="white" onClick={handleClick} size="medium">
       Sign Out <img className={styles.img} src={log_out} alt="log out" />
     </Button>
   );
