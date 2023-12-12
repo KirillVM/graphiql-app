@@ -1,4 +1,6 @@
+import { ReactNode } from 'react';
+
 export interface ButtonLangProps {
-  lang: string;
+  children: ReactNode;
   active: boolean;
 }
