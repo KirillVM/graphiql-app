@@ -1,8 +1,14 @@
+@import '../../../styles/vars.scss';
+
 .btns_lang {
   display: flex;
   column-gap: 10px;
 }
 
-.btn_lang {
-  margin-top: 5px;
+.btn_active {
+  transform: scale(120%);
+}
+
+.btn_img {
+  margin-top: 6px;
 }

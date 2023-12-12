@@ -20,8 +20,8 @@ const PagesLink = ({ location }: PagesLinkProps) => {
   if (!currentRoute) {
     currentRoute = ROUTES.ROOT;
   }
-  const path = links?.[currentRoute].link || ROUTES.GRAPHIQL;
-  const title = links?.[currentRoute].title || 'GraphiQL';
+  const path = links?.[currentRoute]?.link;
+  const title = links?.[currentRoute]?.title;
 
   return (
     <Link className={styles.pages_link} to={path}>
