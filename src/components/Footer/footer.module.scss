@@ -10,27 +10,27 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px 10px;
-  max-width: 1192px;
+  padding: 1rem 2rem 1rem;
+  max-width: 119.2rem;
   width: 100%;
 }
 
 .year {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.8rem;
   color: $color-black;
 }
 
 .githubs {
   display: flex;
-  column-gap: 25px;
+  column-gap: 2.5rem;
 }
 
 @media (max-width: 479px) {
   .container {
     flex-direction: column;
     align-items: center;
-    row-gap: 5px;
-    padding: 15px 20px 5px;
+    row-gap: 0.5rem;
+    padding: 1.5rem 2rem 0.5rem;
   }
 }

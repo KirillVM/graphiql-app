@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import ROUTES from './routes';
 import App from '../App';
-import WelcomePage from '../pages/WelcomePage/WelcomePage';
+import WelcomePage from '../pages/Welcome/Welcome';
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
 import SignInPage from '../pages/SignInPage/SignInPage';
 import SignUpPage from '../pages/SignUpPage/SignUpPage';
