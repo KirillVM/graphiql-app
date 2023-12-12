@@ -8,12 +8,12 @@
   &::before {
     content: '';
     position: absolute;
-    width: 180px;
-    height: 145px;
+    width: 18rem;
+    height: 14.5rem;
     background: url('../../assets/images/tape-read-to-find-out-more.svg')
       no-repeat;
-    top: 15px;
-    right: 35px;
+    top: 1.5rem;
+    right: 3.5rem;
   }
 
   a {
@@ -21,10 +21,10 @@
   }
 }
 
-@media(max-width: 1023px) {
+@media (max-width: 1023px) {
   .container {
     &::before {
-        display: none;
-      }
+      display: none;
+    }
   }
 }
