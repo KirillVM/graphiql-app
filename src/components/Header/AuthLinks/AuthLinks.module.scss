@@ -1,3 +1,8 @@
+.btns_auth {
+  display: flex;
+  column-gap: 15px;
+}
+
 .active {
   button {
     transform: scale(115%);
