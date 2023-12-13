@@ -3,16 +3,16 @@
 header {
   position: sticky;
   top: 0;
-  padding: 25px 0;
+  padding: 2.5rem 2rem;
   background-color: $color-secondary;
-  box-shadow: 0px 25px 25px -9px rgba(83, 83, 109, 0.11);
+  box-shadow: 0 2.5rem 2.5rem -0.9rem rgba(83, 83, 109, 0.11);
   transition: all 0.3s;
 }
 
 .header_scrolling {
   background-color: $color-accent-light;
-  box-shadow: 0px 25px 25px -9px rgba(83, 83, 109, 0.3);
-  padding: 15px 0;
+  box-shadow: 0 2.5rem 2.5rem -0.9rem rgba(83, 83, 109, 0.3);
+  padding: 1.5rem 0;
 }
 
 .container {
@@ -20,16 +20,16 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1192px;
+  max-width: 119.2rem;
 }
 
 @media (max-width: 479px) {
   header {
-    padding: 15px 0 20px;
+    padding: 1.5rem 0 2rem;
   }
   .container {
     flex-direction: column;
     align-items: center;
-    row-gap: 20px;
+    row-gap: 2rem;
   }
 }
