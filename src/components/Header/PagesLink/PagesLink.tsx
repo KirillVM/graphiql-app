@@ -7,8 +7,8 @@ import styles from './PagesLink.module.scss';
 
 const PagesLink = ({ location }: PagesLinkProps) => {
   const currentRoute = location.pathname.replace('/', '') || ROUTES.ROOT;
-  const path = links[currentRoute].link || '';
-  const title = links?.[currentRoute].title || '';
+  const path = links?.[currentRoute]?.link || '';
+  const title = links?.[currentRoute]?.title || '';
 
   return (
     <Link className={styles.pages_link} to={path}>
