@@ -2,7 +2,7 @@ import EducationalProgram from '@src/components/EducationalProgram/EducationalPr
 import AboutProject from '@src/components/AboutProject/AboutProject';
 import styles from './welcome.module.scss';
 import DeveloperCard from '@src/components/DeveloperCard/DeveloperCard';
-import { DEVELOPERS } from '@src/constants/constants';
+import { DEVELOPERS } from '@src/constants/developers';
 
 const WelcomePage = () => {
   return (
