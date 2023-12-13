@@ -2,12 +2,12 @@
 @import '../../styles/mixins.scss';
 
 .button {
-  height: 30px;
-  padding: 0 20px;
+  height: 3rem;
+  padding: 0 2rem;
   display: flex;
   align-items: center;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   text-transform: capitalize;
   @include font(1.5rem);
 
@@ -51,18 +51,18 @@
 }
 
 .button_small {
-  height: 27px;
-  padding: 0 5px;
+  height: 2.7rem;
+  padding: 0 0.5rem;
 }
 
 .button_medium {
-  height: 30px;
-  padding: 0 20px;
+  height: 3rem;
+  padding: 0 2rem;
 }
 
 .button_large {
-  height: 40px;
-  padding: 0 30px;
+  height: 4rem;
+  padding: 0 3rem;
 }
 
 .button_active {
