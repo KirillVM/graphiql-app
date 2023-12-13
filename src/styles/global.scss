@@ -44,3 +44,7 @@ h4 {
 h5 {
   @include font(1.8rem, $weight: bold);
 }
+
+h6 {
+  @include font(1.5rem, $weight: bold);
+}
