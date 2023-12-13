@@ -6,10 +6,13 @@ import PagesLink from './PagesLink/PagesLink';
 import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import styles from './Header.module.scss';
+import { useLocation } from 'react-router-dom';
 
 const Header = () => {
   const { userToken } = useAuth();
   const [scrolling, setScrolling] = useState(false);
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +29,10 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  if (currentPath === '/404') {
+    return null;
+  }
 
   return (
     <header className={clsx({ [styles.header_scrolling]: scrolling })}>

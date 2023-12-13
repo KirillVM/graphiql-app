@@ -7,7 +7,7 @@ import {
 import ROUTES from './routes';
 import App from '../App';
 import WelcomePage from '../pages/Welcome/Welcome';
-import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
+import NotFoundPage from '../pages/NotFound/NotFound';
 import SignInPage from '../pages/SignInPage/SignInPage';
 import SignUpPage from '../pages/SignUpPage/SignUpPage';
 import GraphiqlPage from '../pages/GraphiqlPage/GraphiqlPage';
