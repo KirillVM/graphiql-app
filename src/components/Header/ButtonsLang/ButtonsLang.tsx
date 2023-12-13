@@ -2,7 +2,7 @@ import CustomButton from '../../CustomButton/CustomButton';
 import { ButtonLangProps } from './ButtonsLang.interface';
 import clsx from 'clsx';
 import { useState } from 'react';
-import { languages } from '../../../constants/translate';
+import { languagesBtns } from '../../../constants/translate';
 import styles from './ButtonsLang.module.scss';
 
 const ButtonLang = ({ children, active, onChangeLang }: ButtonLangProps) => (
@@ -23,7 +23,7 @@ const ButtonsLang = () => {
 
   return (
     <div className={styles.btns_lang}>
-      {languages.map((l) => (
+      {languagesBtns.map((l) => (
         <ButtonLang
           active={l.lang === aciveLang}
           onChangeLang={() => setActiveLang(l.lang)}
