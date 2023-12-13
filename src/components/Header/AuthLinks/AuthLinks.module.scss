@@ -1,0 +1,10 @@
+.btns_auth {
+  display: flex;
+  column-gap: 1.5rem;
+}
+
+.active {
+  button {
+    transform: scale(110%);
+  }
+}

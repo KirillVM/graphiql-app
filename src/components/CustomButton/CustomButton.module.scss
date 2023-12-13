@@ -1,0 +1,70 @@
+@import '../../styles/vars.scss';
+@import '../../styles/mixins.scss';
+
+.button {
+  height: 3rem;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 0.5rem;
+  text-transform: capitalize;
+  @include font(1.5rem);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    color: $color-disabled;
+    background-color: $color-light-gray-additional;
+    border: 1px solid $color-disabled;
+  }
+}
+
+.button_white {
+  color: $color-black;
+  border: 1px solid $color-black;
+  background-color: $color-secondary;
+
+  &:hover {
+    outline-offset: -2px;
+    outline: 2px solid $color-black;
+  }
+}
+
+.button_black {
+  color: $color-secondary;
+  background-color: $color-black;
+
+  &:hover {
+    background-color: $color-gray-additional;
+  }
+}
+
+.button_transparent {
+  background-color: transparent;
+
+  &:hover {
+    outline: 1px solid $color-black;
+  }
+}
+
+.button_small {
+  height: 2.7rem;
+  padding: 0 0.5rem;
+}
+
+.button_medium {
+  height: 3rem;
+  padding: 0 2rem;
+}
+
+.button_large {
+  height: 4rem;
+  padding: 0 3rem;
+}
+
+.button_active {
+  transform: scale(110%);
+}
