@@ -38,6 +38,11 @@
     border-radius: 0.5rem;
     border: none;
   }
+
+  button {
+    display: none;
+    width: 20rem;
+  }
 }
 
 .photo {
@@ -93,27 +98,6 @@
   }
 }
 
-.details-button {
-  display: none;
-  border: none;
-  background: $color-black;
-  color: $color-secondary;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  margin-top: 2rem;
-  width: 25rem;
-  transition: background 0.3s ease;
-  cursor: pointer;
-
-  &:hover {
-    background: $color-accent-dark;
-  }
-
-  &:active {
-    scale: 0.95;
-  }
-}
-
 @media (min-width: 768px) {
   #kirill-mezentsev {
     flex-direction: row-reverse;
@@ -153,6 +137,11 @@
     hr {
       display: none;
     }
+
+    button {
+      display: block;
+      margin: 3rem 0 1rem;
+    }
   }
 
   .info {
@@ -178,10 +167,6 @@
     img {
       width: 100%;
     }
-  }
-
-  .details-button {
-    display: block;
   }
 
   .details {

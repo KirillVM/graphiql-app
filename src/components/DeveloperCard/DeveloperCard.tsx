@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { DeveloperCardProps } from './DeveloperCard.interface';
 import styles from './DeveloperCard.module.scss';
 import clsx from 'clsx';
+import CustomButton from '../CustomButton/CustomButton';
 
 const DeveloperCard = ({ developer }: DeveloperCardProps) => {
   const [showDetails, setShowDetails] = useState(false);
@@ -29,9 +30,9 @@ const DeveloperCard = ({ developer }: DeveloperCardProps) => {
             ))}
           </div>
         </div>
-        <button className={styles['details-button']} onClick={toggleDetails}>
+        <CustomButton type="white" size="large" onClick={toggleDetails}>
           {showDetails ? 'Hide details' : 'Show details'}
-        </button>
+        </CustomButton>
         <hr />
         <div
           className={clsx(styles.details, {

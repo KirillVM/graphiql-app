@@ -15,21 +15,25 @@
     cursor: pointer;
   }
 
+  &:active {
+    scale: 0.95;
+  }
+
   &:disabled {
     color: $color-disabled;
     background-color: $color-light-gray-additional;
-    border: 1px solid $color-disabled;
+    outline: 1px solid $color-disabled;
+    cursor: default;
   }
 }
 
 .button_white {
   color: $color-black;
-  border: 1px solid $color-black;
+  outline: 1px solid $color-black;
   background-color: $color-secondary;
 
   &:hover {
-    outline-offset: -2px;
-    outline: 2px solid $color-black;
+    box-shadow: 0 0 0 2px $color-black;
   }
 }
 
@@ -39,6 +43,7 @@
 
   &:hover {
     background-color: $color-gray-additional;
+    box-shadow: 0 0 0 2px $color-gray-additional;
   }
 }
 
@@ -47,6 +52,7 @@
 
   &:hover {
     outline: 1px solid $color-black;
+    box-shadow: 0 0 0 1px $color-black;
   }
 }
 
@@ -66,5 +72,5 @@
 }
 
 .button_active {
-  transform: scale(110%);
+  outline: 1px solid $color-black;
 }

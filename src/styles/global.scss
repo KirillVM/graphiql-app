@@ -48,3 +48,7 @@ h5 {
 h6 {
   @include font(1.5rem, $weight: bold);
 }
+
+button {
+  transition: all 0.3s ease;
+}
