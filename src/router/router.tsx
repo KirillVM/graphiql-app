@@ -6,8 +6,8 @@ import {
 } from 'react-router-dom';
 import ROUTES from './routes';
 import App from '@src/App';
-import WelcomePage from '@pages/welcomePage/welcomePage';
-import NotFoundPage from '@pages/NotFoundPage/NotFoundPage';
+import WelcomePage from '@pages/Welcome/Welcome';
+import NotFoundPage from '@pages/NotFound/NotFound';
 import SignInPage from '@pages/SignInPage/SignInPage';
 import SignUpPage from '@pages/SignUpPage/SignUpPage';
 import GraphiqlPage from '@pages/GraphiqlPage/GraphiqlPage';
