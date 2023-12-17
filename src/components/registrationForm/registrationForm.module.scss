@@ -2,7 +2,7 @@
 @import '../../styles/mixins';
 
 .form {
-  min-width: 80rem;
+  max-width: 80rem;
   background-color: $color-secondary;
   align-items: center;
   display: flex;
@@ -14,59 +14,18 @@
   background-position: right top;
   background-repeat: no-repeat;
   background-size: 40.8rem, 33.9rem;
+  // width: 100%;
 
-  &__row {
-    min-width: 32.2rem;
-    height: 5.2rem;
-    text-align: left;
-  }
-
-  &__row-name {
-    display: inline;
-    margin: 0;
-    font-size: 1.5rem;
-    padding: 0 0.6rem;
-    background-color: $color-secondary;
-    line-height: 2.1rem;
-  }
-
-  &__input {
-    min-width: 32rem;
-    height: 4rem;
-    font-size: 1.8rem;
-    border-radius: 0.5rem;
-    border: 1px solid $color-disabled;
-    background: $color-secondary;
-    padding-left: 1.4rem;
-    color: $color-disabled;
-  }
-
-  &__input:focus {
-    outline: $color-error;
-    border: 1px solid $color-black;
-    background-color: $color-secondary;
-    color: $color-black;
+  &::after {
+    content: '';
+    background-color: $color-accent-light;
+    height: 2rem;
+    max-width: 80rem;
+    display: block;
+    z-index: 5;
   }
 }
 
-// .img {
-//   z-index: -1;
-//   position: absolute;
-//   background-image: url('../../assets/images/grahh-img.png');
-//   width: 40.8rem;
-//   height: 33.9rem;
-//   background-repeat: no-repeat;
-//   background-position: 0;
-//   align-self: flex-end;
-// }
-
-.name-container {
-  margin-top: -1rem;
-  position: relative;
-  top: 1.05rem;
-  left: 1.1rem;
-  z-index: 5;
-}
 
 .button_submit {
   width: 32.2rem;
@@ -76,50 +35,15 @@
   margin-top: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid $color-secondary;
-}
 
-.error {
-  margin: 0;
-  padding-top: 0.6rem;
-  min-width: 1.2rem;
-  font-size: 1.1rem;
-  text-align: center;
-  color: $color-error;
-}
+  &:hover {
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: $color-accent-dark;
+  }
 
-.check-image {
-  width: 2rem;
-  height: 2rem;
-  color: $color-success;
-  position: absolute;
-  align-self: center;
-  background-color: $color-secondary;
-}
-
-.eye-image {
-  position: absolute;
-  display: inline;
-  z-index: 5;
-}
-
-.eye-image:hover {
-  cursor: pointer;
-}
-
-.eye-container {
-  position: relative;
-  left: 27.6rem;
-  bottom: 4rem;
-}
-
-.red {
-  color: $color-error;
-}
-
-.green {
-  color: $color-success;
-}
-
-.border_red {
-  border-color: $color-error;
+  &:disabled {
+    cursor: auto;
+    background-color: $color-disabled-additional;
+  }
 }

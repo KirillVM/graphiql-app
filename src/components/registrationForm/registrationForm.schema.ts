@@ -1,4 +1,5 @@
 import { object, ref, string } from 'yup';
+import { VALIDATION_RULES_REG_EXP } from './validationRules';
 
 const requeredMessage = 'Field is requered';
 
@@ -6,11 +7,20 @@ const registrationFormSchema = object().shape({
   email: string().required(requeredMessage).email('Incorrect email'),
   password: string()
     .required(requeredMessage)
-    .matches(/^(?=.*[a-z])/, 'Should contain at least one lowercase character')
-    .matches(/^(?=.*[A-Z])/, 'Should contain at least one uppercase character')
-    .matches(/^(?=.*[0-9])/, 'Should contain at least one number')
     .matches(
-      /^(?=.*[!@#$%^&*])/,
+      VALIDATION_RULES_REG_EXP.oneLowercaseChar,
+      'Should contain at least one lowercase character'
+    )
+    .matches(
+      VALIDATION_RULES_REG_EXP.oneUppercaseChar,
+      'Should contain at least one uppercase character'
+    )
+    .matches(
+      VALIDATION_RULES_REG_EXP.oneNumber,
+      'Should contain at least one number'
+    )
+    .matches(
+      VALIDATION_RULES_REG_EXP.oneSpecialChar,
       'Should contain at least one special character'
     ),
   confirmPassword: string()

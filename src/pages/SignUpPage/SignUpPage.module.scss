@@ -10,15 +10,17 @@
   row-gap: 5rem;
   align-items: center;
   background-color: $color-background;
-  padding: 5rem 56rem 10rem 56rem;
+  padding: 5rem 0 10rem 0;
+  width: 100%;
 }
 
 .header {
-  min-width: 26.1rem;
+  max-width: 26.1rem;
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
   text-align: center;
+  width: 100%;
 
   &__question {
     color: $color-black;
