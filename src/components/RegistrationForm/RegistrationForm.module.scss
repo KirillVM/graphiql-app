@@ -42,12 +42,18 @@
 
   &:hover {
     cursor: pointer;
-    transition: all 0.2s;
-    background-color: $color-accent-dark;
+    background-color: $color-gray-additional;
+    box-shadow: 0 0 0 2px $color-gray-additional;
   }
 
   &:disabled {
-    cursor: auto;
-    background-color: $color-disabled-additional;
+    color: $color-disabled;
+    background-color: $color-light-gray-additional;
+    outline: 1px solid $color-disabled;
+    cursor: default;
+  }
+
+  &:active {
+    scale: 0.95;
   }
 }

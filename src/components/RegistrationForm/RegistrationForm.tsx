@@ -7,6 +7,8 @@ import clsx from 'clsx';
 import FormInput from './FormInput/FormInput';
 // import { useNavigate } from 'react-router-dom';
 
+const FIELDS_COUNT = 3;
+
 const RegistrationForm = (): JSX.Element => {
   const methods = useForm<FormData>({
     resolver: yupResolver(registrationFormSchema),
@@ -14,7 +16,7 @@ const RegistrationForm = (): JSX.Element => {
   });
   const {
     handleSubmit,
-    formState: { isDirty, errors },
+    formState: { dirtyFields, errors },
   } = methods;
   // dispatch = useAppDispatch();
   // const navigate = useNavigate();
@@ -23,7 +25,13 @@ const RegistrationForm = (): JSX.Element => {
     // dispatch(setFromData(data))
     // navigate(to: '/main');
   };
-
+  console.log(
+    Object.values(dirtyFields).reduce((acc, item, array) => {
+      console.log(acc, item, array);
+      return item ? (acc += 1) : (acc = acc);
+    }, 0),
+    Object.values(dirtyFields).length
+  );
   return (
     <form
       className={clsx(classes.form)}
@@ -42,7 +50,10 @@ const RegistrationForm = (): JSX.Element => {
       </FormProvider>
       <button
         className={clsx(classes.button_submit)}
-        disabled={!isDirty || Object.keys(errors).length > 0}
+        disabled={
+          Object.values(dirtyFields).length < FIELDS_COUNT ||
+          Object.keys(errors).length > 0
+        }
       >
         Submit
       </button>

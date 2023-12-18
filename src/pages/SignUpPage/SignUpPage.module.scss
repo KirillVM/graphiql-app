@@ -28,7 +28,13 @@
     margin: 0;
   }
   &__link {
+    display: inline-block;
     color: $color-accent-dark;
     @include font(1.5rem, $weight:700 );
+    position: relative;
+  }
+  
+  a {
+    @include text-link;
   }
 }

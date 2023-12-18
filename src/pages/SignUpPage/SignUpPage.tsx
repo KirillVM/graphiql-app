@@ -3,7 +3,7 @@ import { FormEvent } from 'react';
 import { NavLink, Navigate, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import ROUTES from '../../router/routes';
-import RegistrationForm from '@src/components/registrationForm/RegistrationForm';
+import RegistrationForm from '@src/components/RegistrationForm/RegistrationForm';
 import clsx from 'clsx';
 
 const SignUpPage = () => {
