@@ -33,7 +33,6 @@
   }
 }
 
-
 .name-container {
   margin-top: -1rem;
   position: relative;
@@ -89,13 +88,13 @@
 }
 
 .border_red {
- outline-color: $color-error;
+  outline-color: $color-error;
 }
 
 .border_disabled {
- outline-color: $color-disabled;
+  outline-color: $color-disabled;
 }
 
 .border_black {
   outline-color: $color-black;
- }
+}

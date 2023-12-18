@@ -1,12 +1,11 @@
 @import '../../styles/vars';
 @import '../../styles/mixins';
 
-
 .wrapper {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content:space-around;
+  justify-content: space-around;
   row-gap: 5rem;
   align-items: center;
   background-color: $color-background;
@@ -24,16 +23,16 @@
 
   &__question {
     color: $color-black;
-    @include font(1.5rem, $weight: 500 );
+    @include font(1.5rem, $weight: 500);
     margin: 0;
   }
   &__link {
     display: inline-block;
     color: $color-accent-dark;
-    @include font(1.5rem, $weight:700 );
+    @include font(1.5rem, $weight: 700);
     position: relative;
   }
-  
+
   a {
     @include text-link;
   }
