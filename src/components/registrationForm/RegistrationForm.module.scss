@@ -14,14 +14,18 @@
   background-position: right top;
   background-repeat: no-repeat;
   background-size: 40.8rem, 33.9rem;
+  position: relative;
   // width: 100%;
 
   &::after {
     content: '';
     background-color: $color-accent-light;
     height: 2rem;
-    max-width: 80rem;
+    min-width: 80rem;
     display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
     z-index: 5;
   }
 }
