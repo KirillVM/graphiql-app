@@ -12,25 +12,28 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [onFocus, setOnFocus] = useState<boolean>(false);
 
+  const onFocusHandler = () => setOnFocus(true);
+  const onBlurHandler = () => setOnFocus(false);
+
   const {
     register,
     formState: { errors, dirtyFields },
   } = useFormContext();
-  const valid = errors[`${errorName}`];
+  const valid = errors[errorName];
 
   return (
     <label htmlFor={errorName} className={clsx(classes.form__row)}>
       <div className={clsx(classes['name-container'])}>
         <p
           className={clsx(classes['form__row-name'], {
-            [classes.black]: !dirtyFields[`${errorName}`],
+            [classes.black]: !dirtyFields[errorName],
             [classes.red]: valid,
             [classes.green]: !valid,
           })}
         >
           {lable}
         </p>
-        {!valid && dirtyFields[`${errorName}`] && (
+        {!valid && dirtyFields[errorName] && (
           <img className={clsx(classes['check-image'])} src={checkSVG} alt="" />
         )}
       </div>
@@ -46,8 +49,8 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
           [classes.border_disabled]: onFocus! && valid == undefined,
         })}
         autoComplete="off"
-        onFocus={() => setOnFocus(true)}
-        onBlur={() => setOnFocus(false)}
+        onFocus={onFocusHandler}
+        onBlur={onBlurHandler}
       ></input>
       {type === 'password' && (
         <div className={clsx(classes['eye-container'])}>
@@ -74,8 +77,8 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
           )}
         </div>
       )}
-      {valid ? (
-        <p className={clsx(classes.error)}>{valid.message as string}</p>
+      {valid && typeof valid.message == 'string' ? (
+        <p className={clsx(classes.error)}>{valid.message}</p>
       ) : (
         <p className={clsx(classes.error)}> </p>
       )}

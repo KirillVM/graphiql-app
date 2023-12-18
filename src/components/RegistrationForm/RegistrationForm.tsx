@@ -25,13 +25,10 @@ const RegistrationForm = (): JSX.Element => {
     // dispatch(setFromData(data))
     // navigate(to: '/main');
   };
-  console.log(
-    Object.values(dirtyFields).reduce((acc, item, array) => {
-      console.log(acc, item, array);
-      return item ? (acc += 1) : (acc = acc);
-    }, 0),
-    Object.values(dirtyFields).length
-  );
+
+  const isDirtyFields = Object.values(dirtyFields).length < FIELDS_COUNT;
+  const isError = Object.keys(errors).length > 0;
+
   return (
     <form
       className={clsx(classes.form)}
@@ -50,10 +47,7 @@ const RegistrationForm = (): JSX.Element => {
       </FormProvider>
       <button
         className={clsx(classes.button_submit)}
-        disabled={
-          Object.values(dirtyFields).length < FIELDS_COUNT ||
-          Object.keys(errors).length > 0
-        }
+        disabled={isDirtyFields || isError}
       >
         Submit
       </button>
