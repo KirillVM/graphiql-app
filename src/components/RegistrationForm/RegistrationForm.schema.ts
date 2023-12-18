@@ -22,11 +22,11 @@ const registrationFormSchema = object().shape({
     .matches(
       VALIDATION_RULES_REG_EXP.oneSpecialChar,
       'Should contain at least one special character'
-    ),
+    )
+    .min(8, 'Yuor password too short'),
   confirmPassword: string()
     .required(requeredMessage)
-    .oneOf([ref('password')], `You password don't match`)
-    .min(8, 'Yuor password too short'),
+    .oneOf([ref('password')], `You password don't match`),
 });
 
 export default registrationFormSchema;
