@@ -55,6 +55,7 @@
     background-color: $color-light-gray-additional;
     outline: 1px solid $color-disabled;
     cursor: default;
+    pointer-events: none;
   }
 
   &:active {

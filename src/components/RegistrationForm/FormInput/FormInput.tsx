@@ -60,7 +60,7 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
             [classes.border_black]: onFocus && isInvalid == undefined,
             [classes.border_disabled]: onFocus! && isInvalid == undefined,
           },
-          []
+          { [classes.email_padding]: type === 'email' }
         )}
         autoComplete="off"
         onFocus={onFocusHandler}

@@ -24,7 +24,7 @@
   outline: 1px solid $color-disabled;
   border: none;
   background: $color-secondary;
-  padding: 0 4rem 0 1.4rem;
+  padding: 0 4.4rem 0 1.4rem;
   color: $color-disabled;
 
   &:focus {
@@ -97,4 +97,8 @@
 
 .border_black {
   outline-color: $color-black;
+}
+
+.email_padding {
+  padding-right: 1.4rem;
 }
