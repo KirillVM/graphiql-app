@@ -19,28 +19,29 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
     register,
     formState: { errors, dirtyFields },
   } = useFormContext();
-  const valid = errors[errorName];
 
+  const isInvalid = errors[errorName];
+  const isDirty = dirtyFields[errorName];
   const isPasswordField = errorName === 'password';
   return (
     <label htmlFor={errorName} className={clsx(classes.form__row)}>
       <div className={clsx(classes['name-container'])}>
         <p
           className={clsx(classes['form__row-name'], {
-            [classes.black]: !dirtyFields[errorName],
-            [classes.red]: valid,
-            [classes.green]: !valid,
+            [classes.black]: !isDirty,
+            [classes.red]: isInvalid,
+            [classes.green]: !isInvalid,
           })}
         >
           {label}
         </p>
-        {!valid && dirtyFields[errorName] && (
+        {!isInvalid && isDirty && (
           <img className={clsx(classes['check-image'])} src={checkSVG} alt="" />
         )}
       </div>
       <input
         {...register(
-          `${errorName}`,
+          errorName,
           isPasswordField
             ? {
                 required: true,
@@ -52,11 +53,15 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
         )}
         type={showPassword ? 'text' : `${type}`}
         id={errorName}
-        className={clsx(classes.form__input, {
-          [classes.border_red]: valid,
-          [classes.border_black]: onFocus && valid == undefined,
-          [classes.border_disabled]: onFocus! && valid == undefined,
-        })}
+        className={clsx(
+          classes.form__input,
+          {
+            [classes.border_red]: isInvalid && isDirty,
+            [classes.border_black]: onFocus && isInvalid == undefined,
+            [classes.border_disabled]: onFocus! && isInvalid == undefined,
+          },
+          []
+        )}
         autoComplete="off"
         onFocus={onFocusHandler}
         onBlur={onBlurHandler}
@@ -86,8 +91,8 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
           )}
         </div>
       )}
-      {valid && typeof valid.message == 'string' ? (
-        <p className={clsx(classes.error)}>{valid.message}</p>
+      {isInvalid && typeof isInvalid.message == 'string' && isDirty ? (
+        <p className={clsx(classes.error)}>{isInvalid.message}</p>
       ) : (
         <p className={clsx(classes.error)}> </p>
       )}
