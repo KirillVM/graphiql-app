@@ -1,5 +1,5 @@
-import rss_logo from '../../assets/icons/rss-logo.svg';
-import github_logo from '../../assets/icons/github.svg';
+import rss_logo from '@assets/icons/rss-logo.svg';
+import github_logo from '@assets/icons/github.svg';
 import styles from './Footer.module.scss';
 import { GITHUB_USERS } from '@src/constants/developers';
 
