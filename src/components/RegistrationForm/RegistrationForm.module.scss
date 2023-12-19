@@ -16,7 +16,6 @@
   background-size: 40.8rem, 33.9rem;
   position: relative;
   box-shadow: 0px 25px 25px -9px rgba(83, 83, 109, 0.11);
-  // width: 100%;
 
   &::after {
     content: '';
@@ -34,11 +33,16 @@
 .button_submit {
   width: 32.2rem;
   height: 4rem;
-  background-color: $color-black;
-  color: $color-secondary;
-  margin-top: 0.5rem;
+  padding: 0 2rem;
+  align-items: center;
+  text-align: center;
+  border: none;
   border-radius: 0.5rem;
-  border: 1px solid $color-secondary;
+  text-transform: capitalize;
+  margin-top: 0.5rem;
+  @include font(1.5rem);
+  color: $color-secondary;
+  background-color: $color-black;
 
   &:hover {
     cursor: pointer;

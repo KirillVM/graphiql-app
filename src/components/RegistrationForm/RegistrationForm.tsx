@@ -37,12 +37,12 @@ const RegistrationForm = (): JSX.Element => {
     >
       <input type="password" style={{ display: 'none' }}></input>
       <FormProvider {...methods}>
-        <FormInput type="email" errorName="email" lable="Email" />
-        <FormInput type="password" errorName="password" lable="Password" />
+        <FormInput type="email" errorName="email" label="Email" />
+        <FormInput type="password" errorName="password" label="Password" />
         <FormInput
           type="password"
           errorName="confirmPassword"
-          lable="Confirm password"
+          label="Confirm password"
         />
       </FormProvider>
       <button

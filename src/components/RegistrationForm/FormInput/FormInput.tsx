@@ -8,7 +8,7 @@ import eyeHideSVG from '@assets/icons/eye-hide.svg';
 import { useState } from 'react';
 
 const FormInput = (formInputProps: FormInputProps): JSX.Element => {
-  const { type, errorName, lable } = formInputProps;
+  const { type, errorName, label } = formInputProps;
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [onFocus, setOnFocus] = useState<boolean>(false);
 
@@ -31,7 +31,7 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
             [classes.green]: !valid,
           })}
         >
-          {lable}
+          {label}
         </p>
         {!valid && dirtyFields[errorName] && (
           <img className={clsx(classes['check-image'])} src={checkSVG} alt="" />
@@ -40,6 +40,7 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
       <input
         {...register(`${errorName}`, {
           required: true,
+          deps: ['confirmPassword'],
         })}
         type={showPassword ? 'text' : `${type}`}
         id={errorName}

@@ -1,4 +1,4 @@
-import classes from './SignUpPage.module.scss';
+import classes from './SignUp.module.scss';
 import { FormEvent } from 'react';
 import { NavLink, Navigate, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';

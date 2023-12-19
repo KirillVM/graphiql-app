@@ -4,7 +4,10 @@ import { VALIDATION_RULES_REG_EXP } from './validationRules';
 const requeredMessage = 'Field is requered';
 
 const registrationFormSchema = object().shape({
-  email: string().required(requeredMessage).email('Incorrect email'),
+  email: string()
+    .required(requeredMessage)
+    .email('Incorrect email')
+    .matches(VALIDATION_RULES_REG_EXP.email, 'Incorrect email'),
   password: string()
     .required(requeredMessage)
     .matches(

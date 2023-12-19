@@ -8,9 +8,9 @@ import ROUTES from './routes';
 import App from '@src/App';
 import WelcomePage from '@pages/Welcome/Welcome';
 import NotFoundPage from '@pages/NotFound/NotFound';
-import SignInPage from '@pages/SignInPage/SignInPage';
-import SignUpPage from '@pages/SignUpPage/SignUpPage';
-import GraphiqlPage from '@pages/GraphiqlPage/GraphiqlPage';
+import SignInPage from '@src/pages/SignIn/SignIn';
+import SignUpPage from '@src/pages/SignUp/SignUp';
+import GraphiqlPage from '@src/pages/Graphiql/Graphiql';
 import RequireAuth from '../hoc/RequireAuth/RequireAuth';
 
 const router = createBrowserRouter(
