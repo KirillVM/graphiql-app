@@ -21,6 +21,7 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
   } = useFormContext();
   const valid = errors[errorName];
 
+  const isPasswordField = errorName === 'password';
   return (
     <label htmlFor={errorName} className={clsx(classes.form__row)}>
       <div className={clsx(classes['name-container'])}>
@@ -38,10 +39,17 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
         )}
       </div>
       <input
-        {...register(`${errorName}`, {
-          required: true,
-          deps: ['confirmPassword'],
-        })}
+        {...register(
+          `${errorName}`,
+          isPasswordField
+            ? {
+                required: true,
+                deps: ['confirmPassword'],
+              }
+            : {
+                required: true,
+              }
+        )}
         type={showPassword ? 'text' : `${type}`}
         id={errorName}
         className={clsx(classes.form__input, {
