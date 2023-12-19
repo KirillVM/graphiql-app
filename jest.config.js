@@ -5,9 +5,16 @@ export default {
     '^.+\\.tsx?$': 'ts-jest',
     '^.+.(js|jsx)$': 'babel-jest',
   },
+  collectCoverage: true,
+  collectCoverageFrom: ['./src/**'],
+  coverageThreshold: {
+    global: {
+      lines: 80,
+    },
+  },
   moduleNameMapper: {
     '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/test/__mocks__/fileMock.js',
-    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
+    '\\.(css|less|sass|scss)$': '<rootDir>/test/__mocks__/styleMock.js',
     '^@src/(.*)$': '<rootDir>src/$1',
     '^@assets/(.*)$': '<rootDir>/src/assets/$1',
     '^@components/(.*)$': '<rootDir>src/components/$1',
@@ -19,5 +26,6 @@ export default {
     '^@types/(.*)$': '<rootDir>/src/types/$1',
     '^@utils/(.*)$': '<rootDir>/src/utils/$1',
   },
+  coveragePathIgnorePatterns: ['/src/services/firebaseApi/firebaseConfig.ts'],
   // setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
 };
