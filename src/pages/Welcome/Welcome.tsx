@@ -1,6 +1,6 @@
 import EducationalProgram from '@src/components/EducationalProgram/EducationalProgram';
 import AboutProject from '@src/components/AboutProject/AboutProject';
-import styles from './welcome.module.scss';
+import styles from './Welcome.module.scss';
 import DeveloperCard from '@src/components/DeveloperCard/DeveloperCard';
 import { DEVELOPERS } from '@src/constants/developers';
 
