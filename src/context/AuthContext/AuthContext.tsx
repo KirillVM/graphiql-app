@@ -5,7 +5,9 @@ export const AuthContext = createContext<AuthContextValue>(null!);
 
 export const AuthProvider = ({ children }: AuthContextProps) => {
   // presumably checking the token in localStorage
-  const [userToken, setUserToken] = useState<string | null>(null);
+  const [userToken, setUserToken] = useState<string | null>(
+    localStorage.getItem('refreshToken')
+  );
 
   const signIn = (newToken: string, cb: () => void) => {
     setUserToken(newToken);

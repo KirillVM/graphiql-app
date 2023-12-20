@@ -1,7 +1,7 @@
-import classes from './RegistrationForm.module.scss';
+import classes from './LoginForm.module.scss';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { RegistrationFormData } from './RegistrationForm.interfaces';
-import registrationFormSchema from './RegistrationForm.schema';
+import { LoginFormData } from './LoginForm.interfaces';
+import loginFormSchema from './LoginForm.schema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import clsx from 'clsx';
 import FormInput from '@components/FormInput/FormInput';
@@ -10,8 +10,8 @@ import FormInput from '@components/FormInput/FormInput';
 const FIELDS_COUNT = 3;
 
 const RegistrationForm = (): JSX.Element => {
-  const methods = useForm<RegistrationFormData>({
-    resolver: yupResolver(registrationFormSchema),
+  const methods = useForm<LoginFormData>({
+    resolver: yupResolver(loginFormSchema),
     mode: 'onChange',
   });
   const {
@@ -20,7 +20,7 @@ const RegistrationForm = (): JSX.Element => {
   } = methods;
   // dispatch = useAppDispatch();
   // const navigate = useNavigate();
-  const onSubmitHandler: SubmitHandler<RegistrationFormData> = (data) => {
+  const onSubmitHandler: SubmitHandler<LoginFormData> = (data) => {
     console.log(data);
     // dispatch(setFromData(data))
     // navigate(to: '/main');
@@ -39,11 +39,6 @@ const RegistrationForm = (): JSX.Element => {
       <FormProvider {...methods}>
         <FormInput type="email" errorName="email" label="Email" />
         <FormInput type="password" errorName="password" label="Password" />
-        <FormInput
-          type="password"
-          errorName="confirmPassword"
-          label="Confirm password"
-        />
       </FormProvider>
       <button
         className={clsx(classes.button_submit)}

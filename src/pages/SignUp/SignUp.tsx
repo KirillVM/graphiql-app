@@ -1,5 +1,5 @@
 import classes from './SignUp.module.scss';
-import { FormEvent } from 'react';
+import { useState } from 'react';
 import { NavLink, Navigate, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import ROUTES from '../../router/routes';
@@ -9,16 +9,18 @@ import clsx from 'clsx';
 const SignUpPage = () => {
   const navigate = useNavigate();
   const { userToken, signIn } = useAuth();
-
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    const token = 'Token'; // presumably getting the token after registartion
+  const [token, setToken] = useState<string | null>(
+    localStorage.getItem('refreshToken')
+  );
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // const handleSubmit = (e: FormEvent) => {
+  //   e.preventDefault();
+  //   const token = 'Token'; // presumably getting the token after registartion
 
-    if (token) {
-      signIn(token, () => navigate(ROUTES.ROOT + ROUTES.GRAPHIQL));
-    }
-  };
+  if (token) {
+    signIn(token, () => navigate(ROUTES.ROOT + ROUTES.GRAPHIQL));
+  }
 
   if (userToken) {
     return <Navigate to={ROUTES.ROOT + ROUTES.GRAPHIQL} replace />;
@@ -30,7 +32,10 @@ const SignUpPage = () => {
         <h1>SIGN UP</h1>
         <p className={clsx(classes.header__question)}>
           {`Have an account? `}
-          <NavLink to={ROUTES.SIGNIN} className={classes.header__link}>
+          <NavLink
+            to={ROUTES.ROOT + ROUTES.SIGNIN}
+            className={classes.header__link}
+          >
             Sign In
           </NavLink>
         </p>
