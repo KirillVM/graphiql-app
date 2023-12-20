@@ -26,6 +26,13 @@ export default {
     '^@types/(.*)$': '<rootDir>/src/types/$1',
     '^@utils/(.*)$': '<rootDir>/src/utils/$1',
   },
-  coveragePathIgnorePatterns: ['/src/services/firebaseApi/firebaseConfig.ts'],
+  coveragePathIgnorePatterns: [
+    '/src/services/firebaseApi/firebaseConfig.ts',
+    '/src/vite-env.d.ts',
+    '/src/constants',
+    '/src/router/routes.ts',
+    '/src/components/RegistrationForm/RegistrationForm.schema.ts',
+    '/src/components/RegistrationForm/validationRules.ts',
+  ],
   // setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
 };
