@@ -5,7 +5,7 @@ import { GITHUB_USERS } from '@src/constants/developers';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer data-testid="footer">
       <div className={styles.container}>
         <a target="_blank" href="https://rs.school/react/" rel="noreferrer">
           <img src={rss_logo} alt="Rolling Scopes School logo" />
