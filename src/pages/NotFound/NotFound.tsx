@@ -1,7 +1,7 @@
 import styles from './NotFound.module.scss';
-import ooops_tape from '../../assets/images/tape-ooops.svg';
-import image from '../../assets/images/img-404.svg';
-import CustomButton from '../../components/CustomButton/CustomButton';
+import ooops_tape from '@assets/images/tape-ooops.svg';
+import image from '@assets/images/img-404.svg';
+import CustomButton from '@components/CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
 
 const NotFoundPage = () => {
