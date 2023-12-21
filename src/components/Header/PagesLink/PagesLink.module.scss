@@ -17,6 +17,7 @@
     right: 0;
     background-color: $color-accent-light;
     z-index: -10;
+    transition: all 0.3s ease;
   }
 
   &:hover::after {

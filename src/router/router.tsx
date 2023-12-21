@@ -10,7 +10,7 @@ import WelcomePage from '../pages/Welcome/Welcome';
 import NotFoundPage from '../pages/NotFound/NotFound';
 import SignInPage from '../pages/SignInPage/SignInPage';
 import SignUpPage from '../pages/SignUpPage/SignUpPage';
-import GraphiqlPage from '../pages/GraphiqlPage/GraphiqlPage';
+import Graphiql from '../pages/Graphiql/Graphiql';
 import RequireAuth from '../hoc/RequireAuth/RequireAuth';
 
 const router = createBrowserRouter(
@@ -21,7 +21,7 @@ const router = createBrowserRouter(
         path={ROUTES.GRAPHIQL}
         element={
           <RequireAuth>
-            <GraphiqlPage />
+            <Graphiql />
           </RequireAuth>
         }
       />
