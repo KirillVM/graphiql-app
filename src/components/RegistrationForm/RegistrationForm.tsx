@@ -5,10 +5,15 @@ import registrationFormSchema from './RegistrationForm.schema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import clsx from 'clsx';
 import FormInput from '@components/FormInput/FormInput';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithEmailAndPassword,
+} from 'react-firebase-hooks/auth';
 import { auth } from '@src/services/firebaseApi/firebaseApi';
+import { useEffect } from 'react';
+import Loader from '@components/Loader/Loader';
 
 const FIELDS_COUNT = 3;
 
@@ -22,15 +27,27 @@ const RegistrationForm = (): JSX.Element => {
     formState: { dirtyFields, errors },
   } = methods;
 
-  const [createUserWithEmailAndPassword] =
+  const [createUserWithEmailAndPassword, , loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
+  const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
+
   const onSubmitHandler: SubmitHandler<RegistrationFormData> = (data) => {
-    createUserWithEmailAndPassword(data.email, data.password).then(() => {});
+    createUserWithEmailAndPassword(data.email, data.password).then(() => {
+      signInWithEmailAndPassword(data.email, data.password);
+    });
   };
+
+  useEffect(() => {
+    if (error) toast.error(error?.message);
+  }, [error]);
 
   const isDirtyFields = Object.values(dirtyFields).length < FIELDS_COUNT;
   const isError = Object.keys(errors).length > 0;
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <>
@@ -56,7 +73,7 @@ const RegistrationForm = (): JSX.Element => {
           Submit
         </button>
       </form>
-      <ToastContainer />
+      <ToastContainer style={{ top: '8rem' }} />
     </>
   );
 };

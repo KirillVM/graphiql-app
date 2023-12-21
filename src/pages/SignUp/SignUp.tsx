@@ -15,6 +15,7 @@ const SignUpPage = () => {
 
   useEffect(() => {
     if (user) {
+      localStorage.setItem('refreshToken', user.refreshToken);
       signIn(user.refreshToken, () => navigate(ROUTES.ROOT + ROUTES.GRAPHIQL));
     }
   }, [user, signIn, navigate]);

@@ -14,7 +14,9 @@ const SignInPage = () => {
   const [user] = useAuthState(auth);
 
   useEffect(() => {
+    console.log(user);
     if (user) {
+      localStorage.setItem('refreshToken', user.refreshToken);
       signIn(user.refreshToken, () => navigate(ROUTES.ROOT + ROUTES.GRAPHIQL));
     }
   }, [user, signIn, navigate]);
