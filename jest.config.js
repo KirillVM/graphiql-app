@@ -34,5 +34,5 @@ export default {
     '/src/components/RegistrationForm/RegistrationForm.schema.ts',
     '/src/components/RegistrationForm/validationRules.ts',
   ],
-  // setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
+  setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
 };
