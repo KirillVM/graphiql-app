@@ -9,6 +9,8 @@ export const AuthProvider = ({ children }: AuthContextProps) => {
     localStorage.getItem('refreshToken')
   );
 
+  const [isSignIn] = useState<boolean>(false);
+
   const signIn = (newToken: string, cb: () => void) => {
     setUserToken(newToken);
     cb();
@@ -18,7 +20,7 @@ export const AuthProvider = ({ children }: AuthContextProps) => {
     cb();
   };
 
-  const value = { userToken, signIn, signOut };
+  const value = { userToken, isSignIn, signIn, signOut };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
