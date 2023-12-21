@@ -5,7 +5,7 @@ import registrationFormSchema from './RegistrationForm.schema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import clsx from 'clsx';
 import FormInput from '@components/FormInput/FormInput';
-// import { useNavigate } from 'react-router-dom';
+import { createUser } from '@src/services/firebaseApi/firebaseApi';
 
 const FIELDS_COUNT = 3;
 
@@ -18,12 +18,9 @@ const RegistrationForm = (): JSX.Element => {
     handleSubmit,
     formState: { dirtyFields, errors },
   } = methods;
-  // dispatch = useAppDispatch();
-  // const navigate = useNavigate();
+
   const onSubmitHandler: SubmitHandler<RegistrationFormData> = (data) => {
-    console.log(data);
-    // dispatch(setFromData(data))
-    // navigate(to: '/main');
+    createUser(data.email, data.password);
   };
 
   const isDirtyFields = Object.values(dirtyFields).length < FIELDS_COUNT;

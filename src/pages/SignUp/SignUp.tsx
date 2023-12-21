@@ -1,26 +1,23 @@
 import classes from './SignUp.module.scss';
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { NavLink, Navigate, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import ROUTES from '../../router/routes';
 import RegistrationForm from '@src/components/RegistrationForm/RegistrationForm';
 import clsx from 'clsx';
+import { auth } from '@src/services/firebaseApi/firebaseApi';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const SignUpPage = () => {
   const navigate = useNavigate();
   const { userToken, signIn } = useAuth();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [token, setToken] = useState<string | null>(
-    localStorage.getItem('refreshToken')
-  );
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  // const handleSubmit = (e: FormEvent) => {
-  //   e.preventDefault();
-  //   const token = 'Token'; // presumably getting the token after registartion
+  const [user] = useAuthState(auth);
 
-  if (token) {
-    signIn(token, () => navigate(ROUTES.ROOT + ROUTES.GRAPHIQL));
-  }
+  useEffect(() => {
+    if (user) {
+      signIn(user.refreshToken, () => navigate(ROUTES.ROOT + ROUTES.GRAPHIQL));
+    }
+  }, [user, signIn, navigate]);
 
   if (userToken) {
     return <Navigate to={ROUTES.ROOT + ROUTES.GRAPHIQL} replace />;

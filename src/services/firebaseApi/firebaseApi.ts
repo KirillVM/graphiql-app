@@ -1,7 +1,6 @@
 import { firebaseConfig } from './firebaseConfig';
 import { initializeApp } from 'firebase/app';
 import {
-  Auth,
   createUserWithEmailAndPassword,
   getAuth,
   signInWithCustomToken,
@@ -15,15 +14,14 @@ export const auth = getAuth(app);
 
 // Sign up
 export const createUser = async (
-  auth: Auth,
   email: string,
   password: string
 ): Promise<void> => {
-  createUserWithEmailAndPassword(auth, email, password)
+  return createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      signInUser(auth, email, password);
       console.log(user);
+      signInUser(email, password);
     })
     .catch((error) => {
       const errorMessage = error.message;
@@ -36,7 +34,6 @@ export const createUser = async (
 
 // Sign in
 export const signInUser = async (
-  auth: Auth,
   email: string,
   password: string
 ): Promise<void> => {
@@ -57,10 +54,7 @@ export const signInUser = async (
 };
 
 // Sign in with token
-export const signInWithToken = async (
-  auth: Auth,
-  token: string
-): Promise<void> => {
+export const signInWithToken = async (token: string): Promise<void> => {
   signInWithCustomToken(auth, token)
     .then((userCredential) => {
       const user = userCredential.user;
@@ -76,9 +70,10 @@ export const signInWithToken = async (
 };
 
 // Sign out with token
-export const signOutUser = async (auth: Auth): Promise<void> => {
+export const signOutUser = async (): Promise<void> => {
   signOut(auth)
     .then(() => {
+      localStorage.removeItem('refreshToken');
       console.log('User succesfuly signed out');
     })
     .catch((error) => {

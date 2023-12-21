@@ -21,7 +21,7 @@
     content: '';
     background-color: $color-accent-light;
     height: 2rem;
-    min-width: 80rem;
+    width: 100%;
     display: block;
     position: absolute;
     bottom: 0;
@@ -60,5 +60,28 @@
 
   &:active {
     scale: 0.95;
+  }
+}
+
+@media (max-width: 1023px) {
+  .form {
+    max-width: 72.8rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .form {
+    max-width: 28rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .form {
+    max-width: 28rem;
+    padding: 5rem 2rem 7.5rem 2rem;
+  }
+  
+  .button_submit {
+    max-width: 24.8rem;
   }
 }

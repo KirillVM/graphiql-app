@@ -5,11 +5,12 @@ import loginFormSchema from './LoginForm.schema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import clsx from 'clsx';
 import FormInput from '@components/FormInput/FormInput';
+import { signInUser } from '@src/services/firebaseApi/firebaseApi';
 // import { useNavigate } from 'react-router-dom';
 
-const FIELDS_COUNT = 3;
+const FIELDS_COUNT = 2;
 
-const RegistrationForm = (): JSX.Element => {
+const LoginForm = (): JSX.Element => {
   const methods = useForm<LoginFormData>({
     resolver: yupResolver(loginFormSchema),
     mode: 'onChange',
@@ -18,12 +19,9 @@ const RegistrationForm = (): JSX.Element => {
     handleSubmit,
     formState: { dirtyFields, errors },
   } = methods;
-  // dispatch = useAppDispatch();
-  // const navigate = useNavigate();
+
   const onSubmitHandler: SubmitHandler<LoginFormData> = (data) => {
-    console.log(data);
-    // dispatch(setFromData(data))
-    // navigate(to: '/main');
+    signInUser(data.email, data.password);
   };
 
   const isDirtyFields = Object.values(dirtyFields).length < FIELDS_COUNT;
@@ -50,4 +48,4 @@ const RegistrationForm = (): JSX.Element => {
   );
 };
 
-export default RegistrationForm;
+export default LoginForm;
