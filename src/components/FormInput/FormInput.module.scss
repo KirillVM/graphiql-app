@@ -17,7 +17,7 @@
 }
 
 .form__input {
-  max-width: 32rem;
+  width: 32rem;
   height: 4rem;
   font-size: 1.8rem;
   border-radius: 0.5rem;
@@ -104,19 +104,18 @@
 }
 
 @media (max-width: 1023px) {
-  .form__input {
-    max-width: 24.8rem;
-  }
+
 }
 
 @media (max-width: 767px) {
-  .form__row {
-    max-width: 25rem;
-  }
   .form__input {
     font-weight: 500;
   }
 
+  .form__input {
+    max-width: 24.8rem;
+  }
+  
   .eye-container {
     left: 20.4rem;
   }
