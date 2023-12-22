@@ -15,7 +15,7 @@
   padding: 1.5rem;
   flex-shrink: 1;
   background-color: $color-secondary;
-  border-left: 3px solid $color-background;
+  border-left: 2px solid $color-background;
 }
 
 .request_btn {
@@ -35,5 +35,12 @@
     background-image: url(./../../../assets/icons/play.svg);
     width: 1.4rem;
     height: 1.8rem;
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    &::before {
+      transform: scale(110%);
+    }
   }
 }
