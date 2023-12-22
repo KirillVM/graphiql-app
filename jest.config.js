@@ -33,6 +33,7 @@ export default {
     '/src/router/routes.ts',
     '/src/components/RegistrationForm/RegistrationForm.schema.ts',
     '/src/components/RegistrationForm/validationRules.ts',
+    '/src/index.tsx',
   ],
   setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
 };
