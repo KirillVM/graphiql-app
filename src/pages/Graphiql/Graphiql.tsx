@@ -4,10 +4,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const GraphiqlPage = () => {
-  const { userToken } = useAuth();
+  const { isSignIn, setIsSignIn } = useAuth();
   useEffect(() => {
-    toast.success('You succsessfuly sign in!');
-  }, [userToken]);
+    if (isSignIn) {
+      toast.success('You succsessfuly sign in!');
+      setIsSignIn(false);
+    }
+  }, [isSignIn]);
   return (
     <>
       <h1>GraphiqlPage</h1>
