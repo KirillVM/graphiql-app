@@ -16,6 +16,7 @@
   background-size: 40.8rem, 33.9rem;
   position: relative;
   box-shadow: 0px 25px 25px -9px rgba(83, 83, 109, 0.11);
+  border-radius: 0.5rem;
 
   &::after {
     content: '';
@@ -60,5 +61,39 @@
 
   &:active {
     scale: 0.95;
+  }
+}
+
+@media (max-width: 1023px) {
+  .form {
+    max-width: 72.8rem;
+    background-position: top right -2.6rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .form {
+    max-width: 28rem;
+    background-position: top right -12.5rem;
+    row-gap: 2.8rem;
+  }
+
+  .button_submit {
+    max-width: 24.8rem;
+    margin: 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .form {
+    max-width: 28rem;
+    padding: 4rem 2rem 7.5rem 2rem;
+    background-position: top right -21rem;
+    row-gap: 2.5rem;
+  }
+
+  .button_submit {
+    max-width: 24.8rem;
+    margin: 0;
   }
 }

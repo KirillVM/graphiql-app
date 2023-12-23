@@ -18,7 +18,6 @@
   }
 }
 
-  
 .animation {
   align-items: center;
   font-size: 5rem;
@@ -32,4 +31,30 @@
   animation: rotate 9s linear infinite;
   transform-origin: center center;
   margin: 0;
+}
+
+@media (max-width: 767px) {
+  .container {
+    font-size: 4rem;
+  }
+
+  .animation {
+    font-size: 4rem;
+    width: 25rem;
+    height: 25rem;
+    background-size: 25rem 25rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .container {
+    font-size: 3rem;
+  }
+
+  .animation {
+    font-size: 3rem;
+    width: 20rem;
+    height: 20rem;
+    background-size: 20rem 20rem;
+  }
 }

@@ -10,7 +10,6 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import Loader from '../Loader/Loader';
-// import { useNavigate } from 'react-router-dom';
 
 const FIELDS_COUNT = 2;
 
@@ -60,7 +59,7 @@ const LoginForm = (): JSX.Element => {
           Submit
         </button>
       </form>
-      <ToastContainer style={{ top: '11rem' }} />
+      <ToastContainer className={'toast'} />
     </>
   );
 };

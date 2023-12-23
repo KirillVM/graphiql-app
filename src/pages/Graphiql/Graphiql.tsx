@@ -14,7 +14,7 @@ const GraphiqlPage = () => {
   return (
     <>
       <h1>GraphiqlPage</h1>
-      <ToastContainer style={{ top: '11rem' }} />
+      <ToastContainer className={'toast'} />
     </>
   );
 };

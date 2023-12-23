@@ -73,7 +73,7 @@ const RegistrationForm = (): JSX.Element => {
           Submit
         </button>
       </form>
-      <ToastContainer style={{ top: '8rem' }} />
+      <ToastContainer className={'toast'} />
     </>
   );
 };
