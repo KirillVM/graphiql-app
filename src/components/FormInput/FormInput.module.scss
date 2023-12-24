@@ -104,6 +104,12 @@
 }
 
 @media (max-width: 1023px) {
+  .form__row {
+    width: 100%;
+  }
+  .form__input {
+    width: 99.4%;
+  }
 }
 
 @media (max-width: 767px) {
@@ -112,19 +118,15 @@
   }
 
   .form__input {
-    max-width: 24.8rem;
-  }
-
-  .eye-container {
-    left: 20.4rem;
+    min-width: 24.8rem;
   }
 }
 
 @media (max-width: 479px) {
   .form__row {
-    max-width: 25rem;
+    min-width: 25rem;
   }
   .eye-container {
-    left: 20.4rem;
+    left: 84%;
   }
 }
