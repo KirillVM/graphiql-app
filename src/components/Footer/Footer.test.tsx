@@ -20,7 +20,7 @@ describe('Footer component', () => {
 
   it('renders year', () => {
     render(<Footer />);
-    expect(screen.getByText('2023')).toBeTruthy();
+    expect(screen.getByText('2024')).toBeTruthy();
   });
 
   it('renders GitHub links for each developer', () => {

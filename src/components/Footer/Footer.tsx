@@ -10,7 +10,7 @@ const Footer = () => {
         <a target="_blank" href="https://rs.school/react/" rel="noreferrer">
           <img src={rss_logo} alt="Rolling Scopes School logo" />
         </a>
-        <p className={styles.year}>2023</p>
+        <p className={styles.year}>2024</p>
         <div className={styles.githubs}>
           {GITHUB_USERS.map((developer) => (
             <a
