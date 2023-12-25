@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import editorSliceReducer from './editorSlice/editorSlice';
+import playgroundSliceReducer from './playgroundSlice/playgroundSlice';
 
 export const store = configureStore({
   reducer: {
-    editor: editorSliceReducer,
+    playground: playgroundSliceReducer,
   },
 });
 
