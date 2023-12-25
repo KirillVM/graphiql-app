@@ -8,11 +8,12 @@ import {
 } from '../../../store/playgroundSlice/playgroundSelectors';
 import Loader from '../../../components/Loader/Loader';
 import styles from './Viewer.module.scss';
+import { serializeToJSON } from '../../../utils/themes/helpers';
 
 const Viewer = () => {
   const responseData = useAppSelector(responseDataSelector);
   const isDataLoading = useAppSelector(loadingStatusSelector);
-  const value = responseData ? JSON.stringify(responseData, null, 2) : '';
+  const value = responseData ? serializeToJSON(responseData) : '';
 
   if (isDataLoading) {
     return <Loader />;
