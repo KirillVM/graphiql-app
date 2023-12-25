@@ -6,6 +6,7 @@ import {
   getAuth,
   signInWithCustomToken,
   signInWithEmailAndPassword,
+  signOut,
 } from 'firebase/auth';
 
 // Initialize Firebase
@@ -28,7 +29,7 @@ export const createUser = async (
       const errorMessage = error.message;
       switch (errorMessage) {
         case 'EMAIL-EXIST':
-          console.log('User with this email already exist');
+          console.error('User with this email already exist');
       }
     });
 };
@@ -47,10 +48,10 @@ export const signInUser = async (
     })
     .catch((error) => {
       const errorMessage = error.message;
-      console.log(errorMessage);
+      console.error(errorMessage);
       switch (errorMessage) {
         case 'INVALID_LOGIN_CREDENTIALS':
-          console.log(`User with these credentials doesn't exist`);
+          console.error(`User with these credentials doesn't exist`);
       }
     });
 };
@@ -62,7 +63,6 @@ export const signInWithToken = async (
 ): Promise<void> => {
   signInWithCustomToken(auth, token)
     .then((userCredential) => {
-      // Signed in
       const user = userCredential.user;
       console.log(user);
     })
@@ -70,7 +70,19 @@ export const signInWithToken = async (
       const errorMessage = error.message;
       switch (errorMessage) {
         case 'INVALID_CUSTOM_TOKEN':
-          console.log('The supplied token is not a Firebase custom token.');
+          console.error('The supplied token is not a Firebase custom token.');
       }
+    });
+};
+
+// Sign out with token
+export const signOutUser = async (auth: Auth): Promise<void> => {
+  signOut(auth)
+    .then(() => {
+      console.log('User succesfuly signed out');
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+      console.error(errorMessage);
     });
 };

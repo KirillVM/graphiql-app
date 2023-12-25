@@ -1,16 +1,16 @@
-import rss_logo from '../../assets/icons/rss-logo.svg';
-import github_logo from '../../assets/icons/github.svg';
+import rss_logo from '@assets/icons/rss-logo.svg';
+import github_logo from '@assets/icons/github.svg';
 import styles from './Footer.module.scss';
 import { GITHUB_USERS } from '@src/constants/developers';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer data-testid="footer">
       <div className={styles.container}>
         <a target="_blank" href="https://rs.school/react/" rel="noreferrer">
           <img src={rss_logo} alt="Rolling Scopes School logo" />
         </a>
-        <p className={styles.year}>2023</p>
+        <p className={styles.year}>2024</p>
         <div className={styles.githubs}>
           {GITHUB_USERS.map((developer) => (
             <a

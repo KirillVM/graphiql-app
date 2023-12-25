@@ -35,7 +35,10 @@ const Header = () => {
   }
 
   return (
-    <header className={clsx({ [styles.header_scrolling]: scrolling })}>
+    <header
+      data-testid="header"
+      className={clsx({ [styles.header_scrolling]: scrolling })}
+    >
       <div className={styles.container}>
         <ButtonsLang />
         {userToken && <PagesLink />}

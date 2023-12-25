@@ -4,7 +4,7 @@ import CustomButton from '../../CustomButton/CustomButton';
 import ROUTES from '../../../router/routes';
 import styles from './AuthLinks.module.scss';
 
-const AuthLink = ({ children, to, type }: AuthLinkProps) => {
+export const AuthLink = ({ children, to, type }: AuthLinkProps) => {
   return (
     <NavLink
       to={to}

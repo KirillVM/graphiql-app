@@ -1,5 +1,5 @@
-import rss_logo from '../../assets/icons/rss-logo.svg';
-import sloth from '../../assets/images/sloth.png';
+import rss_logo from '@assets/icons/rss-logo.svg';
+import sloth from '@assets/images/sloth.png';
 import styles from './EducationalProgram.module.scss';
 
 const EducationalProgram = () => {

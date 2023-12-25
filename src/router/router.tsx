@@ -5,12 +5,12 @@ import {
   createRoutesFromElements,
 } from 'react-router-dom';
 import ROUTES from './routes';
-import App from '../App';
-import WelcomePage from '../pages/Welcome/Welcome';
-import NotFoundPage from '../pages/NotFound/NotFound';
-import SignInPage from '../pages/SignInPage/SignInPage';
-import SignUpPage from '../pages/SignUpPage/SignUpPage';
-import Graphiql from '../pages/Graphiql/Graphiql';
+import App from '@src/App';
+import WelcomePage from '@pages/Welcome/Welcome';
+import NotFoundPage from '@pages/NotFound/NotFound';
+import SignInPage from '@pages/SignIn/SignIn';
+import SignUpPage from '@pages/SignUp/SignUp';
+import GraphiqlPage from '@pages/Graphiql/Graphiql';
 import RequireAuth from '../hoc/RequireAuth/RequireAuth';
 
 const router = createBrowserRouter(
@@ -21,7 +21,7 @@ const router = createBrowserRouter(
         path={ROUTES.GRAPHIQL}
         element={
           <RequireAuth>
-            <Graphiql />
+            <GraphiqlPage />
           </RequireAuth>
         }
       />
