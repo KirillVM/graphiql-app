@@ -2,14 +2,14 @@
 @import '../../styles/mixins';
 
 .form {
-  max-width: 80rem;
+  width: 80rem;
   background-color: $color-secondary;
   align-items: center;
   display: flex;
   flex-direction: column;
   row-gap: 2.5rem;
   font-size: 1.8rem;
-  padding: 5rem 23rem 7.5rem 24.8rem;
+  padding: 5rem 0 7.5rem 1.8rem;
   background-image: url('../../assets/images/grahh-img.png');
   background-position: right top;
   background-repeat: no-repeat;
@@ -67,35 +67,33 @@
 
 @media (max-width: 1023px) {
   .form {
-    max-width: 72.8rem;
-    background-position: top right -2.6rem;
+    max-width: 100%;
+    background-position: top right -2%;
+  }
+
+  .button_submit {
+    max-width: 100%;
   }
 }
 
 @media (max-width: 767px) {
   .form {
-    max-width: 28rem;
+    min-width: 28rem;
     background-position: top right -12.5rem;
-    row-gap: 2.8rem;
-  }
-
-  .button_submit {
-    max-width: 100%;
-    min-width: 24.8rem;
-    margin: 0;
+    row-gap: 2.5rem;
   }
 }
 
 @media (max-width: 479px) {
   .form {
-    max-width: 28rem;
+    min-width: 28rem;
     padding: 4rem 2rem 7.5rem 2rem;
+    padding: inherit 5%;
     background-position: top right -21rem;
     row-gap: 2.5rem;
   }
 
   .button_submit {
-    min-width: 24.8rem;
-    margin: 0;
+    min-width: 25rem;
   }
 }
