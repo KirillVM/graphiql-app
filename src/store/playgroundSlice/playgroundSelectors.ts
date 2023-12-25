@@ -5,3 +5,6 @@ export const editorValueSelector = (state: RootState) =>
 
 export const responseDataSelector = (state: RootState) =>
   state.playground.responseData;
+
+export const loadingStatusSelector = (state: RootState) =>
+  state.playground.isLoading;
