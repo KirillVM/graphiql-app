@@ -14,7 +14,7 @@ const Viewer = () => {
   const isDataLoading = useAppSelector(loadingStatusSelector);
   const value = responseData ? JSON.stringify(responseData, null, 2) : '';
 
-  if (!isDataLoading) {
+  if (isDataLoading) {
     return <Loader />;
   }
 
