@@ -30,6 +30,19 @@
     z-index: 5;
     border-radius: 0 0 5px 5px;
   }
+
+  // &::before {
+  //   content: '';
+  //   background-color: $color-secondary;
+  //   height: 33.9rem;
+  //   width: 40.8rem;
+  //   display: block;
+  //   position: absolute;
+  //   bottom: 0;
+  //   right: 0;
+  //   z-index: -2;
+  //   border-radius: 0 0 5px 5px;
+  // }
 }
 
 .button_submit {
@@ -68,7 +81,6 @@
 @media (max-width: 1023px) {
   .form {
     max-width: 100%;
-    background-position: top right -2%;
   }
 
   .button_submit {
@@ -79,7 +91,26 @@
 @media (max-width: 767px) {
   .form {
     min-width: 28rem;
-    background-position: top right -12.5rem;
+    background-position: top 26.8rem left 34rem;
+    background-attachment: fixed;
+    row-gap: 2.5rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .form {
+    min-width: 28rem;
+    background-position: top 26.8rem left 200%;
+    background-attachment: fixed;
+    row-gap: 2.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .form {
+    min-width: 28rem;
+    background-position: top 26.8rem left 17rem;
+    background-attachment: fixed;
     row-gap: 2.5rem;
   }
 }
@@ -88,8 +119,22 @@
   .form {
     min-width: 28rem;
     padding: 4rem 2rem 7.5rem 2rem;
-    padding: inherit 5%;
-    background-position: top right -21rem;
+    background-position: top 24.8rem left 17rem;
+    background-attachment: fixed;
+    row-gap: 2.5rem;
+  }
+
+  .button_submit {
+    min-width: 25rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .form {
+    min-width: 28rem;
+    padding: 4rem 2rem 7.5rem 2rem;
+    background-position: top left 10rem;
+    background-attachment: unset;
     row-gap: 2.5rem;
   }
 
