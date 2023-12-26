@@ -4,19 +4,23 @@ import { AuthContextValue, AuthContextProps } from './AuthContext.inerface';
 export const AuthContext = createContext<AuthContextValue>(null!);
 
 export const AuthProvider = ({ children }: AuthContextProps) => {
-  // presumably checking the token in localStorage
-  const [userToken, setUserToken] = useState<string | null>(null);
+  const [userToken, setUserToken] = useState<string | null>(
+    localStorage.getItem('refreshToken')
+  );
+
+  const [isSignIn, setIsSignIn] = useState<boolean>(false);
 
   const signIn = (newToken: string, cb: () => void) => {
     setUserToken(newToken);
     cb();
+    setIsSignIn(true);
   };
   const signOut = (cb: () => void) => {
     setUserToken(null);
     cb();
   };
 
-  const value = { userToken, signIn, signOut };
+  const value = { userToken, isSignIn, setIsSignIn, signIn, signOut };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

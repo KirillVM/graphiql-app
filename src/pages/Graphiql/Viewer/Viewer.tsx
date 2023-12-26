@@ -8,7 +8,7 @@ import {
 } from '../../../store/playgroundSlice/playgroundSelectors';
 import Loader from '../../../components/Loader/Loader';
 import styles from './Viewer.module.scss';
-import { serializeToJSON } from '../../../utils/themes/helpers';
+import { serializeToJSON } from '../../../utils/helpers';
 
 const Viewer = () => {
   const responseData = useAppSelector(responseDataSelector);

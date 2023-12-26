@@ -1,24 +1,24 @@
 import classes from './SignUp.module.scss';
-import { FormEvent } from 'react';
+import { useEffect } from 'react';
 import { NavLink, Navigate, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import ROUTES from '../../router/routes';
 import RegistrationForm from '@src/components/RegistrationForm/RegistrationForm';
 import clsx from 'clsx';
+import { auth } from '@src/services/firebaseApi/firebaseApi';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const SignUpPage = () => {
   const navigate = useNavigate();
   const { userToken, signIn } = useAuth();
+  const [user] = useAuthState(auth);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    const token = 'Token'; // presumably getting the token after registartion
-
-    if (token) {
-      signIn(token, () => navigate(ROUTES.ROOT + ROUTES.GRAPHIQL));
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem('refreshToken', user.refreshToken);
+      signIn(user.refreshToken, () => navigate(ROUTES.ROOT + ROUTES.GRAPHIQL));
     }
-  };
+  }, [user, signIn, navigate]);
 
   if (userToken) {
     return <Navigate to={ROUTES.ROOT + ROUTES.GRAPHIQL} replace />;
@@ -30,7 +30,10 @@ const SignUpPage = () => {
         <h1>SIGN UP</h1>
         <p className={clsx(classes.header__question)}>
           {`Have an account? `}
-          <NavLink to={ROUTES.SIGNIN} className={classes.header__link}>
+          <NavLink
+            to={ROUTES.ROOT + ROUTES.SIGNIN}
+            className={classes.header__link}
+          >
             Sign In
           </NavLink>
         </p>
