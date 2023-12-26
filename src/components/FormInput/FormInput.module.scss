@@ -1,8 +1,8 @@
-@import '../../../styles/vars';
-@import '../../../styles/mixins';
+@import '../../styles/vars';
+@import '../../styles/mixins';
 
 .form__row {
-  min-width: 32.2rem;
+  max-width: 32.2rem;
   height: 5.2rem;
   text-align: left;
 }
@@ -17,7 +17,7 @@
 }
 
 .form__input {
-  min-width: 32rem;
+  width: 32rem;
   height: 4rem;
   font-size: 1.8rem;
   border-radius: 0.5rem;
@@ -101,4 +101,41 @@
 
 .email_padding {
   padding-right: 1.4rem;
+}
+
+@media (max-width: 1023px) {
+  .form__row {
+    width: 100%;
+  }
+  .form__input {
+    width: 99.4%;
+  }
+}
+
+@media (max-width: 767px) {
+  .form__input {
+    font-weight: 500;
+  }
+
+  .form__input {
+    min-width: 24.8rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .form__row {
+    min-width: 25rem;
+  }
+  .eye-container {
+    left: 84%;
+  }
+}
+
+@media (max-width: 320px) {
+  .form__row {
+    width: 25rem;
+  }
+  .eye-container {
+    left: 20.6rem;
+  }
 }

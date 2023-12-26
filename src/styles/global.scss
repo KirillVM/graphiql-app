@@ -28,8 +28,7 @@ a {
 
 h1 {
   margin: 0;
-  line-height: 7.8rem;
-  @include font(6rem, $weight: bold);
+  @include font(6rem, 130%, $weight: bold);
 }
 
 h2 {
@@ -61,4 +60,22 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   box-shadow: 0 0 0 30px $color-secondary inset !important;
+}
+
+.toast {
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .toast {
+    max-width: 40rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .toast {
+    max-width: 30rem;
+    font-size: 1.1rem;
+  }
 }

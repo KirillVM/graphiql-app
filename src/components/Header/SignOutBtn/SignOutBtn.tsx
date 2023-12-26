@@ -4,12 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
 import ROUTES from '../../../router/routes';
 import styles from './SignOutBtn.module.scss';
+import { signOutUser } from '@src/services/firebaseApi/firebaseApi';
 
 const SignOutBtn = () => {
   const navigate = useNavigate();
   const { signOut } = useAuth();
 
   const handleClick = () => {
+    signOutUser();
     signOut(() => navigate(ROUTES.ROOT));
   };
 
