@@ -5,6 +5,7 @@ import { useAuth } from '@src/hooks/useAuth';
 import { useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Documentation from '@src/components/Documentation/Documentation';
 
 const GraphiqlPage = () => {
   const { isSignIn, setIsSignIn } = useAuth();
@@ -19,6 +20,7 @@ const GraphiqlPage = () => {
     <>
       <div className={styles.container}>
         <div className={styles.playground}>
+          <Documentation />
           <Editor />
           <Viewer />
         </div>
