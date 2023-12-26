@@ -1,3 +1,6 @@
+import Editor from './Editor/Editor';
+import Viewer from './Viewer/Viewer';
+import styles from './Graphiql.module.scss';
 import { useAuth } from '@src/hooks/useAuth';
 import { useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
@@ -11,9 +14,15 @@ const GraphiqlPage = () => {
       setIsSignIn(false);
     }
   }, [isSignIn, setIsSignIn]);
+
   return (
     <>
-      <h1>GraphiqlPage</h1>
+      <div className={styles.container}>
+        <div className={styles.playground}>
+          <Editor />
+          <Viewer />
+        </div>
+      </div>
       <ToastContainer className={'toast'} />
     </>
   );

@@ -1,15 +1,11 @@
-import classes from './Loader.module.scss';
-import clsx from 'clsx';
+import styles from './Loader.module.scss';
 
-const Loader = (): JSX.Element => {
+function Loader() {
   return (
-    <>
-      <div className={clsx(classes.container)}>
-        <p style={{ margin: 0 }}>Please wait.....</p>
-        <div className={clsx(classes.animation)}></div>
-      </div>
-    </>
+    <div className={styles.loader_container}>
+      <span className={styles.loader}></span>
+    </div>
   );
-};
+}
 
 export default Loader;
