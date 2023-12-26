@@ -10,13 +10,26 @@
   row-gap: 2.5rem;
   font-size: 1.8rem;
   padding: 5rem 0 7.5rem 1.8rem;
-  background-image: url('../../assets/images/grahh-img.png');
-  background-position: right top;
-  background-repeat: no-repeat;
-  background-size: 40.8rem, 33.9rem;
   position: relative;
   box-shadow: 0px 25px 25px -9px rgba(83, 83, 109, 0.11);
   border-radius: 0.5rem;
+  z-index: 2;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    background-color: $color-secondary;
+    background-image: url('../../assets/images/grahh-img.png');
+    background-position: right top;
+    background-repeat: no-repeat;
+    height: 33.9rem;
+    width: 40.8rem;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 49%;
+    z-index: -1;
+  }
 
   &::after {
     content: '';
@@ -78,37 +91,12 @@
 @media (max-width: 767px) {
   .form {
     min-width: 28rem;
-    background-position: top 26.8rem left 34rem;
-    background-attachment: fixed;
-    row-gap: 2.5rem;
-  }
-}
-
-@media (max-width: 580px) {
-  .form {
-    min-width: 28rem;
-    background-position: top 26.8rem left 200%;
-    background-attachment: fixed;
-    row-gap: 2.5rem;
-  }
-}
-
-@media (max-width: 500px) {
-  .form {
-    min-width: 28rem;
-    background-position: top 26.8rem left 17rem;
-    background-attachment: fixed;
-    row-gap: 2.5rem;
   }
 }
 
 @media (max-width: 479px) {
   .form {
-    min-width: 28rem;
     padding: 4rem 2rem 7.5rem 2rem;
-    background-position: top 24.8rem left 17rem;
-    background-attachment: fixed;
-    row-gap: 2.5rem;
   }
 
   .button_submit {
@@ -116,16 +104,3 @@
   }
 }
 
-@media (max-width: 320px) {
-  .form {
-    min-width: 28rem;
-    padding: 4rem 2rem 7.5rem 2rem;
-    background-position: top left 10rem;
-    background-attachment: unset;
-    row-gap: 2.5rem;
-  }
-
-  .button_submit {
-    min-width: 25rem;
-  }
-}
