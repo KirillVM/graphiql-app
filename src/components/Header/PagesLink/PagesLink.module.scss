@@ -2,25 +2,7 @@
 @import '../../../styles/vars.scss';
 
 .pages_link {
-  @include font(1.5rem, $weight: bold, $height: 2.3rem);
+  @include font(1.5rem);
+  @include text-link;
   text-transform: uppercase;
-  color: $color-black;
-  position: relative;
-  z-index: 10;
-
-  &::after {
-    content: '';
-    height: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: $color-accent-light;
-    z-index: -10;
-    transition: all 0.3s ease;
-  }
-
-  &:hover::after {
-    height: 50%;
-  }
 }
