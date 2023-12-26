@@ -36,7 +36,11 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
           {label}
         </p>
         {!isInvalid && isDirty && (
-          <img className={clsx(classes['check-image'])} src={checkSVG} alt="" />
+          <img
+            className={clsx(classes['check-image'])}
+            src={checkSVG}
+            alt="Check Image"
+          />
         )}
       </div>
       <input
@@ -72,7 +76,7 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
             <img
               className={clsx(classes['eye-image'])}
               src={eyeSVG}
-              alt=""
+              alt="Show Password"
               onClick={(e) => {
                 e.preventDefault();
                 setShowPassword(false);
@@ -82,7 +86,7 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
             <img
               className={clsx(classes['eye-image'])}
               src={eyeHideSVG}
-              alt=""
+              alt="Hide Password"
               onClick={(e) => {
                 e.preventDefault();
                 setShowPassword(true);

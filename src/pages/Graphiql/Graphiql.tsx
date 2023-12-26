@@ -10,7 +10,7 @@ const GraphiqlPage = () => {
       toast.success('You succsessfuly sign in!');
       setIsSignIn(false);
     }
-  }, [isSignIn]);
+  }, [isSignIn, setIsSignIn]);
   return (
     <>
       <h1>GraphiqlPage</h1>
