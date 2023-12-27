@@ -35,7 +35,12 @@ const Schema = ({ data }: SchemaData) => {
         <Types types={schema.types} setActiveType={setActiveType} />
       ) : (
         <div className={styles.list}>
-          <button onClick={goBack}>Back</button>
+          <button onClick={goBack}>
+            {<span>◀</span>}
+            {activeTypeStack.length === 1
+              ? 'Docs'
+              : `${activeTypeStack[activeTypeStack.length - 2]}`}
+          </button>
           <Type
             name={activeTypeData.name}
             description={activeTypeData.description}
