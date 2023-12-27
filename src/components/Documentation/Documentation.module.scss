@@ -2,8 +2,13 @@
 @import '../../styles/vars.scss';
 
 .container {
+  display: flex;
+  flex: 1 0 auto;
   width: 30rem;
   font-size: 1.4rem;
+  max-height: 50rem;
+  overflow-y: auto;
+  padding-right: 10px;
 
   p {
     line-height: 130%;
