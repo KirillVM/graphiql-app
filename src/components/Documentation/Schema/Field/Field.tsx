@@ -30,17 +30,24 @@ const Field = ({
 
   if (type.kind === 'LIST') {
     typeName = (
-      <a
-        onClick={() => setActiveType(type.ofType?.name as string)}
-      >{`[${type.ofType?.name}]`}</a>
+      <>
+        <a onClick={() => setActiveType(type.ofType?.name as string)}>
+          {<span className={styles.additional}>[</span>}
+          {`${type.ofType?.name}`}
+          {<span className={styles.additional}>]</span>}
+        </a>
+      </>
     );
   } else if (type.kind === 'SCALAR') {
     typeName = <a onClick={() => setActiveType(type.name)}>{`${type.name}`}</a>;
   } else if (type.kind === 'NON_NULL') {
     typeName = (
-      <a
-        onClick={() => setActiveType(type.ofType?.name as string)}
-      >{`${type.ofType?.name}!`}</a>
+      <>
+        <a
+          onClick={() => setActiveType(type.ofType?.name as string)}
+        >{`${type.ofType?.name}`}</a>
+        <span className={styles.additional}>!</span>
+      </>
     );
   } else {
     typeName = <a onClick={() => setActiveType(type.name)}>{type.name}</a>;
