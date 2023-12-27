@@ -10,22 +10,27 @@ interface Type {
   name: string;
   kind: string;
   description: string;
-  fields: Field[];
+  fields: FieldData[] | null;
 }
 
-export interface Field {
+export interface FieldData {
   name: string;
   description: string;
   type: FieldType;
-  args: Arg[];
+  args: ArgData[];
 }
 
 export interface FieldType {
   name: string;
   kind: string;
+  ofType?: ofType;
 }
 
-interface Arg {
+interface ofType {
+  name: string;
+}
+
+export interface ArgData {
   name: string;
   type: Type;
 }

@@ -5,9 +5,9 @@
   font-style: $style;
 }
 
-@mixin text-link {
+@mixin text-link ($font-weight: bold, $heightBackground: 50%) {
   color: $color-black;
-  font-weight: bold;
+  font-weight: $font-weight;
   text-decoration: none;
   position: relative;
   transition: height 0.3s ease;
@@ -19,7 +19,7 @@
     position: absolute;
     background-color: $color-accent-light;
     width: 106%;
-    height: 50%;
+    height: $heightBackground;
     bottom: -0.3rem;
     left: -0.3rem;
     border-radius: 0.2rem;

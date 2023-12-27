@@ -1,0 +1,15 @@
+@import '../../../../styles/vars.scss';
+
+.title {
+  color: $color-background;
+  background: $color-accent-dark;
+  border-radius: 3px;
+  width: fit-content;
+  padding: 5px 7px;
+  margin: 30px 0 15px;
+}
+
+.description {
+  color: $color-accent-dark;
+  opacity: 0.7;
+}
