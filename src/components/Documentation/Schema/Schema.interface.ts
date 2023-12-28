@@ -11,6 +11,7 @@ interface Type {
   kind: string;
   description: string;
   fields: FieldData[] | null;
+  enumValues: EnumValue[] | null;
 }
 
 export interface FieldData {
@@ -24,6 +25,13 @@ export interface FieldType {
   name: string;
   kind: string;
   ofType?: ofType;
+}
+
+export interface EnumValue {
+  deprecationReason: string | null;
+  description: string;
+  isDeprecated: boolean;
+  name: string;
 }
 
 interface ofType {
