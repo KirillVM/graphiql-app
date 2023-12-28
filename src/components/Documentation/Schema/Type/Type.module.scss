@@ -5,8 +5,11 @@
   background: $color-accent-dark;
   border-radius: 3px;
   width: fit-content;
+  max-width: 30rem;
   padding: 5px 7px;
   margin: 30px 0 15px;
+  word-wrap: break-word;
+  line-height: 130%;
 }
 
 .description {

@@ -43,7 +43,11 @@ const Schema = ({ data }: SchemaData) => {
           </button>
           <Type
             name={activeTypeData.name}
-            description={activeTypeData.description}
+            description={
+              activeTypeData.description
+                ? activeTypeData.description
+                : 'No description'
+            }
           />
           <ul>
             {activeTypeData?.fields?.map((field: FieldData) => (

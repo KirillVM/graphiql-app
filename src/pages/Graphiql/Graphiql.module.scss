@@ -10,3 +10,30 @@
   font-size: 1.5rem;
   padding: 2rem;
 }
+
+.docs-button {
+  height: max-content;
+  border: none;
+  background: transparent;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    scale: 0.95;
+  }
+}
+
+.loader-container {
+  width: 30rem;
+  display: flex;
+  justify-content: center;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
