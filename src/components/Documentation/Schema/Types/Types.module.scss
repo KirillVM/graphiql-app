@@ -1,5 +1,14 @@
 .types-list {
+  width: 27rem;
+  overflow: hidden;
+  
   li {
     margin: 10px;
+
+    a {
+      max-width: 25rem;
+      display: inline-block;
+      word-wrap: break-word;
+    }
   }
 }

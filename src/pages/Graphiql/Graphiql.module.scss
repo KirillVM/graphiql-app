@@ -11,6 +11,13 @@
   padding: 2rem;
 }
 
+.button-container {
+  display: flex;
+  height: 40px;
+  align-items: center;
+
+}
+
 .docs-button {
   height: max-content;
   border: none;
@@ -29,6 +36,7 @@
   width: 30rem;
   display: flex;
   justify-content: center;
+  margin-left: -19rem;
 }
 
 .loader {

@@ -28,6 +28,8 @@ export interface FieldType {
 
 interface ofType {
   name: string;
+  kind: string;
+  ofType?: ofType;
 }
 
 export interface ArgData {

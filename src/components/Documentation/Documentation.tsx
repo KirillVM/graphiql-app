@@ -14,13 +14,13 @@ const fetchData = function (url: string) {
   return cache.get(url);
 };
 
-const getData = async function (url: string) {
+const getData = async function (graphiqlApiUrl: string) {
   return await graphiqlApi.baseQuery({
     // url: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
     // url: 'https://beta.pokeapi.co/graphql/v1beta',
     // url: 'https://spacex-production.up.railway.app',
     // url: 'https://rickandmortyapi.graphcdn.app/',
-    url: url,
+    url: graphiqlApiUrl,
     data: getIntrospectionQuery(),
   });
 };
