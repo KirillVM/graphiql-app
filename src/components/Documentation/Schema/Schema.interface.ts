@@ -36,7 +36,7 @@ export interface EnumValue {
   name: string;
 }
 
-interface ofType {
+export interface ofType {
   name: string;
   kind: string;
   ofType?: ofType;

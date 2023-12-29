@@ -3,7 +3,7 @@ import Arg from './Arg/Arg';
 import { FieldProps } from './Field.interface';
 import styles from './Field.module.scss';
 
-const getTypeName = (
+export const getTypeName = (
   type: FieldType,
   setActiveType: (type: string) => void,
   lastSymbols: string = ''
@@ -63,7 +63,7 @@ const Field = ({
     ) : null;
 
   return (
-    <li key={name} id={name}>
+    <li key={name} id={name} data-testid={`field-${name}`}>
       <div>
         {name}
         {updArgs}:{getTypeName(type, setActiveType)}
