@@ -2,6 +2,7 @@ export interface SchemaData {
   data: {
     __schema?: {
       types?: Type[];
+      queryType: QueryType;
     };
   };
 }
@@ -48,5 +49,9 @@ export interface ArgData {
 
 export interface InterfaceValue {
   kind: string;
+  name: string;
+}
+
+export interface QueryType {
   name: string;
 }

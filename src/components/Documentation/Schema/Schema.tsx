@@ -11,6 +11,7 @@ import Field from './Field/Field';
 import styles from './Schema.module.scss';
 import Enum from './Enum/Enum';
 import Interface from './Interface/Interface';
+import QueryType from './QueryType/QueryType';
 
 const Schema = ({ data }: SchemaData) => {
   const schema = data.__schema;
@@ -39,7 +40,13 @@ const Schema = ({ data }: SchemaData) => {
   return (
     <div>
       {!activeTypeData ? (
-        <Types types={schema.types} setActiveType={setActiveType} />
+        <>
+          <QueryType
+            name={schema.queryType?.name}
+            setActiveType={setActiveType}
+          />
+          <Types types={schema.types} setActiveType={setActiveType} />
+        </>
       ) : (
         <div className={styles.list}>
           <button onClick={goBack}>

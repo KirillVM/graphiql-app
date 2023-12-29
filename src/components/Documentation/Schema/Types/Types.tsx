@@ -6,7 +6,7 @@ const Types = ({ types, setActiveType }: TypesProps) => {
   return (
     <ul className={styles['types-list']}>
       {types.map((type: FieldType) => {
-        if (type.name.startsWith('_')) {
+        if (type.name.startsWith('_') || type.name === 'Query') {
           return null;
         }
 
