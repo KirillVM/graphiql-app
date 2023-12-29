@@ -37,18 +37,19 @@ const GraphiqlPage = () => {
     <>
       <div className={styles.container}>
         <div className={styles.playground}>
-          {showDocs ? (
-            <div className={styles['button-container']}>
+          {graphiqlApiUrl &&
+            (showDocs ? (
+              <div className={styles['button-container']}>
+                <button className={styles['docs-button']} onClick={handleClick}>
+                  <img src={docs} alt="Docs" />
+                </button>
+                <h3>DOCS</h3>
+              </div>
+            ) : (
               <button className={styles['docs-button']} onClick={handleClick}>
                 <img src={docs} alt="Docs" />
               </button>
-              <h3>DOCS</h3>
-            </div>
-          ) : (
-            <button className={styles['docs-button']} onClick={handleClick}>
-              <img src={docs} alt="Docs" />
-            </button>
-          )}
+            ))}
           <Suspense
             fallback={
               <div className={styles['loader-container']}>
