@@ -3,7 +3,7 @@ import styles from './QueryType.module.scss';
 
 const QueryType = ({ name, setActiveType }: QueryTypeProps) => {
   return (
-    <p className={styles.query}>
+    <p data-testid="queryType" className={styles.query}>
       query: <a onClick={() => setActiveType(name)}>{name}</a>
     </p>
   );
