@@ -5,7 +5,22 @@
 
     div {
       color: $color-black;
-      font-weight: 500;
     }
   }
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  font-weight: 500;
+  opacity: 0.5;
+
+  img {
+    margin-right: 5px;
+  }
+}
+
+.interface {
+  margin-left: -5px;
 }

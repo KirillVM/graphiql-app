@@ -12,6 +12,11 @@ import styles from './Schema.module.scss';
 import Enum from './Enum/Enum';
 import Interface from './Interface/Interface';
 import QueryType from './QueryType/QueryType';
+import rootIcon from '@assets/icons/docs/root.svg';
+import allTypesIcon from '@assets/icons/docs/all-types.svg';
+import fieldsIcon from '@assets/icons/docs/fields.svg';
+import implementsIcon from '@assets/icons/docs/implements.svg';
+import enumIcon from '@assets/icons/docs/enum.svg';
 
 const Schema = ({ data }: SchemaData) => {
   const schema = data.__schema;
@@ -41,10 +46,18 @@ const Schema = ({ data }: SchemaData) => {
     <div>
       {!activeTypeData ? (
         <>
+          <div className={styles.head}>
+            <img src={rootIcon} alt="Root types" />
+            Root Types
+          </div>
           <QueryType
             name={schema.queryType?.name}
             setActiveType={setActiveType}
           />
+          <div className={styles.head}>
+            <img src={allTypesIcon} alt="All schema types" />
+            All Schema Types
+          </div>
           <Types types={schema.types} setActiveType={setActiveType} />
         </>
       ) : (
@@ -63,10 +76,14 @@ const Schema = ({ data }: SchemaData) => {
                 : 'No description'
             }
           />
-          {activeTypeData?.interfaces && (
-            <p className={styles['sub-title']}>Implements</p>
-          )}
-          <ul>
+          {activeTypeData.interfaces &&
+            activeTypeData.interfaces.length !== 0 && (
+              <div className={styles.head}>
+                <img src={implementsIcon} alt="Implements" />
+                Implements
+              </div>
+            )}
+          <ul className={styles.interface}>
             {activeTypeData?.interfaces?.map(
               (interfaceValue: InterfaceValue) => (
                 <Interface
@@ -77,11 +94,23 @@ const Schema = ({ data }: SchemaData) => {
               )
             )}
           </ul>
+          {activeTypeData?.enumValues && (
+            <div className={styles.head}>
+              <img src={enumIcon} alt="Enum Values" />
+              Enum Values
+            </div>
+          )}
           <ul>
             {activeTypeData?.enumValues?.map((enumValue: EnumValue) => (
               <Enum key={enumValue.name} name={enumValue.name} />
             ))}
           </ul>
+          {activeTypeData?.fields && (
+            <div className={styles.head}>
+              <img src={fieldsIcon} alt="Fields" />
+              Fields
+            </div>
+          )}
           <ul>
             {activeTypeData?.fields?.map((field: FieldData) => (
               <Field
