@@ -1,10 +1,16 @@
 import { useState } from 'react';
-import { FieldData, SchemaData, EnumValue } from './Schema.interface';
+import {
+  FieldData,
+  SchemaData,
+  EnumValue,
+  InterfaceValue,
+} from './Schema.interface';
 import Types from './Types/Types';
 import Type from './Type/Type';
 import Field from './Field/Field';
 import styles from './Schema.module.scss';
 import Enum from './Enum/Enum';
+import Interface from './Interface/Interface';
 
 const Schema = ({ data }: SchemaData) => {
   const schema = data.__schema;
@@ -50,9 +56,23 @@ const Schema = ({ data }: SchemaData) => {
                 : 'No description'
             }
           />
+          {activeTypeData?.interfaces && (
+            <p className={styles['sub-title']}>Implements</p>
+          )}
+          <ul>
+            {activeTypeData?.interfaces?.map(
+              (interfaceValue: InterfaceValue) => (
+                <Interface
+                  key={interfaceValue.name}
+                  name={interfaceValue.name}
+                  setActiveType={setActiveType}
+                />
+              )
+            )}
+          </ul>
           <ul>
             {activeTypeData?.enumValues?.map((enumValue: EnumValue) => (
-              <Enum key={enumValue.name} enumValue={enumValue} />
+              <Enum key={enumValue.name} name={enumValue.name} />
             ))}
           </ul>
           <ul>

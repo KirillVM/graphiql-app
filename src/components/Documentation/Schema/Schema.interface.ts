@@ -12,6 +12,7 @@ interface Type {
   description: string;
   fields: FieldData[] | null;
   enumValues: EnumValue[] | null;
+  interfaces: InterfaceValue[] | null;
 }
 
 export interface FieldData {
@@ -43,4 +44,9 @@ interface ofType {
 export interface ArgData {
   name: string;
   type: Type;
+}
+
+export interface InterfaceValue {
+  kind: string;
+  name: string;
 }

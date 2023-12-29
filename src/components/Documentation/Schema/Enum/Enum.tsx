@@ -1,7 +1,7 @@
 import { EnumProps } from './Enum.interface';
 
-const Enum = ({ enumValue }: EnumProps) => {
-  return <li>{enumValue.name}</li>;
+const Enum = ({ name }: EnumProps) => {
+  return <li>{name}</li>;
 };
 
 export default Enum;
