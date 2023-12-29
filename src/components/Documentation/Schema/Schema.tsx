@@ -62,7 +62,7 @@ const Schema = ({ data }: SchemaData) => {
         </>
       ) : (
         <div className={styles.list}>
-          <button onClick={goBack}>
+          <button data-testid="go-back-button" onClick={goBack}>
             {<span>◀</span>}
             {activeTypeStack.length === 1
               ? 'Docs'

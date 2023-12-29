@@ -7,7 +7,7 @@ export interface SchemaData {
   };
 }
 
-interface Type {
+export interface Type {
   name: string;
   kind: string;
   description: string;
