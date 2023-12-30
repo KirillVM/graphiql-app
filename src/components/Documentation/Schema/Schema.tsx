@@ -144,6 +144,20 @@ const Schema = ({ data }: SchemaData) => {
               </ul>
             </Section>
           )}
+
+          {activeTypeData?.possibleTypes && (
+            <Section
+              classNameHead={styles.head}
+              icon={allTypesIcon}
+              title="Implementations"
+              setActiveType={setActiveType}
+            >
+              <Types
+                types={activeTypeData?.possibleTypes}
+                setActiveType={setActiveType}
+              />
+            </Section>
+          )}
         </div>
       )}
     </div>

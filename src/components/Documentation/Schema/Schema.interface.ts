@@ -14,6 +14,7 @@ export interface Type {
   fields: FieldData[] | null;
   enumValues: EnumValue[] | null;
   interfaces: InterfaceValue[] | null;
+  possibleTypes: FieldType[] | null;
 }
 
 export interface FieldData {

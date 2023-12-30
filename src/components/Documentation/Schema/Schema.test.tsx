@@ -39,6 +39,7 @@ const mockType: Type = {
             fields: null,
             enumValues: null,
             interfaces: null,
+            possibleTypes: null,
           },
         },
       ],
@@ -50,6 +51,7 @@ const mockType: Type = {
     },
   ],
   kind: '',
+  possibleTypes: null,
 };
 
 const mockQueryType: QueryType = {
@@ -80,6 +82,7 @@ describe('Schema component', () => {
       enumValues: null,
       fields: null,
       kind: '',
+      possibleTypes: null,
     };
 
     const mockSchemaDataWithoutEnumAndFields: SchemaData = {

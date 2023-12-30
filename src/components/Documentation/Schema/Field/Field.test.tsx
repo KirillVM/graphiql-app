@@ -17,6 +17,7 @@ const sampleFieldProps: FieldProps = {
         fields: null,
         enumValues: null,
         interfaces: null,
+        possibleTypes: null,
       },
     },
     {
@@ -28,6 +29,7 @@ const sampleFieldProps: FieldProps = {
         fields: null,
         enumValues: null,
         interfaces: null,
+        possibleTypes: null,
       },
     },
   ],
