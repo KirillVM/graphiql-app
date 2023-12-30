@@ -21,7 +21,7 @@ const getData = async function (graphiqlApiUrl: string) {
   });
 };
 
-const use = function (dataFromCache: CacheObject) {
+const getCachedData = function (dataFromCache: CacheObject) {
   if (dataFromCache.value) {
     return dataFromCache.value;
   } else {
@@ -34,7 +34,7 @@ const use = function (dataFromCache: CacheObject) {
 };
 
 const Documentation = ({ url }: { url: string }) => {
-  const data = use(fetchData(url));
+  const data = getCachedData(fetchData(url));
 
   return (
     <div className={styles.container}>

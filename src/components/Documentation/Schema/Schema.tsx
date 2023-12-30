@@ -17,6 +17,7 @@ import allTypesIcon from '@assets/icons/docs/all-types.svg';
 import fieldsIcon from '@assets/icons/docs/fields.svg';
 import implementsIcon from '@assets/icons/docs/implements.svg';
 import enumIcon from '@assets/icons/docs/enum.svg';
+import Section from './Section/Section';
 
 const Schema = ({ data }: SchemaData) => {
   const schema = data.__schema;
@@ -46,19 +47,26 @@ const Schema = ({ data }: SchemaData) => {
     <div>
       {!activeTypeData ? (
         <>
-          <div className={styles.head}>
-            <img src={rootIcon} alt="Root types" />
-            Root Types
-          </div>
-          <QueryType
-            name={schema.queryType?.name}
+          <Section
+            classNameHead={styles.head}
+            icon={rootIcon}
+            title="Root Types"
             setActiveType={setActiveType}
-          />
-          <div className={styles.head}>
-            <img src={allTypesIcon} alt="All schema types" />
-            All Schema Types
-          </div>
-          <Types types={schema.types} setActiveType={setActiveType} />
+          >
+            <QueryType
+              name={schema.queryType?.name}
+              setActiveType={setActiveType}
+            />
+          </Section>
+
+          <Section
+            classNameHead={styles.head}
+            icon={allTypesIcon}
+            title="All Schema Types"
+            setActiveType={setActiveType}
+          >
+            <Types types={schema.types} setActiveType={setActiveType} />
+          </Section>
         </>
       ) : (
         <div className={styles.list}>
@@ -68,6 +76,7 @@ const Schema = ({ data }: SchemaData) => {
               ? 'Docs'
               : `${activeTypeStack[activeTypeStack.length - 2]}`}
           </button>
+
           <Type
             name={activeTypeData.name}
             description={
@@ -76,13 +85,15 @@ const Schema = ({ data }: SchemaData) => {
                 : 'No description'
             }
           />
+
           {activeTypeData.interfaces &&
             activeTypeData.interfaces.length !== 0 && (
-              <>
-                <div className={styles.head}>
-                  <img src={implementsIcon} alt="Implements" />
-                  Implements
-                </div>
+              <Section
+                classNameHead={styles.head}
+                icon={implementsIcon}
+                title="Implements"
+                setActiveType={setActiveType}
+              >
                 <ul className={styles.interface}>
                   {activeTypeData?.interfaces?.map(
                     (interfaceValue: InterfaceValue) => (
@@ -94,27 +105,31 @@ const Schema = ({ data }: SchemaData) => {
                     )
                   )}
                 </ul>
-              </>
+              </Section>
             )}
+
           {activeTypeData?.enumValues && (
-            <>
-              <div className={styles.head}>
-                <img src={enumIcon} alt="Enum Values" />
-                Enum Values
-              </div>
+            <Section
+              classNameHead={styles.head}
+              icon={enumIcon}
+              title="Enum Values"
+              setActiveType={setActiveType}
+            >
               <ul>
                 {activeTypeData?.enumValues?.map((enumValue: EnumValue) => (
                   <Enum key={enumValue.name} name={enumValue.name} />
                 ))}
               </ul>
-            </>
+            </Section>
           )}
+
           {activeTypeData?.fields && (
-            <>
-              <div className={styles.head}>
-                <img src={fieldsIcon} alt="Fields" />
-                Fields
-              </div>
+            <Section
+              classNameHead={styles.head}
+              icon={fieldsIcon}
+              title="Fields"
+              setActiveType={setActiveType}
+            >
               <ul>
                 {activeTypeData?.fields?.map((field: FieldData) => (
                   <Field
@@ -127,7 +142,7 @@ const Schema = ({ data }: SchemaData) => {
                   />
                 ))}
               </ul>
-            </>
+            </Section>
           )}
         </div>
       )}

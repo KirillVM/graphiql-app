@@ -2,40 +2,46 @@ import { FieldType } from '../Schema.interface';
 import Arg from './Arg/Arg';
 import { FieldProps } from './Field.interface';
 import styles from './Field.module.scss';
+import Link from './Link/Link';
 
 export const getTypeName = (
   type: FieldType,
   setActiveType: (type: string) => void,
   lastSymbols: string = ''
 ): JSX.Element => {
-  if (type.kind === 'LIST') {
-    return (
-      <>
-        <a onClick={() => setActiveType(type.ofType?.name as string)}>
-          {<span className={styles.additional}>[</span>}
-          {`${type.ofType?.name}`}
-          {<span className={styles.additional}>]{lastSymbols}</span>}
-        </a>
-      </>
-    );
-  } else if (type.kind === 'SCALAR') {
-    return <a onClick={() => setActiveType(type.name)}>{`${type.name}`}</a>;
-  } else if (type.kind === 'NON_NULL') {
-    if (type.ofType?.kind === 'LIST') {
-      return getTypeName(type.ofType, setActiveType, '!');
-    } else {
-      return (
-        <>
-          <a
-            onClick={() => setActiveType(type.ofType?.name as string)}
-          >{`${type.ofType?.name}`}</a>
-          <span className={styles.additional}>!</span>
-        </>
-      );
-    }
-  } else {
-    return <a onClick={() => setActiveType(type.name)}>{type.name}</a>;
-  }
+  const strategy: Record<string, () => JSX.Element> = {
+    LIST: () => (
+      <Link
+        setActiveType={setActiveType}
+        name={type.ofType?.name as string}
+        lastSymbols={lastSymbols}
+        isList
+      />
+    ),
+    SCALAR: () => (
+      <Link setActiveType={setActiveType} name={type.name as string} />
+    ),
+    NON_NULL: () => {
+      if (type.ofType?.kind === 'LIST') {
+        return getTypeName(type.ofType, setActiveType, '!');
+      } else {
+        return (
+          <Link
+            setActiveType={setActiveType}
+            name={type.ofType?.name as string}
+            lastSymbols="!"
+          />
+        );
+      }
+    },
+    DEFAULT: () => (
+      <Link setActiveType={setActiveType} name={type.name as string} />
+    ),
+  };
+
+  const typeHandler = strategy[type.kind] || strategy.DEFAULT;
+
+  return typeHandler();
 };
 
 const Field = ({
