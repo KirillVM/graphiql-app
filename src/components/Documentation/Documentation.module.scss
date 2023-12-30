@@ -23,7 +23,7 @@
       margin-top: 5px;
     }
   }
-  
+
   ul {
     padding-left: 0;
     margin-left: 20px;
@@ -56,5 +56,33 @@
     &:active {
       scale: 0.95;
     }
+  }
+}
+
+@media (max-width: 1199px) {
+  .container {
+    justify-content: center;
+    margin: 7rem 0 3rem;
+    padding: 0 0 1rem;
+    max-height: 50rem;
+    width: 100%;
+
+    li {
+      text-align: center;
+
+      p {
+        margin-top: 5px;
+      }
+    }
+
+    ul {
+      margin-left: 0;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: 80vw;
   }
 }

@@ -28,6 +28,7 @@ const Schema = ({ data }: SchemaData) => {
 
   const setActiveType = (type: string) => {
     setActiveTypeStack((prevStack) => [...prevStack, type]);
+    window.scrollTo(0, 0);
   };
 
   const goBack = () => {
@@ -78,51 +79,57 @@ const Schema = ({ data }: SchemaData) => {
           />
           {activeTypeData.interfaces &&
             activeTypeData.interfaces.length !== 0 && (
-              <div className={styles.head}>
-                <img src={implementsIcon} alt="Implements" />
-                Implements
-              </div>
+              <>
+                <div className={styles.head}>
+                  <img src={implementsIcon} alt="Implements" />
+                  Implements
+                </div>
+                <ul className={styles.interface}>
+                  {activeTypeData?.interfaces?.map(
+                    (interfaceValue: InterfaceValue) => (
+                      <Interface
+                        key={interfaceValue.name}
+                        name={interfaceValue.name}
+                        setActiveType={setActiveType}
+                      />
+                    )
+                  )}
+                </ul>
+              </>
             )}
-          <ul className={styles.interface}>
-            {activeTypeData?.interfaces?.map(
-              (interfaceValue: InterfaceValue) => (
-                <Interface
-                  key={interfaceValue.name}
-                  name={interfaceValue.name}
-                  setActiveType={setActiveType}
-                />
-              )
-            )}
-          </ul>
           {activeTypeData?.enumValues && (
-            <div className={styles.head}>
-              <img src={enumIcon} alt="Enum Values" />
-              Enum Values
-            </div>
+            <>
+              <div className={styles.head}>
+                <img src={enumIcon} alt="Enum Values" />
+                Enum Values
+              </div>
+              <ul>
+                {activeTypeData?.enumValues?.map((enumValue: EnumValue) => (
+                  <Enum key={enumValue.name} name={enumValue.name} />
+                ))}
+              </ul>
+            </>
           )}
-          <ul>
-            {activeTypeData?.enumValues?.map((enumValue: EnumValue) => (
-              <Enum key={enumValue.name} name={enumValue.name} />
-            ))}
-          </ul>
           {activeTypeData?.fields && (
-            <div className={styles.head}>
-              <img src={fieldsIcon} alt="Fields" />
-              Fields
-            </div>
+            <>
+              <div className={styles.head}>
+                <img src={fieldsIcon} alt="Fields" />
+                Fields
+              </div>
+              <ul>
+                {activeTypeData?.fields?.map((field: FieldData) => (
+                  <Field
+                    key={field.name}
+                    name={field.name}
+                    args={field.args}
+                    type={field.type}
+                    description={field.description}
+                    setActiveType={setActiveType}
+                  />
+                ))}
+              </ul>
+            </>
           )}
-          <ul>
-            {activeTypeData?.fields?.map((field: FieldData) => (
-              <Field
-                key={field.name}
-                name={field.name}
-                args={field.args}
-                type={field.type}
-                description={field.description}
-                setActiveType={setActiveType}
-              />
-            ))}
-          </ul>
         </div>
       )}
     </div>

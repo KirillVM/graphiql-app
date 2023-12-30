@@ -15,7 +15,6 @@
   display: flex;
   height: 40px;
   align-items: center;
-
 }
 
 .docs-button {
@@ -44,4 +43,32 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+@media (max-width: 1199px) {
+  .container {
+    padding: 1rem 2rem 4rem;
+  }
+
+  .playground {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button-container {
+    flex-direction: column;
+
+    h3 {
+      margin: -20px 0 15px;
+    }
+  }
+
+  .docs-button {
+    margin-bottom: 3rem;
+  }
+
+  .loader-container {
+    width: 30rem;
+    margin: 24rem 0 24rem;
+  }
 }

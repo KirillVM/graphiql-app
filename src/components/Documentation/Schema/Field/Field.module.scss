@@ -31,3 +31,13 @@
   color: $color-accent-dark;
   opacity: 0.4;
 }
+
+@media (max-width: 1199px) {
+  .field {
+    &::before {
+      border-radius: 5px;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
