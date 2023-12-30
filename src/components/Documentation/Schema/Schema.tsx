@@ -28,7 +28,6 @@ const Schema = ({ data }: SchemaData) => {
 
   const setActiveType = (type: string) => {
     setActiveTypeStack((prevStack) => [...prevStack, type]);
-    window.scrollTo(0, 0);
   };
 
   const goBack = () => {
