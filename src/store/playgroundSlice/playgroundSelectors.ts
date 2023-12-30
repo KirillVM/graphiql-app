@@ -8,3 +8,6 @@ export const responseDataSelector = (state: RootState) =>
 
 export const loadingStatusSelector = (state: RootState) =>
   state.playground.isLoading;
+
+export const graphiqlApiUrlSelector = (state: RootState) =>
+  state.playground.graphiqlApiUrl;

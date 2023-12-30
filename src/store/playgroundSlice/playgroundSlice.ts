@@ -4,7 +4,7 @@ import { getGraphiqlData } from './playgroundThunks';
 
 const initialState: PlaygroundState = {
   editorValue: '',
-  graphiqlApiUrl: 'https://rickandmortyapi.com/graphql',
+  graphiqlApiUrl: '',
   isLoading: false,
   responseData: null,
 };
@@ -15,6 +15,9 @@ export const playgroundSlice = createSlice({
   reducers: {
     setEditorValue: (state, action: PayloadAction<string>) => {
       state.editorValue = action.payload;
+    },
+    setGraphiqlApiUrl: (state, action: PayloadAction<string>) => {
+      state.graphiqlApiUrl = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -28,5 +31,5 @@ export const playgroundSlice = createSlice({
   },
 });
 
-export const { setEditorValue } = playgroundSlice.actions;
+export const { setEditorValue, setGraphiqlApiUrl } = playgroundSlice.actions;
 export default playgroundSlice.reducer;

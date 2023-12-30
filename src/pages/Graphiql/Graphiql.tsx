@@ -5,6 +5,7 @@ import { useAuth } from '@src/hooks/useAuth';
 import { useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ApiInput from './ApiInput/ApiInput';
 
 const GraphiqlPage = () => {
   const { isSignIn, setIsSignIn } = useAuth();
@@ -18,6 +19,7 @@ const GraphiqlPage = () => {
   return (
     <>
       <div className={styles.container}>
+        <ApiInput />
         <div className={styles.playground}>
           <Editor />
           <Viewer />
