@@ -8,7 +8,7 @@ const AboutProject = () => {
     <div className={styles.container}>
       <h3>{aboutProject.header}</h3>
       <p>
-        {aboutProject.paragraph[0]}{' '}
+        {aboutProject.paragraphs[0]}{' '}
         <a
           target="_blank"
           href={
@@ -18,9 +18,9 @@ const AboutProject = () => {
         >
           {aboutProject.taskLink}
         </a>{' '}
-        {aboutProject.paragraph[1]}{' '}
+        {aboutProject.paragraphs[1]}{' '}
       </p>
-      {aboutProject.paragraph
+      {aboutProject.paragraphs
         .filter((_, index) => index > 1)
         .map((item, index) => (
           <p key={index + item.length}>{item}</p>

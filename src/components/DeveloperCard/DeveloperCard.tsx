@@ -3,10 +3,12 @@ import { DeveloperCardProps } from './DeveloperCard.interface';
 import styles from './DeveloperCard.module.scss';
 import clsx from 'clsx';
 import CustomButton from '../CustomButton/CustomButton';
+import { useLocalization } from '@src/hooks/useLocalization';
 
 const DeveloperCard = ({ developer }: DeveloperCardProps) => {
   const [showDetails, setShowDetails] = useState(false);
-
+  const { localizationData } = useLocalization();
+  const { developerCard } = localizationData;
   const toggleDetails = () => {
     setShowDetails(!showDetails);
   };
@@ -40,15 +42,15 @@ const DeveloperCard = ({ developer }: DeveloperCardProps) => {
           })}
         >
           <div className={styles.biography}>
-            <h6>Biography:</h6>
+            <h6>{developerCard.headerBiography}</h6>
             <p>{developer.biography}</p>
           </div>
           <div className={styles.contribution}>
-            <h6>Contribution:</h6>
+            <h6>{developerCard.headerContribution}</h6>
             <p>{developer.contribution}</p>
           </div>
           <div className={styles.github}>
-            <h6>Github:</h6>
+            <h6>{developerCard.headerGithub}</h6>
             <a
               target="_blank"
               href={`https://github.com/${developer.github}`}

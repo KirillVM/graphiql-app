@@ -1,10 +1,11 @@
 export const localization = {
+  //English
   en: {
     aboutProject: {
       header: 'About project',
       taskLink: 'assignment',
-      paragraph: [
-        'This project is the final',
+      paragraphs: [
+        `This project is the final`,
 
         `for Rolling Scopes School's React course`,
 
@@ -28,12 +29,51 @@ export const localization = {
         (Russian and English).`,
       ],
     },
+    educationalProgram: {
+      header: 'Our educational program',
+      paragraphs: [
+        `RS School is an educational program organized by The Rolling Scopes
+        developer community since 2013. The core idea of RS School is that
+        education should be accessible to everyone, regardless of age,
+        professional status, or place of residence. In RS School, education is
+        entirely free of charge. The main instructors and trainers are
+        experienced front-end and JavaScript developers from various parts of
+        the world and different companies. They are ready to share their
+        knowledge and expertise, helping students explore the world of web
+        development.`,
+
+        `The principle of RS School is «Openness and Passing Knowledge
+        Forward». All educational materials and the program';s platform
+        are publicly available on GitHub and YouTube. What's particularly
+        important is RS School students who have received free education are
+        invited to return in the future as mentors to pass on their knowledge
+        to the next generation of students.`,
+
+        `RS School offers a variety of courses, including JavaScript, front-end
+        development, as well as React courses. These courses are available
+        online, making learning highly flexible and convenient for all who are
+        interested. Join RS School and dive into the world of web development,
+        where education is a powerful tool for self-improvement and a
+        successful career.`,
+      ],
+    },
+    developerCard: {
+      headerBiography: `Biography:`,
+      headerContribution: `Contribution:`,
+      headerGithub: `Github:`,
+    },
+    welcomePage: {
+      headerWelcomePage: `Welcome Page`,
+      headerOurTeam: `Our team`,
+    },
   },
+
+  //Russian
   ru: {
     aboutProject: {
       header: 'О проекте',
       taskLink: 'assignment',
-      paragraph: [
+      paragraphs: [
         'This project is the final',
 
         'for Rolling Scopes School&apos;s React course',
@@ -57,6 +97,45 @@ export const localization = {
         user-friendly format and implements localization in at two languages
         (Russian and English).`,
       ],
+    },
+    educationalProgram: {
+      header: 'Our educational program',
+      paragraphs: [
+        `RS School is an educational program organized by The Rolling Scopes
+        developer community since 2013. The core idea of RS School is that
+        education should be accessible to everyone, regardless of age,
+        professional status, or place of residence. In RS School, education is
+        entirely free of charge. The main instructors and trainers are
+        experienced front-end and JavaScript developers from various parts of
+        the world and different companies. They are ready to share their
+        knowledge and expertise, helping students explore the world of web
+        development.`,
+
+        `The principle of RS School is «Openness and Passing Knowledge
+        Forward». All educational materials and the program';s platform
+        are publicly available on GitHub and YouTube. What's particularly
+        important is RS School students who have received free education are
+        invited to return in the future as mentors to pass on their knowledge
+        to the next generation of students.`,
+
+        `RS School offers a variety of courses, including JavaScript, front-end
+        development, as well as React courses. These courses are available
+        online, making learning highly flexible and convenient for all who are
+        interested. Join RS School and dive into the world of web development,
+        where education is a powerful tool for self-improvement and a
+        successful career.`,
+      ],
+    },
+
+    developerCard: {
+      headerBiography: `Biography:`,
+      headerContribution: `Contribution:`,
+      headerGithub: `Github:`,
+    },
+
+    welcomePage: {
+      headerWelcomePage: `Welcome Page`,
+      headerOurTeam: `Our team`,
     },
   },
 };
