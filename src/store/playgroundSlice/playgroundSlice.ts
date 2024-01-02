@@ -21,6 +21,9 @@ export const playgroundSlice = createSlice({
     },
     setGraphiqlApiUrl: (state, action: PayloadAction<string>) => {
       state.graphiqlApiUrl = action.payload;
+      state.editorValue = '';
+      state.responseData = null;
+      state.apiSchema = undefined;
     },
   },
   extraReducers: (builder) => {
