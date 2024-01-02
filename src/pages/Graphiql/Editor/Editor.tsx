@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 import { setEditorValue } from '../../../store/playgroundSlice/playgroundSlice';
 import { editorValueSelector } from '../../../store/playgroundSlice/playgroundSelectors';
 import { getGraphiqlData } from '../../../store/playgroundSlice/playgroundThunks';
+import executeQueryIcon from '@assets/icons/execute-query.svg';
 import prettifyIcon from '@assets/icons/prettify-query.svg';
 import styles from './Editor.module.scss';
 
@@ -61,8 +62,10 @@ const Editor = () => {
         />
       </div>
       <div className={styles.tooll_bar}>
-        <button className={styles.request_btn} onClick={handleRequest}></button>
-        <button className={styles.prettify_btn} onClick={handleRequestPrettify}>
+        <button onClick={handleRequest}>
+          <img src={executeQueryIcon} alt="Execute Query icon" />
+        </button>
+        <button onClick={handleRequestPrettify}>
           <img src={prettifyIcon} alt="Prettyfy icon" />
         </button>
       </div>
