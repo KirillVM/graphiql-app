@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --force",
     "build": "tsc && vite build",
     "test": "jest --coverage",
     "lint:fix": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
@@ -14,15 +14,18 @@
     "pre-push": "npm run test"
   },
   "dependencies": {
+    "@codemirror/basic-setup": "^0.20.0",
     "@codemirror/lang-json": "^6.0.1",
     "@hookform/resolvers": "^3.3.2",
     "@reduxjs/toolkit": "^1.9.7",
+    "@uiw/codemirror-extensions-basic-setup": "^4.21.21",
     "@uiw/codemirror-themes": "^4.21.21",
     "@uiw/react-codemirror": "^4.21.21",
     "axios": "^1.6.2",
     "clsx": "^2.0.0",
     "cm6-graphql": "^0.0.12",
     "firebase": "^10.7.1",
+    "graphql": "^16.8.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",

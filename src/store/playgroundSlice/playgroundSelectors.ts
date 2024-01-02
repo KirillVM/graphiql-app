@@ -11,3 +11,9 @@ export const loadingStatusSelector = (state: RootState) =>
 
 export const graphiqlApiUrlSelector = (state: RootState) =>
   state.playground.graphiqlApiUrl;
+
+export const apiSchemaSelector = (state: RootState) =>
+  state.playground.apiSchema;
+
+export const invalidApiSelector = (state: RootState) =>
+  state.playground.invalidApi;

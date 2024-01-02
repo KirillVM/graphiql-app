@@ -1,14 +1,19 @@
-import CodeMirror from '@uiw/react-codemirror';
+import ReactCodeMirror from '@uiw/react-codemirror';
 import { graphql } from 'cm6-graphql';
 import { editorTheme } from '../../../utils/themes/editorTheme';
 import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 import { setEditorValue } from '../../../store/playgroundSlice/playgroundSlice';
-import { editorValueSelector } from '../../../store/playgroundSlice/playgroundSelectors';
+import {
+  apiSchemaSelector,
+  editorValueSelector,
+} from '../../../store/playgroundSlice/playgroundSelectors';
 import { getGraphiqlData } from '../../../store/playgroundSlice/playgroundThunks';
+import { GraphQLSchema } from 'graphql';
 import styles from './Editor.module.scss';
 
 const Editor = () => {
   const value = useAppSelector(editorValueSelector);
+  const graphqlShema = useAppSelector(apiSchemaSelector);
   const dispatch = useAppDispatch();
 
   const handleChange = (val: string) => {
@@ -22,13 +27,13 @@ const Editor = () => {
   return (
     <div className={styles.editor_gql}>
       <div className={styles.codemirror_editor}>
-        <CodeMirror
+        <ReactCodeMirror
           value={value}
           placeholder={'# Welcome to GraphiQL'}
           height="500px"
           theme={editorTheme}
-          extensions={[graphql()]}
           onChange={handleChange}
+          extensions={[graphql(graphqlShema as GraphQLSchema)]}
         />
       </div>
       <div className={styles.tooll_bar}>
