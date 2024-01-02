@@ -10,6 +10,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import Loader from '../Loader/Loader';
+import { useLocalization } from '@src/hooks/useLocalization';
 
 const FIELDS_COUNT = 2;
 
@@ -22,6 +23,9 @@ const LoginForm = (): JSX.Element => {
     handleSubmit,
     formState: { dirtyFields, errors },
   } = methods;
+
+  const { localizationData } = useLocalization();
+  const { form } = localizationData;
 
   const [signInWithEmailAndPassword, , loading, error] =
     useSignInWithEmailAndPassword(auth);
@@ -49,14 +53,18 @@ const LoginForm = (): JSX.Element => {
       >
         <input type="password" style={{ display: 'none' }}></input>
         <FormProvider {...methods}>
-          <FormInput type="email" errorName="email" label="Email" />
-          <FormInput type="password" errorName="password" label="Password" />
+          <FormInput type="email" errorName="email" label={form.emailLabel} />
+          <FormInput
+            type="password"
+            errorName="password"
+            label={form.passwordLabel}
+          />
         </FormProvider>
         <button
           className={clsx(classes.button_submit)}
           disabled={isDirtyFields || isError}
         >
-          Submit
+          {form.submitButton}
         </button>
       </form>
       <ToastContainer className={'toast'} />

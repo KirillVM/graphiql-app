@@ -14,6 +14,7 @@ import {
 import { auth } from '@src/services/firebaseApi/firebaseApi';
 import { useEffect } from 'react';
 import Loader from '@components/Loader/Loader';
+import { useLocalization } from '@src/hooks/useLocalization';
 
 const FIELDS_COUNT = 3;
 
@@ -26,6 +27,9 @@ const RegistrationForm = (): JSX.Element => {
     handleSubmit,
     formState: { dirtyFields, errors },
   } = methods;
+
+  const { localizationData } = useLocalization();
+  const { form } = localizationData;
 
   const [createUserWithEmailAndPassword, , loading, error] =
     useCreateUserWithEmailAndPassword(auth);
@@ -58,19 +62,23 @@ const RegistrationForm = (): JSX.Element => {
       >
         <input type="password" style={{ display: 'none' }}></input>
         <FormProvider {...methods}>
-          <FormInput type="email" errorName="email" label="Email" />
-          <FormInput type="password" errorName="password" label="Password" />
+          <FormInput type="email" errorName="email" label={form.emailLabel} />
+          <FormInput
+            type="password"
+            errorName="password"
+            label={form.passwordLabel}
+          />
           <FormInput
             type="password"
             errorName="confirmPassword"
-            label="Confirm password"
+            label={form.confirmPasswordLabel}
           />
         </FormProvider>
         <button
           className={clsx(classes.button_submit)}
           disabled={isDirtyFields || isError}
         >
-          Submit
+          {form.submitButton}
         </button>
       </form>
       <ToastContainer className={'toast'} />
