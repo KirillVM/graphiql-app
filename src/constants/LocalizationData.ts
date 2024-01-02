@@ -43,7 +43,7 @@ export const localization = {
         development.`,
 
         `The principle of RS School is «Openness and Passing Knowledge
-        Forward». All educational materials and the program';s platform
+        Forward». All educational materials and the program's platform
         are publicly available on GitHub and YouTube. What's particularly
         important is RS School students who have received free education are
         invited to return in the future as mentors to pass on their knowledge
@@ -74,13 +74,13 @@ export const localization = {
       header: 'О проекте',
       taskLink: 'assignment',
       paragraphs: [
-        'This project is the final',
+        `This project is the final`,
 
-        'for Rolling Scopes School&apos;s React course',
+        `for Rolling Scopes School's React course`,
 
         `The GraphiQL application is a GraphQL playground/IDE. It includes
         authorization using Firebase for email/password sign-in, client-side
-        validation, and redirects upon successful login. The app doesn&apos;t
+        validation, and redirects upon successful login. The app doesn't
         require a backend, supporting any open GraphQL API with CORS.`,
 
         `The structure consists of a welcome page, a sticky header with animated
@@ -112,7 +112,7 @@ export const localization = {
         development.`,
 
         `The principle of RS School is «Openness and Passing Knowledge
-        Forward». All educational materials and the program';s platform
+        Forward». All educational materials and the program's platform
         are publicly available on GitHub and YouTube. What's particularly
         important is RS School students who have received free education are
         invited to return in the future as mentors to pass on their knowledge
