@@ -68,6 +68,31 @@ export const localization = {
       headerWelcomePage: `Welcome Page`,
       headerOurTeam: `Our team`,
     },
+
+    sign: {
+      out: 'Sign Out',
+      in: 'Sign In',
+      up: 'Sign Up',
+    },
+
+    headerLinks: {
+      '/': 'GraphiQL',
+      graphiql: 'Welcome page',
+    },
+
+    toastMessages: {
+      successSignIn: 'You succsessfuly sign in!',
+    },
+
+    notFoundPage: {
+      message: 'There are no playground for graphQL requests here',
+      linkToWelcome: 'Go to welcome page',
+    },
+
+    account: {
+      have: `Have an account? `,
+      notHave: `Don't have an account? `,
+    },
   },
 
   //Russian
@@ -140,6 +165,31 @@ export const localization = {
     welcomePage: {
       headerWelcomePage: `Welcome Page`,
       headerOurTeam: `Our team`,
+    },
+
+    sign: {
+      out: 'Выйти',
+      in: 'Войти',
+      up: 'Зарегистрироваться',
+    },
+
+    headerLinks: {
+      '/': 'GraphiQL',
+      graphiql: 'Домашняя страница',
+    },
+
+    toastMessages: {
+      successSignIn: 'You succsessfuly sign in!',
+    },
+
+    notFoundPage: {
+      message: 'There are no playground for graphQL requests here',
+      linkToWelcome: 'Go to welcome page',
+    },
+
+    account: {
+      have: `Have an account? `,
+      notHave: `Don't have an account? `,
     },
   },
 };

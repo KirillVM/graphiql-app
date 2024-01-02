@@ -7,11 +7,15 @@ import RegistrationForm from '@src/components/RegistrationForm/RegistrationForm'
 import clsx from 'clsx';
 import { auth } from '@src/services/firebaseApi/firebaseApi';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useLocalization } from '@src/hooks/useLocalization';
 
 const SignUpPage = () => {
   const navigate = useNavigate();
   const { userToken, signIn } = useAuth();
   const [user] = useAuthState(auth);
+
+  const { localizationData } = useLocalization();
+  const { sign, account } = localizationData;
 
   useEffect(() => {
     if (user) {
@@ -27,14 +31,14 @@ const SignUpPage = () => {
   return (
     <div className={clsx(classes.wrapper)}>
       <div className={clsx(classes.header)}>
-        <h1>SIGN UP</h1>
+        <h1>{sign.up}</h1>
         <p className={clsx(classes.header__question)}>
-          {`Have an account? `}
+          {account.have}
           <NavLink
             to={ROUTES.ROOT + ROUTES.SIGNIN}
             className={classes.header__link}
           >
-            Sign In
+            {sign.in}
           </NavLink>
         </p>
       </div>

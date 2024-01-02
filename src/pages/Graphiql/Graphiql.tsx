@@ -5,12 +5,15 @@ import { useAuth } from '@src/hooks/useAuth';
 import { useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useLocalization } from '@src/hooks/useLocalization';
 
 const GraphiqlPage = () => {
   const { isSignIn, setIsSignIn } = useAuth();
+  const { localizationData } = useLocalization();
+  const { toastMessages } = localizationData;
   useEffect(() => {
     if (isSignIn) {
-      toast.success('You succsessfuly sign in!');
+      toast.success(toastMessages.successSignIn);
       setIsSignIn(false);
     }
   }, [isSignIn, setIsSignIn]);
