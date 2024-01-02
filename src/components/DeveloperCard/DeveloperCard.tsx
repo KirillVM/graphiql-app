@@ -7,8 +7,10 @@ import { useLocalization } from '@src/hooks/useLocalization';
 
 const DeveloperCard = ({ developer }: DeveloperCardProps) => {
   const [showDetails, setShowDetails] = useState(false);
+
   const { localizationData } = useLocalization();
   const { developerCard } = localizationData;
+
   const toggleDetails = () => {
     setShowDetails(!showDetails);
   };
@@ -33,7 +35,9 @@ const DeveloperCard = ({ developer }: DeveloperCardProps) => {
           </div>
         </div>
         <CustomButton type="white" size="large" onClick={toggleDetails}>
-          {showDetails ? 'Hide details' : 'Show details'}
+          {showDetails
+            ? developerCard.hideDetailsButton
+            : developerCard.showDetailsButton}
         </CustomButton>
         <hr />
         <div

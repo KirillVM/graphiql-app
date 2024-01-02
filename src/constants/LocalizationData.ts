@@ -61,6 +61,8 @@ export const localization = {
       headerBiography: `Biography:`,
       headerContribution: `Contribution:`,
       headerGithub: `Github:`,
+      showDetailsButton: 'Show details',
+      hideDetailsButton: 'Hide details',
     },
     welcomePage: {
       headerWelcomePage: `Welcome Page`,
@@ -131,6 +133,8 @@ export const localization = {
       headerBiography: `Biography:`,
       headerContribution: `Contribution:`,
       headerGithub: `Github:`,
+      showDetailsButton: 'Show details',
+      hideDetailsButton: 'Hide details',
     },
 
     welcomePage: {
