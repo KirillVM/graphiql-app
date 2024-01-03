@@ -29,7 +29,7 @@ export const localization = {
 
         `Design-wise, the app prioritizes attention to detail, adaptive layout,
         interactivity, and a unified style. App handles API errors in a
-        user-friendly format and implements localization in at two languages
+        user-friendly format and implements localization at two languages
         (Russian and English).`,
       ],
     },
