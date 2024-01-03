@@ -35,6 +35,8 @@
   }
 
   button {
+    display: flex;
+    align-items: center;
     transition: all 0.3s ease;
     border: none;
     background: transparent;
@@ -42,11 +44,6 @@
     font-size: 1.4rem;
     text-decoration: underline;
     margin-top: 1.5rem;
-
-    span {
-      font-size: 1.8rem;
-      margin: 0 4px 4px -4px;
-    }
 
     &:hover {
       cursor: pointer;
