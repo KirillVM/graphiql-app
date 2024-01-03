@@ -5,4 +5,6 @@ export interface PlaygroundState {
   responseData: object | null;
   apiSchema: object | undefined;
   invalidApi: boolean;
+  headers: string;
+  variables: string;
 }

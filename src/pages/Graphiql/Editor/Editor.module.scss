@@ -5,6 +5,9 @@
   border-radius: 0.5rem;
   overflow: hidden;
   display: flex;
+  flex-wrap: wrap;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
 }
 
 .codemirror_editor {
@@ -33,6 +36,7 @@
   &::before {
     content: '';
     background-image: url(./../../../assets/icons/play.svg);
+    background-repeat: no-repeat;
     width: 1.4rem;
     height: 1.8rem;
     transition: all 0.3s ease;

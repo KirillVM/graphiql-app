@@ -17,3 +17,8 @@ export const apiSchemaSelector = (state: RootState) =>
 
 export const invalidApiSelector = (state: RootState) =>
   state.playground.invalidApi;
+
+export const headersSelector = (state: RootState) => state.playground.headers;
+
+export const variablesSelector = (state: RootState) =>
+  state.playground.variables;

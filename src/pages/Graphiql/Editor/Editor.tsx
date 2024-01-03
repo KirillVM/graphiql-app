@@ -9,6 +9,7 @@ import {
 } from '../../../store/playgroundSlice/playgroundSelectors';
 import { getGraphiqlData } from '../../../store/playgroundSlice/playgroundThunks';
 import { GraphQLSchema } from 'graphql';
+import RequestToolbar from '../RequestToolbar/RequestToolbar';
 import styles from './Editor.module.scss';
 
 const Editor = () => {
@@ -39,6 +40,7 @@ const Editor = () => {
       <div className={styles.tooll_bar}>
         <button className={styles.request_btn} onClick={handleRequest}></button>
       </div>
+      <RequestToolbar />
     </div>
   );
 };

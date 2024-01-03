@@ -10,6 +10,8 @@ const initialState: PlaygroundState = {
   responseData: null,
   apiSchema: undefined,
   invalidApi: false,
+  headers: '',
+  variables: '',
 };
 
 export const playgroundSlice = createSlice({
@@ -21,9 +23,15 @@ export const playgroundSlice = createSlice({
     },
     setGraphiqlApiUrl: (state, action: PayloadAction<string>) => {
       state.graphiqlApiUrl = action.payload;
-      state.editorValue = '';
       state.responseData = null;
       state.apiSchema = undefined;
+      state.invalidApi = false;
+    },
+    setHeaders: (state, action: PayloadAction<string>) => {
+      state.headers = action.payload;
+    },
+    setVariables: (state, action: PayloadAction<string>) => {
+      state.variables = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -48,5 +56,6 @@ export const playgroundSlice = createSlice({
   },
 });
 
-export const { setEditorValue, setGraphiqlApiUrl } = playgroundSlice.actions;
+export const { setEditorValue, setGraphiqlApiUrl, setHeaders, setVariables } =
+  playgroundSlice.actions;
 export default playgroundSlice.reducer;

@@ -17,7 +17,7 @@ const ApiInput = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    invalidApi && toast.error('The api url is ivalind');
+    invalidApi && toast.error('The endpoint is ivalind');
   }, [invalidApi]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -28,7 +28,9 @@ const ApiInput = () => {
     e.preventDefault();
     const url = value.trim();
     dispatch(setGraphiqlApiUrl(url));
-    dispatch(getApiShema(url));
+    if (url) {
+      dispatch(getApiShema(url));
+    }
   };
 
   return (

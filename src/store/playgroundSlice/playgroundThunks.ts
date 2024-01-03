@@ -13,9 +13,34 @@ export const getGraphiqlData = createAsyncThunk<
   { state: RootState }
 >('playground/getGraphiqlData', async (_arg, { getState }) => {
   const state = getState();
+  let headers;
+  let variables;
+
+  try {
+    const variblesValue = state.playground.variables.trim();
+    if (variblesValue) {
+      variables = JSON.parse(variblesValue);
+    }
+  } catch (error) {
+    if (error instanceof Error)
+      return { 'Variables are invalid JSON': error.message };
+  }
+
+  try {
+    const hesdersValue = state.playground.headers.trim();
+    if (hesdersValue) {
+      headers = JSON.parse(hesdersValue);
+    }
+  } catch (error) {
+    if (error instanceof Error)
+      return { 'Headers are invalid JSON': error.message };
+  }
+
   const response = await graphiqlApi.baseQuery({
     url: state.playground.graphiqlApiUrl,
     data: state.playground.editorValue,
+    headers: headers,
+    variables: variables,
   });
   return response;
 });
