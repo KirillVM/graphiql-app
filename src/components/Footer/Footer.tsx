@@ -1,9 +1,11 @@
 import rss_logo from '@assets/icons/rss-logo.svg';
 import github_logo from '@assets/icons/github.svg';
 import styles from './Footer.module.scss';
-import { GITHUB_USERS } from '@src/constants/developers';
+import { useLocalization } from '@src/hooks/useLocalization';
 
 const Footer = () => {
+  const { localizationData } = useLocalization();
+  const { developers } = localizationData;
   return (
     <footer data-testid="footer">
       <div className={styles.container}>
@@ -12,11 +14,11 @@ const Footer = () => {
         </a>
         <p className={styles.year}>2024</p>
         <div className={styles.githubs}>
-          {GITHUB_USERS.map((developer) => (
+          {developers.map((developer) => (
             <a
-              key={developer}
+              key={developer.github}
               target="_blank"
-              href={`https://github.com/${developer}`}
+              href={`https://github.com/${developer.github}`}
               rel="noreferrer"
             >
               <img src={github_logo} alt="Github icon" />

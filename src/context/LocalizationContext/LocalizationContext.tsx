@@ -16,13 +16,16 @@ export const LocalizationContext = createContext<LocalizationContexValue>(
 export const LocalizationProvider = ({
   children,
 }: LocalizationContextProps) => {
-  const [activeLang, setActiveLang] = useState<LocalizationKey>('en');
+  const [activeLang, setActiveLang] = useState<LocalizationKey>(
+    (localStorage.getItem('language') as LocalizationKey) || 'en'
+  );
 
   const [localizationData, setLocalizationData] = useState<LocalizationData>(
-    localization['en']
+    localization[activeLang]
   );
 
   useEffect(() => {
+    localStorage.setItem('language', activeLang);
     setLocalizationData(localization[activeLang]);
   }, [activeLang]);
 
