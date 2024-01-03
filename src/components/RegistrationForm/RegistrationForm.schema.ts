@@ -1,35 +1,23 @@
 import { object, ref, string } from 'yup';
 import { VALIDATION_RULES_REG_EXP } from './validationRules';
 
-const requeredMessage = 'Field is requered';
+const requeredMessage = 'requered';
 
 const registrationFormSchema = object().shape({
   email: string()
     .required(requeredMessage)
-    .email('Incorrect email')
-    .matches(VALIDATION_RULES_REG_EXP.email, 'Incorrect email'),
+    .email('email')
+    .matches(VALIDATION_RULES_REG_EXP.email, 'email'),
   password: string()
     .required(requeredMessage)
-    .matches(
-      VALIDATION_RULES_REG_EXP.oneLowercaseChar,
-      'Should contain at least one lowercase character'
-    )
-    .matches(
-      VALIDATION_RULES_REG_EXP.oneUppercaseChar,
-      'Should contain at least one uppercase character'
-    )
-    .matches(
-      VALIDATION_RULES_REG_EXP.oneNumber,
-      'Should contain at least one number'
-    )
-    .matches(
-      VALIDATION_RULES_REG_EXP.oneSpecialChar,
-      'Should contain at least one special character'
-    )
-    .min(8, 'Yuor password too short'),
+    .matches(VALIDATION_RULES_REG_EXP.oneLowercaseChar, 'oneLowercaseChar')
+    .matches(VALIDATION_RULES_REG_EXP.oneUppercaseChar, 'oneUppercaseChar')
+    .matches(VALIDATION_RULES_REG_EXP.oneNumber, 'oneNumber')
+    .matches(VALIDATION_RULES_REG_EXP.oneSpecialChar, 'oneSpecialChar')
+    .min(8, 'shortPassword'),
   confirmPassword: string()
     .required(requeredMessage)
-    .oneOf([ref('password')], `You password don't match`),
+    .oneOf([ref('password')], 'confirmPassword'),
 });
 
 export default registrationFormSchema;

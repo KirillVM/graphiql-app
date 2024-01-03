@@ -6,11 +6,15 @@ import checkSVG from '@assets/icons/check.svg';
 import eyeSVG from '@assets/icons/eye.svg';
 import eyeHideSVG from '@assets/icons/eye-hide.svg';
 import { useState } from 'react';
+import { useLocalization } from '@src/hooks/useLocalization';
 
 const FormInput = (formInputProps: FormInputProps): JSX.Element => {
   const { type, errorName, label } = formInputProps;
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [onFocus, setOnFocus] = useState<boolean>(false);
+
+  const { localizationData } = useLocalization();
+  const { validationMessage } = localizationData;
 
   const onFocusHandler = () => setOnFocus(true);
   const onBlurHandler = () => setOnFocus(false);
@@ -96,7 +100,9 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
         </div>
       )}
       {isInvalid && typeof isInvalid.message == 'string' && isDirty ? (
-        <p className={clsx(classes.error)}>{isInvalid.message}</p>
+        <p className={clsx(classes.error)}>
+          {(validationMessage as Record<string, string>)[isInvalid.message]}
+        </p>
       ) : (
         <p className={clsx(classes.error)}> </p>
       )}

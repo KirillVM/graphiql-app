@@ -141,7 +141,14 @@ export const localization = {
     ],
 
     validationMessage: {
-      lowercaseChar: 'Should contain at least one lowercase character',
+      requered: 'Field is requered',
+      email: 'Incorrect email',
+      oneLowercaseChar: 'Should contain at least one lowercase character',
+      oneUppercaseChar: 'Should contain at least one uppercase character',
+      oneNumber: 'Should contain at least one number',
+      oneSpecialChar: 'Should contain at least one special character',
+      shortPassword: 'Your password too short',
+      confirmPassword: `You password don't match`,
     },
   },
 
@@ -289,7 +296,14 @@ export const localization = {
     ],
 
     validationMessage: {
-      lowercaseChar: 'Should contain at least one lowercase character',
+      requered: 'Поле обязательно для заполнения',
+      email: 'Некорректный имейл',
+      oneLowercaseChar: 'Введите хотя бы один символ в нижнем регистре',
+      oneUppercaseChar: 'Введите хотя бы один символ в верхнем регистре',
+      oneNumber: 'Введите хотя бы одну цифру',
+      oneSpecialChar: 'Введите хотя бы один служебный символ',
+      shortPassword: 'Ваш пароль слишком короткий',
+      confirmPassword: `Пороли не совпадают`,
     },
   },
 };
