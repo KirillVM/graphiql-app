@@ -18,7 +18,7 @@ const LazyDocumentation = lazy(
 const GraphiqlPage = () => {
   const { isSignIn, setIsSignIn } = useAuth();
   const { localizationData } = useLocalization();
-  const { toastMessages } = localizationData;
+  const { toastMessages, grahpiql } = localizationData;
   const [showDocs, setShowDocs] = useState(false);
 
   const handleClick = () => {
@@ -45,7 +45,7 @@ const GraphiqlPage = () => {
                 <button className={styles['docs-button']} onClick={handleClick}>
                   <img src={docs} alt="Docs" />
                 </button>
-                <h3>DOCS</h3>
+                <h3>{grahpiql.docs}</h3>
               </div>
             ) : (
               <button className={styles['docs-button']} onClick={handleClick}>

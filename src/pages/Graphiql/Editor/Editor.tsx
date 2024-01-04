@@ -6,8 +6,12 @@ import { setEditorValue } from '../../../store/playgroundSlice/playgroundSlice';
 import { editorValueSelector } from '../../../store/playgroundSlice/playgroundSelectors';
 import { getGraphiqlData } from '../../../store/playgroundSlice/playgroundThunks';
 import styles from './Editor.module.scss';
+import { useLocalization } from '@src/hooks/useLocalization';
 
 const Editor = () => {
+  const { localizationData } = useLocalization();
+  const { grahpiql } = localizationData;
+
   const value = useAppSelector(editorValueSelector);
   const dispatch = useAppDispatch();
 
@@ -24,7 +28,7 @@ const Editor = () => {
       <div className={styles.codemirror_editor}>
         <CodeMirror
           value={value}
-          placeholder={'# Welcome to GraphiQL'}
+          placeholder={grahpiql.editorPlaceholder}
           height="500px"
           theme={editorTheme}
           extensions={[graphql()]}

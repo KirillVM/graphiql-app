@@ -33,6 +33,7 @@ export const localization = {
         (Russian and English).`,
       ],
     },
+
     educationalProgram: {
       header: 'Our educational program',
       paragraphs: [
@@ -61,6 +62,7 @@ export const localization = {
         successful career.`,
       ],
     },
+
     developerCard: {
       headerBiography: `Biography:`,
       headerContribution: `Contribution:`,
@@ -68,6 +70,7 @@ export const localization = {
       showDetailsButton: 'Show details',
       hideDetailsButton: 'Hide details',
     },
+
     welcomePage: {
       headerWelcomePage: `Welcome Page`,
       headerOurTeam: `Our team`,
@@ -150,6 +153,11 @@ export const localization = {
       shortPassword: 'Your password too short',
       confirmPassword: `You password don't match`,
     },
+
+    grahpiql: {
+      docs: 'DOCS',
+      editorPlaceholder: '# Welcome to GraphiQL',
+    },
   },
 
   //Russian
@@ -186,6 +194,7 @@ export const localization = {
         языках (русский и английский)`,
       ],
     },
+
     educationalProgram: {
       header: 'Наша образовательная программа',
       paragraphs: [
@@ -253,7 +262,7 @@ export const localization = {
     },
 
     form: {
-      emailLabel: 'Имейл',
+      emailLabel: 'Электронная почта',
       passwordLabel: 'Пароль',
       confirmPasswordLabel: 'Подтвердите пароль',
       submitButton: 'Отправить',
@@ -304,6 +313,11 @@ export const localization = {
       oneSpecialChar: 'Введите хотя бы один служебный символ',
       shortPassword: 'Ваш пароль слишком короткий',
       confirmPassword: `Пороли не совпадают`,
+    },
+
+    grahpiql: {
+      docs: 'ДОКА',
+      editorPlaceholder: '# Добро пожаловать в GraphiQL',
     },
   },
 };
