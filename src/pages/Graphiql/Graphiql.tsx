@@ -63,8 +63,10 @@ const GraphiqlPage = () => {
           >
             {showDocs && <LazyDocumentation url={graphiqlApiUrl} />}
           </Suspense>
-          <Editor />
-          <Viewer />
+          <div className={styles.editors}>
+            <Editor />
+            <Viewer />
+          </div>
         </div>
       </div>
       <ToastContainer className={'toast'} />

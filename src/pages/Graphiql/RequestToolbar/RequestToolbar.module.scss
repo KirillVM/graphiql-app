@@ -4,9 +4,14 @@
   width: 100%;
   background-color: $color-secondary;
   border-top: 2px solid $color-background;
+}
+
+.toolbar_inner {
+  height: 3.8rem;
+  padding: 0 3rem;
   display: flex;
   justify-content: space-between;
-  padding: 0.8rem 3rem;
+  align-items: center;
 }
 
 .titles {
@@ -67,12 +72,22 @@
   }
 }
 
-.editor {
+.editors {
   width: 100%;
   height: 0;
   transition: 0.3s ease;
 
   &.open {
-    height: 15rem;
+    height: 16rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .toolbar_inner {
+    padding: 0 2rem;
+  }
+
+  .titles {
+    column-gap: 2rem;
   }
 }

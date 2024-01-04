@@ -11,8 +11,24 @@
   line-height: 2.4rem;
 }
 
-.codemirror_editor {
+.editor_inner {
   flex-grow: 1;
+  display: flex;
+}
+
+.codemirror_editor {
+  width: 100%;
+
+  & > div {
+    height: 56rem;
+    transition: 0.3s ease;
+  }
+
+  &.shrink {
+    & > div {
+      height: 40rem;
+    }
+  }
 }
 
 .tooll_bar {
@@ -36,6 +52,24 @@
 
     &:first-child {
       @include graphiql-btn(1.5rem);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .editor_gql {
+    width: 100%;
+  }
+
+  .codemirror_editor {
+    & > div {
+      height: 30rem;
+    }
+
+    &.shrink {
+      & > div {
+        height: 30rem;
+      }
     }
   }
 }

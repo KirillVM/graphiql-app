@@ -20,17 +20,15 @@ const Viewer = () => {
   }
 
   return (
-    <div className={styles.editor_json}>
-      <CodeMirror
-        value={value}
-        height="500px"
-        theme={viewerTheme}
-        editable={false}
-        readOnly={true}
-        extensions={[json()]}
-        basicSetup={{ lineNumbers: false }}
-      />
-    </div>
+    <CodeMirror
+      className={styles.editor_json}
+      value={value}
+      theme={viewerTheme}
+      editable={false}
+      readOnly={true}
+      extensions={[json()]}
+      basicSetup={{ lineNumbers: false }}
+    />
   );
 };
 export default Viewer;

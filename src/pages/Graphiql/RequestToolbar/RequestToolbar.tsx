@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 import { sections } from '../../../constants/playground';
-import { sectionType } from './RequestToolbar.interface';
-import ReactCodeMirror from '@uiw/react-codemirror';
+import { RequestToolbarProps, sectionType } from './RequestToolbar.interface';
 import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 import {
   headersSelector,
@@ -12,22 +11,23 @@ import {
   setHeaders,
   setVariables,
 } from '../../../store/playgroundSlice/playgroundSlice';
-import { json } from '@codemirror/lang-json';
-import { editorToolbarTheme } from '../../../utils/themes/editorToolbarTheme';
 import styles from './RequestToolbar.module.scss';
+import ToolbarEditor from '../Editor/ToolbarEditor/ToolbarEditor';
 
-const RequestToolbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const RequestToolbar = ({
+  isToolbarOpen,
+  onOpenToolbar,
+}: RequestToolbarProps) => {
   const [activeSection, setActiveSection] = useState<sectionType>('variables');
   const headers = useAppSelector(headersSelector);
   const variables = useAppSelector(variablesSelector);
   const dispatch = useAppDispatch();
 
   const handleOpen = () => {
-    setIsOpen(!isOpen);
+    onOpenToolbar(!isToolbarOpen);
   };
   const handleSectionToogle = (title: sectionType) => {
-    setIsOpen(true);
+    onOpenToolbar(true);
     setActiveSection(title);
   };
   const handleVariablesChange = (value: string) => {
@@ -40,7 +40,7 @@ const RequestToolbar = () => {
   const titles = sections.map((title) => (
     <div
       className={clsx(styles.title, {
-        [styles.active]: title === activeSection && isOpen,
+        [styles.active]: title === activeSection && isToolbarOpen,
       })}
       key={title}
       onClick={() => handleSectionToogle(title)}
@@ -50,40 +50,28 @@ const RequestToolbar = () => {
   ));
 
   return (
-    <>
-      <div className={styles.toolbar}>
+    <div className={styles.toolbar}>
+      <div className={styles.toolbar_inner}>
         <div className={styles.titles}>{...titles}</div>
         <div
           className={clsx(styles.toggle_btn, {
-            [styles.open]: isOpen,
+            [styles.open]: isToolbarOpen,
           })}
           onClick={handleOpen}
         ></div>
       </div>
       <div
-        className={clsx(styles.editor, {
-          [styles.open]: isOpen,
+        className={clsx(styles.editors, {
+          [styles.open]: isToolbarOpen,
         })}
       >
         {activeSection === 'variables' ? (
-          <ReactCodeMirror
-            height="150px"
-            value={variables}
-            extensions={[json()]}
-            onChange={handleVariablesChange}
-            theme={editorToolbarTheme}
-          />
+          <ToolbarEditor value={variables} onChange={handleVariablesChange} />
         ) : (
-          <ReactCodeMirror
-            height="150px"
-            value={headers}
-            extensions={[json()]}
-            onChange={handleHeadersChange}
-            theme={editorToolbarTheme}
-          />
+          <ToolbarEditor value={headers} onChange={handleHeadersChange} />
         )}
       </div>
-    </>
+    </div>
   );
 };
 
