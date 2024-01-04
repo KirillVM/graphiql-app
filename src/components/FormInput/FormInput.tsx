@@ -27,6 +27,7 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
   const isInvalid = errors[errorName];
   const isDirty = dirtyFields[errorName];
   const isPasswordField = errorName === 'password';
+  const isValidValue = !(isInvalid && dirtyFields);
   return (
     <label htmlFor={errorName} className={clsx(classes.form__row)}>
       <div className={clsx(classes['name-container'])}>
@@ -99,7 +100,7 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
           )}
         </div>
       )}
-      {isInvalid && typeof isInvalid.message == 'string' && isDirty ? (
+      {!isValidValue && typeof isInvalid?.message == 'string' ? (
         <p className={clsx(classes.error)}>
           {(validationMessage as Record<string, string>)[isInvalid.message]}
         </p>

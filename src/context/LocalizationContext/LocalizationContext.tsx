@@ -25,7 +25,7 @@ export const LocalizationProvider = ({
   );
 
   useEffect(() => {
-    localStorage.setItem('language', activeLang);
+    localStorage.setItem('language', activeLang.toString());
     setLocalizationData(localization[activeLang]);
   }, [activeLang]);
 

@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import { languagesBtns } from '../../../constants/translate';
 import styles from './ButtonsLang.module.scss';
 import { useLocalization } from '@src/hooks/useLocalization';
-import { LocalizationKey } from '@src/constants/LocalizationData';
 
 const ButtonLang = ({ children, active, onChangeLang }: ButtonLangProps) => (
   <span className={clsx({ [styles.btn_active]: active })}>
@@ -26,7 +25,7 @@ const ButtonsLang = () => {
       {languagesBtns.map((l) => (
         <ButtonLang
           active={l.lang === activeLang}
-          onChangeLang={() => setActiveLang(l.lang as LocalizationKey)}
+          onChangeLang={() => setActiveLang(l.lang)}
           key={l.lang}
         >
           <img className={styles.btn_img} src={l.img} alt={l.lang} />
