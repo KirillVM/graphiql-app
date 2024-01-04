@@ -55,3 +55,23 @@
     padding: 2rem 2.5rem 3rem;
   }
 }
+
+@mixin graphiql-btn($marginBottom: 0) {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin-bottom: $marginBottom;
+  outline: 1px solid transparent;
+  border-radius: 0.5rem;
+  height: 4rem;
+  width: 4rem;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0 1.5px $color-black;
+  }
+
+  &:active {
+    scale: 0.95;
+  }
+}
