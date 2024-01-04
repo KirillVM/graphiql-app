@@ -75,14 +75,14 @@ const Editor = () => {
             commonEditorTheme,
           ]}
         />
-      </div>
-      <div className={styles.tooll_bar}>
-        <button onClick={handleRequest}>
-          <img src={executeQueryIcon} alt="Execute Query icon" />
-        </button>
-        <button onClick={handleRequestPrettify}>
-          <img src={prettifyIcon} alt="Prettyfy icon" />
-        </button>
+        <div className={styles.tooll_bar}>
+          <button onClick={handleRequest}>
+            <img src={executeQueryIcon} alt="Execute Query icon" />
+          </button>
+          <button onClick={handleRequestPrettify}>
+            <img src={prettifyIcon} alt="Prettyfy icon" />
+          </button>
+        </div>
       </div>
       <RequestToolbar
         isToolbarOpen={isToolbarOpen}
