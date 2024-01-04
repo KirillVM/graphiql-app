@@ -12,12 +12,13 @@
 }
 
 .editor_inner {
-  flex-grow: 1;
   display: flex;
+  width: 100%;
 }
 
 .codemirror_editor {
-  width: 100%;
+  flex-grow: 1;
+  overflow: hidden;
 
   & > div {
     height: 56rem;
@@ -35,7 +36,6 @@
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  flex-shrink: 1;
   background-color: $color-secondary;
   border-left: 2px solid $color-background;
 
