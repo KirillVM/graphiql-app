@@ -17,6 +17,7 @@ import allTypesIcon from '@assets/icons/docs/all-types.svg';
 import fieldsIcon from '@assets/icons/docs/fields.svg';
 import implementsIcon from '@assets/icons/docs/implements.svg';
 import enumIcon from '@assets/icons/docs/enum.svg';
+import backIcon from '@assets/icons/docs/back.svg';
 import Section from './Section/Section';
 
 const Schema = ({ data }: SchemaData) => {
@@ -71,7 +72,7 @@ const Schema = ({ data }: SchemaData) => {
       ) : (
         <div className={styles.list}>
           <button data-testid="go-back-button" onClick={goBack}>
-            {<span>◀</span>}
+            <img src={backIcon} alt="Back" />
             {activeTypeStack.length === 1
               ? 'Docs'
               : `${activeTypeStack[activeTypeStack.length - 2]}`}
