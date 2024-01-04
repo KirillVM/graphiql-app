@@ -1,5 +1,4 @@
 @import 'normalize';
-@import 'fonts';
 @import 'placeholders';
 @import 'mixins';
 @import 'vars';
@@ -20,6 +19,18 @@ body {
   font-size: 1.6rem;
   background: $color-background;
   @extend %font-prom;
+
+  img,
+  button {
+    user-select: none;
+  }
+
+::selection {
+    background-color: $color-accent-light;
+    color: $color-black;
+    border-radius: 50px;
+    opacity: 1;
+  }
 }
 
 a {

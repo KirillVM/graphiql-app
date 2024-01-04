@@ -1,4 +1,5 @@
 @import '../../../styles/vars.scss';
+@import '../../../styles/mixins.scss';
 
 .editor_gql {
   width: 50%;
@@ -15,23 +16,12 @@
 }
 
 .tooll_bar {
+  display: flex;
+  flex-direction: column;
   padding: 1.5rem;
   flex-shrink: 1;
   background-color: $color-secondary;
   border-left: 2px solid $color-background;
-}
-
-.request_btn {
-  width: 4rem;
-  height: 4rem;
-  background-color: $color-accent-light;
-  outline: none;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   &::before {
     content: '';
@@ -41,10 +31,11 @@
     height: 1.8rem;
     transition: all 0.3s ease;
   }
+  button {
+    @include graphiql-btn;
 
-  &:hover {
-    &::before {
-      transform: scale(110%);
+    &:first-child {
+      @include graphiql-btn(1.5rem);
     }
   }
 }
