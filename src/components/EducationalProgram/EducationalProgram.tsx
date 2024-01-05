@@ -11,7 +11,7 @@ const EducationalProgram = () => {
       <div className={styles.info}>
         <h3>{educationalProgram.header}</h3>
         {educationalProgram.paragraphs.map((item, index) => (
-          <p key={index + item.length}>{item}</p>
+          <p key={`paragraph_${index}`}>{item}</p>
         ))}
         <div className={styles['rss-logo']}>
           <a target="_blank" href="https://rs.school/react/" rel="noreferrer">

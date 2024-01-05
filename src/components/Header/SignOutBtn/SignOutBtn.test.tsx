@@ -3,6 +3,18 @@ import '@testing-library/jest-dom';
 import SignOutBtn from './SignOutBtn';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+jest.mock('../../../hooks/useLocalization', () => ({
+  useLocalization: jest.fn(() => ({
+    activeLang: 'en',
+    setActiveLang: jest.fn(),
+    localizationData: {
+      sign: {
+        out: 'Sign Out',
+      },
+    },
+  })),
+}));
+
 jest.mock('../../../hooks/useAuth', () => ({
   useAuth: () => ({
     signOut: jest.fn(),
@@ -40,6 +52,29 @@ describe('SignOutBtn component', () => {
 
     waitFor(() => {
       expect(mockNavigate).toHaveBeenCalledWith('/');
+    });
+  });
+
+  it('calls signOut and navigate when button is clicked', () => {
+    const mockNavigate = jest.fn();
+    const mockSignOut = jest.fn();
+    require('react-router-dom').useNavigate.mockReturnValue(mockNavigate);
+
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={<SignOutBtn />} />
+        </Routes>
+      </BrowserRouter>
+    );
+
+    waitFor(() => {
+      fireEvent.click(screen.getByText('Sign Out'));
+    });
+
+    waitFor(() => {
+      expect(mockNavigate).toHaveBeenCalledWith('/');
+      expect(mockSignOut).toHaveBeenCalled();
     });
   });
 });

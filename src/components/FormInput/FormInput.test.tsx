@@ -3,6 +3,23 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import FormInput from './FormInput';
 import { useFormContext } from 'react-hook-form';
 
+jest.mock('@src/hooks/useLocalization', () => ({
+  useLocalization: jest.fn(() => ({
+    localizationData: {
+      validationMessage: {
+        requered: 'This field is required',
+        email: 'Invalid email address',
+        oneLowercaseChar: 'At least one lowercase character is required',
+        oneUppercaseChar: 'At least one uppercase character is required',
+        oneNumber: 'At least one number is required',
+        oneSpecialChar: 'At least one special character is required',
+        shortPassword: 'Password must be at least 8 characters long',
+        confirmPassword: 'Passwords do not match',
+      },
+    },
+  })),
+}));
+
 jest.mock('react-hook-form', () => {
   const originalModule = jest.requireActual('react-hook-form');
 

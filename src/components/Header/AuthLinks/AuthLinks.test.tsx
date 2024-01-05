@@ -3,6 +3,19 @@ import { MemoryRouter } from 'react-router-dom';
 import AuthLinks, { AuthLink } from './AuthLinks';
 import ROUTES from '../../../router/routes';
 
+jest.mock('../../../hooks/useLocalization', () => ({
+  useLocalization: jest.fn(() => ({
+    activeLang: 'en',
+    setActiveLang: jest.fn(),
+    localizationData: {
+      sign: {
+        in: 'Sign In',
+        up: 'Sign Up',
+      },
+    },
+  })),
+}));
+
 describe('AuthLinks Component', () => {
   it('renders without errors', () => {
     render(
