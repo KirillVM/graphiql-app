@@ -12,6 +12,7 @@ import { GraphQLSchema } from 'graphql';
 import RequestToolbar from '../RequestToolbar/RequestToolbar';
 import executeQueryIcon from '@assets/icons/execute-query.svg';
 import prettifyIcon from '@assets/icons/prettify-query.svg';
+import prettifyEditorValue from './prettifyEditorValue/prettifyEditorValue';
 import styles from './Editor.module.scss';
 import { commonEditorTheme } from '../../../utils/themes/commonEditorTheme';
 import clsx from 'clsx';
@@ -36,31 +37,7 @@ const Editor = () => {
   };
 
   const handleRequestPrettify = () => {
-    const formattedValue = value
-      .replace(/}/g, '}\n')
-      .replace(/{/g, '{\n')
-      .replace(/}/g, '\n}');
-
-    const lines = formattedValue.split('\n');
-    let formattedQuery = '';
-    let level = 0;
-
-    lines.forEach((line) => {
-      const trimmedLine = line.trim();
-      const decreaseLevel = trimmedLine.startsWith('}') ? -1 : 0;
-      const increaseLevel = trimmedLine.endsWith('{') ? 1 : 0;
-
-      if (trimmedLine !== '') {
-        level += decreaseLevel;
-
-        formattedQuery +=
-          ' '.repeat(Math.max(0, level * 2)) + trimmedLine + '\n';
-
-        level += increaseLevel;
-      }
-    });
-
-    dispatch(setEditorValue(formattedQuery));
+    prettifyEditorValue(value, dispatch);
   };
 
   return (
