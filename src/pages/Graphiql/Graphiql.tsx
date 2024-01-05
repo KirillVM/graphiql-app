@@ -10,6 +10,7 @@ import docs from '@assets/icons/docs.svg';
 import Loader from '@src/components/Loader/Loader';
 import { RootState } from '@src/store/store';
 import { useSelector } from 'react-redux';
+import { useLocalization } from '@src/hooks/useLocalization';
 
 const LazyDocumentation = lazy(
   () => import('@src/components/Documentation/Documentation')
@@ -17,6 +18,8 @@ const LazyDocumentation = lazy(
 
 const GraphiqlPage = () => {
   const { isSignIn, setIsSignIn } = useAuth();
+  const { localizationData } = useLocalization();
+  const { toastMessages, grahpiql } = localizationData;
   const [showDocs, setShowDocs] = useState(false);
 
   const handleClick = () => {
@@ -26,10 +29,9 @@ const GraphiqlPage = () => {
   const graphiqlApiUrl = useSelector(
     (state: RootState) => state.playground.graphiqlApiUrl
   );
-
   useEffect(() => {
     if (isSignIn) {
-      toast.success('You succsessfuly sign in!');
+      toast.success(toastMessages.successSignIn);
       setIsSignIn(false);
     }
   }, [isSignIn, setIsSignIn]);
@@ -45,7 +47,7 @@ const GraphiqlPage = () => {
                 <button className={styles['docs-button']} onClick={handleClick}>
                   <img src={docs} alt="Docs" />
                 </button>
-                <h3>DOCS</h3>
+                <h3>{grahpiql.docs}</h3>
               </div>
             ) : (
               <button className={styles['docs-button']} onClick={handleClick}>

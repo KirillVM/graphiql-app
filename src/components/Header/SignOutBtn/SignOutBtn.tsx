@@ -5,11 +5,13 @@ import { useAuth } from '../../../hooks/useAuth';
 import ROUTES from '../../../router/routes';
 import styles from './SignOutBtn.module.scss';
 import { signOutUser } from '@src/services/firebaseApi/firebaseApi';
+import { useLocalization } from '@src/hooks/useLocalization';
 
 const SignOutBtn = () => {
   const navigate = useNavigate();
   const { signOut } = useAuth();
-
+  const { localizationData } = useLocalization();
+  const { sign } = localizationData;
   const handleClick = () => {
     signOutUser();
     signOut(() => navigate(ROUTES.ROOT));
@@ -17,7 +19,7 @@ const SignOutBtn = () => {
 
   return (
     <Button type="white" onClick={handleClick} size="medium">
-      Sign Out <img className={styles.img} src={log_out} alt="log out" />
+      {sign.out} <img className={styles.img} src={log_out} alt="log out" />
     </Button>
   );
 };

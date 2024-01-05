@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react';
-import { AuthContextValue, AuthContextProps } from './AuthContext.inerface';
+import { AuthContextValue, AuthContextProps } from './AuthContext.interface';
 
 export const AuthContext = createContext<AuthContextValue>(null!);
 

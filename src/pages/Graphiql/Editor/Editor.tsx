@@ -16,8 +16,12 @@ import styles from './Editor.module.scss';
 import { commonEditorTheme } from '../../../utils/themes/commonEditorTheme';
 import clsx from 'clsx';
 import { useState } from 'react';
+import { useLocalization } from '@src/hooks/useLocalization';
 
 const Editor = () => {
+  const { localizationData } = useLocalization();
+  const { grahpiql } = localizationData;
+
   const value = useAppSelector(editorValueSelector);
   const graphqlShema = useAppSelector(apiSchemaSelector);
   const [isToolbarOpen, setIsToolbarOpen] = useState(false);
@@ -67,7 +71,7 @@ const Editor = () => {
             [styles.shrink]: isToolbarOpen,
           })}
           value={value}
-          placeholder={'# Welcome to GraphiQL'}
+          placeholder={grahpiql.editorPlaceholder}
           theme={editorTheme}
           onChange={handleChange}
           extensions={[
