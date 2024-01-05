@@ -2,8 +2,32 @@ export default {
   preset: 'ts-jest',
   testEnvironment: 'jest-environment-jsdom',
   transform: {
-    '^.+\\.tsx?$': 'ts-jest',
-    '^.+.(js|jsx)$': 'babel-jest',
+    '^.+.tsx?$': [
+      'ts-jest',
+      {
+        diagnostics: {
+          ignoreCodes: [1343],
+        },
+        astTransformers: {
+          before: [
+            {
+              path: 'node_modules/ts-jest-mock-import-meta',
+              options: {
+                metaObjectReplacement: {
+                  env: {
+                    VITE_API_KEY: 'AIzaSyB9a9beVu604cjzrw',
+                    VITE_PROJECT_ID: 'graphiql-app-d3834',
+                    VITE_SENDER_ID: '621072740843',
+                    VITE_APP_ID: '1:621072740843:web:250dab1c4202f2278c29ae',
+                    VITE_MEASUREMENT_ID: '51PDQG09K4',
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    ],
   },
   collectCoverage: true,
   collectCoverageFrom: ['./src/**'],

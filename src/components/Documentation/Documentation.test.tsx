@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { act, render, waitFor, screen } from '@testing-library/react';
 import Documentation from './Documentation';
 
 jest.mock('@src/services/graphiqlApi/graphiqlApi', () => ({
@@ -32,9 +32,13 @@ describe('Documentation component', () => {
       json: jest.fn().mockResolvedValueOnce(mockData),
     } as unknown as Response);
 
-    const { container } = render(<Documentation url="some-url" />);
+    act(() => {
+      render(<Documentation url="some-url" />);
+    });
 
-    expect(container).toBeTruthy();
+    await waitFor(() => {
+      expect(screen.findByText('exampleField')).toBeTruthy();
+    });
 
     global.fetch = originalFetch;
   });

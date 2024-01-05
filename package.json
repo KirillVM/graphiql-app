@@ -67,7 +67,8 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
-    "vite-tsconfig-paths": "^4.2.1"
+    "vite-tsconfig-paths": "^4.2.1",
+    "ts-jest-mock-import-meta": "^1.1.0"
   },
   "lint-staged": {
     "src/*.{js,ts,jsx,tsx}": [
