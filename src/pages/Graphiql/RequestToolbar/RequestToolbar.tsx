@@ -55,10 +55,11 @@ const RequestToolbar = ({
   );
 
   return (
-    <div className={styles.toolbar}>
+    <div data-testid="request-toolbar" className={styles.toolbar}>
       <div className={styles.toolbar_inner}>
         <div className={styles.titles}>{...titles}</div>
         <div
+          data-testid="toggle-button"
           className={clsx(styles.toggle_btn, {
             [styles.open]: isToolbarOpen,
           })}
