@@ -19,8 +19,12 @@ import implementsIcon from '@assets/icons/docs/implements.svg';
 import enumIcon from '@assets/icons/docs/enum.svg';
 import backIcon from '@assets/icons/docs/back.svg';
 import Section from './Section/Section';
+import { useLocalization } from '@src/hooks/useLocalization';
 
 const Schema = ({ data }: SchemaData) => {
+  const { localizationData } = useLocalization();
+  const { documentationSchema } = localizationData;
+
   const schema = data.__schema;
   const [activeTypeStack, setActiveTypeStack] = useState<string[]>([]);
 
@@ -51,7 +55,7 @@ const Schema = ({ data }: SchemaData) => {
           <Section
             classNameHead={styles.head}
             icon={rootIcon}
-            title="Root Types"
+            title={documentationSchema.rootTypesTitle}
             setActiveType={setActiveType}
           >
             <QueryType
@@ -63,7 +67,7 @@ const Schema = ({ data }: SchemaData) => {
           <Section
             classNameHead={styles.head}
             icon={allTypesIcon}
-            title="All Schema Types"
+            title={documentationSchema.allTypesTitle}
             setActiveType={setActiveType}
           >
             <Types types={schema.types} setActiveType={setActiveType} />
@@ -74,8 +78,8 @@ const Schema = ({ data }: SchemaData) => {
           <button data-testid="go-back-button" onClick={goBack}>
             <img src={backIcon} alt="Back" />
             {activeTypeStack.length === 1
-              ? 'Docs'
-              : `${activeTypeStack[activeTypeStack.length - 2]}`}
+              ? documentationSchema.docs
+              : activeTypeStack[activeTypeStack.length - 2]}
           </button>
 
           <Type
@@ -83,7 +87,7 @@ const Schema = ({ data }: SchemaData) => {
             description={
               activeTypeData.description
                 ? activeTypeData.description
-                : 'No description'
+                : documentationSchema.noDescription
             }
           />
 
@@ -92,7 +96,7 @@ const Schema = ({ data }: SchemaData) => {
               <Section
                 classNameHead={styles.head}
                 icon={implementsIcon}
-                title="Implements"
+                title={documentationSchema.implementsTitle}
                 setActiveType={setActiveType}
               >
                 <ul className={styles.interface}>
@@ -113,7 +117,7 @@ const Schema = ({ data }: SchemaData) => {
             <Section
               classNameHead={styles.head}
               icon={enumIcon}
-              title="Enum Values"
+              title={documentationSchema.enumValuesTitle}
               setActiveType={setActiveType}
             >
               <ul>
@@ -128,7 +132,7 @@ const Schema = ({ data }: SchemaData) => {
             <Section
               classNameHead={styles.head}
               icon={fieldsIcon}
-              title="Fields"
+              title={documentationSchema.fieldsTitle}
               setActiveType={setActiveType}
             >
               <ul>
@@ -150,7 +154,7 @@ const Schema = ({ data }: SchemaData) => {
             <Section
               classNameHead={styles.head}
               icon={allTypesIcon}
-              title="Implementations"
+              title={documentationSchema.implementationsTitle}
               setActiveType={setActiveType}
             >
               <Types

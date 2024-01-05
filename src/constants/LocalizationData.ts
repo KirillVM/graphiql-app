@@ -158,6 +158,17 @@ export const localization = {
       docs: 'DOCS',
       editorPlaceholder: '# Welcome to GraphiQL',
     },
+
+    documentationSchema: {
+      docs: 'Docs',
+      noDescription: 'No description',
+      rootTypesTitle: 'Root Types',
+      allTypesTitle: 'All Schema Types',
+      implementsTitle: 'Implements',
+      enumValuesTitle: 'Enum Values',
+      fieldsTitle: 'Fields',
+      implementationsTitle: 'Implementations',
+    },
   },
 
   //Russian
@@ -318,6 +329,17 @@ export const localization = {
     grahpiql: {
       docs: 'ДОКА',
       editorPlaceholder: '# Добро пожаловать в GraphiQL',
+    },
+
+    documentationSchema: {
+      docs: 'Дока',
+      noDescription: 'Нет описания',
+      rootTypesTitle: 'Ключевые типы',
+      allTypesTitle: 'Все типы',
+      implementsTitle: 'Интерфейсы',
+      enumValuesTitle: 'Перечисление',
+      fieldsTitle: 'Поля',
+      implementationsTitle: 'Объекты',
     },
   },
 };
