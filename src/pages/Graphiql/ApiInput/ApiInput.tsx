@@ -9,16 +9,20 @@ import { setGraphiqlApiUrl } from '../../../store/playgroundSlice/playgroundSlic
 import { getApiShema } from '../../../store/playgroundSlice/playgroundThunks';
 import { ToastContainer, toast } from 'react-toastify';
 import styles from './ApiInput.module.scss';
+import { useLocalization } from '@src/hooks/useLocalization';
 
 const ApiInput = () => {
+  const { localizationData } = useLocalization();
+  const { apiInput, toastMessages } = localizationData;
+
   const graphiqlApiUrl = useAppSelector(graphiqlApiUrlSelector);
   const invalidApi = useAppSelector(invalidApiSelector);
   const [value, setValue] = useState(graphiqlApiUrl);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    invalidApi && toast.error('The endpoint is ivalind');
-  }, [invalidApi]);
+    invalidApi && toast.error(toastMessages.invalidEndpoint);
+  }, [invalidApi, toastMessages.invalidEndpoint]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
@@ -39,11 +43,11 @@ const ApiInput = () => {
         <input
           className={styles.input}
           value={value}
-          placeholder="Your Endpoint"
+          placeholder={apiInput.yourEndpoint}
           onChange={handleChange}
         />
         <CustomButton type="black" size="large">
-          Send
+          {apiInput.sendButtonText}
         </CustomButton>
       </form>
       <ToastContainer className={'toast'} />

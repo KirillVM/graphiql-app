@@ -5,12 +5,13 @@ import { AuthProvider } from './context/AuthContext/AuthContext';
 import { LocalizationProvider } from './context/LocalizationContext/LocalizationContext';
 import styles from './App.module.scss';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
+import ErrorBoundaryFallback from './pages/ErrorBoundaryFallback/ErrorBoundaryFallback';
 
 const App = () => {
   return (
-    <ErrorBoundary>
-      <LocalizationProvider>
-        <AuthProvider>
+    <LocalizationProvider>
+      <AuthProvider>
+        <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
           <div className={styles.app}>
             <Header />
             <main className={styles.main}>
@@ -18,9 +19,9 @@ const App = () => {
             </main>
             <Footer />
           </div>
-        </AuthProvider>
-      </LocalizationProvider>
-    </ErrorBoundary>
+        </ErrorBoundary>
+      </AuthProvider>
+    </LocalizationProvider>
   );
 };
 

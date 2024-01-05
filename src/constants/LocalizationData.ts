@@ -5,6 +5,11 @@ import svetlana from '../assets/images/svetlana.png';
 export const localization = {
   //English
   en: {
+    welcomePage: {
+      headerWelcomePage: `Welcome Page`,
+      headerOurTeam: `Our team`,
+    },
+
     aboutProject: {
       header: 'About project',
       taskLink: 'assignment',
@@ -71,43 +76,6 @@ export const localization = {
       hideDetailsButton: 'Hide details',
     },
 
-    welcomePage: {
-      headerWelcomePage: `Welcome Page`,
-      headerOurTeam: `Our team`,
-    },
-
-    sign: {
-      out: 'Sign Out',
-      in: 'Sign In',
-      up: 'Sign Up',
-    },
-
-    headerLinks: {
-      '/': 'GraphiQL',
-      graphiql: 'Welcome page',
-    },
-
-    toastMessages: {
-      successSignIn: 'You succsessfuly sign in!',
-    },
-
-    notFoundPage: {
-      message: 'There are no playground for graphQL requests here',
-      linkToWelcome: 'Go to welcome page',
-    },
-
-    account: {
-      have: `Have an account? `,
-      notHave: `Don't have an account? `,
-    },
-
-    form: {
-      emailLabel: 'Email',
-      passwordLabel: 'Password',
-      confirmPasswordLabel: 'Confirm password',
-      submitButton: 'Submit',
-    },
-
     developers: [
       {
         id: 1,
@@ -143,6 +111,39 @@ export const localization = {
       },
     ],
 
+    sign: {
+      out: 'Sign Out',
+      in: 'Sign In',
+      up: 'Sign Up',
+    },
+
+    headerLinks: {
+      '/': 'GraphiQL',
+      graphiql: 'Welcome page',
+    },
+
+    toastMessages: {
+      successSignIn: 'You succsessfuly sign in!',
+      invalidEndpoint: 'The endpoint is invalind',
+    },
+
+    notFoundPage: {
+      message: 'There are no playground for graphQL requests here',
+      linkToWelcome: 'Go to welcome page',
+    },
+
+    account: {
+      have: `Have an account? `,
+      notHave: `Don't have an account? `,
+    },
+
+    form: {
+      emailLabel: 'Email',
+      passwordLabel: 'Password',
+      confirmPasswordLabel: 'Confirm password',
+      submitButton: 'Submit',
+    },
+
     validationMessage: {
       requered: 'Field is requered',
       email: 'Incorrect email',
@@ -169,10 +170,20 @@ export const localization = {
       fieldsTitle: 'Fields',
       implementationsTitle: 'Implementations',
     },
+
+    apiInput: {
+      yourEndpoint: 'Your Endpoint',
+      sendButtonText: 'Send',
+    },
   },
 
   //Russian
   ru: {
+    welcomePage: {
+      headerWelcomePage: `Добро пожаловать`,
+      headerOurTeam: `Наша команда`,
+    },
+
     aboutProject: {
       header: 'О проекте',
       taskLink: 'заданием',
@@ -242,43 +253,6 @@ export const localization = {
       hideDetailsButton: 'Скрыть детали',
     },
 
-    welcomePage: {
-      headerWelcomePage: `Добро пожаловать`,
-      headerOurTeam: `Наша команда`,
-    },
-
-    sign: {
-      out: 'Выйти',
-      in: 'Войти',
-      up: 'Зарегистрироваться',
-    },
-
-    headerLinks: {
-      '/': 'GraphiQL',
-      graphiql: 'Добро пожаловать',
-    },
-
-    toastMessages: {
-      successSignIn: 'Вы успешно вошли в систему!',
-    },
-
-    notFoundPage: {
-      message: 'Здесь нет площадки для запросов GraphQL',
-      linkToWelcome: 'Перейти на страницу добро пожаловать',
-    },
-
-    account: {
-      have: `Уже есть учетная запись? `,
-      notHave: `Нет учетной записи? `,
-    },
-
-    form: {
-      emailLabel: 'Электронная почта',
-      passwordLabel: 'Пароль',
-      confirmPasswordLabel: 'Подтвердите пароль',
-      submitButton: 'Отправить',
-    },
-
     developers: [
       {
         id: 1,
@@ -315,6 +289,39 @@ export const localization = {
       },
     ],
 
+    sign: {
+      out: 'Выйти',
+      in: 'Войти',
+      up: 'Зарегистрироваться',
+    },
+
+    headerLinks: {
+      '/': 'GraphiQL',
+      graphiql: 'Добро пожаловать',
+    },
+
+    toastMessages: {
+      successSignIn: 'Вы успешно вошли в систему!',
+      invalidEndpoint: 'Некорректный адрес',
+    },
+
+    notFoundPage: {
+      message: 'Здесь нет площадки для запросов GraphQL',
+      linkToWelcome: 'Перейти на страницу добро пожаловать',
+    },
+
+    account: {
+      have: `Уже есть учетная запись? `,
+      notHave: `Нет учетной записи? `,
+    },
+
+    form: {
+      emailLabel: 'Электронная почта',
+      passwordLabel: 'Пароль',
+      confirmPasswordLabel: 'Подтвердите пароль',
+      submitButton: 'Отправить',
+    },
+
     validationMessage: {
       requered: 'Поле обязательно для заполнения',
       email: 'Некорректный имейл',
@@ -340,6 +347,11 @@ export const localization = {
       enumValuesTitle: 'Перечисление',
       fieldsTitle: 'Поля',
       implementationsTitle: 'Объекты',
+    },
+
+    apiInput: {
+      yourEndpoint: 'Ваш адрес',
+      sendButtonText: 'Отправить',
     },
   },
 };

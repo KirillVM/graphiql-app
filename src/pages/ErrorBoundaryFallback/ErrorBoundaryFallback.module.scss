@@ -1,0 +1,84 @@
+@import '../../styles/vars';
+@import '../../styles/mixins';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $color-accent-dark;
+  width: 100%;
+  color: $color-secondary;
+  overflow: hidden;
+}
+
+.container {
+  width: 126.3rem;
+  min-height: 100vh;
+  background-color: $color-accent-dark;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 13% 0rem 27% 0.1rem;
+  row-gap: 3rem;
+  font-size: 4.8rem;
+  position: relative;
+  color: $color-secondary;
+  color: $color-secondary;
+  z-index: 2;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    width: 126.3rem;
+    min-height: 100vh;
+    background-color: $color-accent-dark;
+    background-image: url('../../assets/images/error-boundary.svg');
+    background-repeat: no-repeat;
+    top: 0;
+    display: block;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+h1 {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+}
+
+
+@media (max-width: 1023px) {
+.wrapper {
+  h1 {
+    font-size: 4.8rem;
+  }
+}
+}
+
+@media (max-width: 767px) {
+.wrapper {
+  h1 {
+    font-size: 3.2rem;
+  }
+}
+}
+
+@media (max-width: 479px) {
+.wrapper {
+  padding: 1rem 2rem 7rem 2rem;
+  row-gap: 4rem;
+  h1 {
+    font-size: 2.2rem;
+  }
+}
+}
+
+@media (max-width: 320px) {
+  .wrapper {
+    h1 {
+      font-size: 2rem;
+    }
+  }
+}

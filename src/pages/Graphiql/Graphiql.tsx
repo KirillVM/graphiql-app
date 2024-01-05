@@ -35,7 +35,6 @@ const GraphiqlPage = () => {
       setIsSignIn(false);
     }
   }, [isSignIn, setIsSignIn, toastMessages.successSignIn]);
-
   return (
     <>
       <div className={styles.container}>
