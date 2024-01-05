@@ -332,9 +332,9 @@ export const localization = {
     },
 
     documentationSchema: {
-      docs: 'Дока',
+      docs: 'Документация',
       noDescription: 'Нет описания',
-      rootTypesTitle: 'Ключевые типы',
+      rootTypesTitle: 'Основные типы',
       allTypesTitle: 'Все типы',
       implementsTitle: 'Интерфейсы',
       enumValuesTitle: 'Перечисление',
