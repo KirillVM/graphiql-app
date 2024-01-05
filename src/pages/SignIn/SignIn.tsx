@@ -29,7 +29,7 @@ const SignInPage = () => {
   }
 
   return (
-    <div className={clsx(classes.wrapper)}>
+    <div data-testid="signin-page" className={clsx(classes.wrapper)}>
       <div className={clsx(classes.header)}>
         <h1>{sign.in}</h1>
         <p className={clsx(classes.header__question)}>
