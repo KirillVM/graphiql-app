@@ -34,7 +34,7 @@ const GraphiqlPage = () => {
       toast.success(toastMessages.successSignIn);
       setIsSignIn(false);
     }
-  }, [isSignIn, setIsSignIn]);
+  }, [isSignIn, setIsSignIn, toastMessages.successSignIn]);
 
   return (
     <>
