@@ -5,6 +5,7 @@ import { useAuth } from '@src/hooks/useAuth';
 import { Suspense, lazy, useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ApiInput from './ApiInput/ApiInput';
 import docs from '@assets/icons/docs.svg';
 import Loader from '@src/components/Loader/Loader';
 import { RootState } from '@src/store/store';
@@ -38,6 +39,7 @@ const GraphiqlPage = () => {
   return (
     <>
       <div className={styles.container}>
+        <ApiInput />
         <div className={styles.playground}>
           {graphiqlApiUrl &&
             (showDocs ? (
@@ -63,8 +65,10 @@ const GraphiqlPage = () => {
           >
             {showDocs && <LazyDocumentation url={graphiqlApiUrl} />}
           </Suspense>
-          <Editor />
-          <Viewer />
+          <div className={styles.editors}>
+            <Editor />
+            <Viewer />
+          </div>
         </div>
       </div>
       <ToastContainer className={'toast'} />

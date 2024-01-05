@@ -6,25 +6,70 @@
   border-radius: 0.5rem;
   overflow: hidden;
   display: flex;
+  flex-wrap: wrap;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+.editor_inner {
+  display: flex;
+  width: 100%;
 }
 
 .codemirror_editor {
   flex-grow: 1;
+  overflow: hidden;
+
+  & > div {
+    height: 56rem;
+    transition: 0.3s ease;
+  }
+
+  &.shrink {
+    & > div {
+      height: 40rem;
+    }
+  }
 }
 
 .tooll_bar {
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  flex-shrink: 1;
   background-color: $color-secondary;
   border-left: 2px solid $color-background;
 
+  &::before {
+    content: '';
+    background-image: url(./../../../assets/icons/play.svg);
+    background-repeat: no-repeat;
+    width: 1.4rem;
+    height: 1.8rem;
+    transition: all 0.3s ease;
+  }
   button {
     @include graphiql-btn;
 
     &:first-child {
       @include graphiql-btn(1.5rem);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .editor_gql {
+    width: 100%;
+  }
+
+  .codemirror_editor {
+    & > div {
+      height: 30rem;
+    }
+
+    &.shrink {
+      & > div {
+        height: 30rem;
+      }
     }
   }
 }

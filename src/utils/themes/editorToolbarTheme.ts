@@ -1,7 +1,7 @@
 import { createTheme } from '@uiw/codemirror-themes';
 import { tags as t } from '@lezer/highlight';
 
-export const editorTheme = createTheme({
+export const editorToolbarTheme = createTheme({
   theme: 'light',
   settings: {
     background: '#ffffff',
@@ -11,7 +11,7 @@ export const editorTheme = createTheme({
     selection: '#f5f5f5',
     selectionMatch: '#f5f5f5',
     lineHighlight: 'transparent',
-    gutterBackground: '#fff42c',
+    gutterBackground: 'transparent',
     gutterForeground: '#000000',
     gutterBorder: 'transparent',
     fontFamily: 'Montserrat',
