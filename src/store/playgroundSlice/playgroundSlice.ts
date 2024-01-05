@@ -1,12 +1,17 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { PlaygroundState } from './playgroundSlice.interface';
-import { getGraphiqlData } from './playgroundThunks';
+import { getGraphiqlData, getApiShema } from './playgroundThunks';
+import { GraphQLSchema } from 'graphql';
 
 const initialState: PlaygroundState = {
   editorValue: '',
-  graphiqlApiUrl: 'https://rickandmortyapi.com/graphql',
+  graphiqlApiUrl: '',
   isLoading: false,
   responseData: null,
+  apiSchema: undefined,
+  invalidApi: false,
+  headers: '',
+  variables: '',
 };
 
 export const playgroundSlice = createSlice({
@@ -15,6 +20,18 @@ export const playgroundSlice = createSlice({
   reducers: {
     setEditorValue: (state, action: PayloadAction<string>) => {
       state.editorValue = action.payload;
+    },
+    setGraphiqlApiUrl: (state, action: PayloadAction<string>) => {
+      state.graphiqlApiUrl = action.payload;
+      state.responseData = null;
+      state.apiSchema = undefined;
+      state.invalidApi = false;
+    },
+    setHeaders: (state, action: PayloadAction<string>) => {
+      state.headers = action.payload;
+    },
+    setVariables: (state, action: PayloadAction<string>) => {
+      state.variables = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -25,8 +42,20 @@ export const playgroundSlice = createSlice({
       state.isLoading = false;
       state.responseData = action.payload;
     });
+    builder.addCase(
+      getApiShema.fulfilled,
+      (state, action: PayloadAction<GraphQLSchema>) => {
+        state.apiSchema = action.payload;
+        state.invalidApi = false;
+      }
+    );
+    builder.addCase(getApiShema.rejected, (state) => {
+      state.apiSchema = undefined;
+      state.invalidApi = true;
+    });
   },
 });
 
-export const { setEditorValue } = playgroundSlice.actions;
+export const { setEditorValue, setGraphiqlApiUrl, setHeaders, setVariables } =
+  playgroundSlice.actions;
 export default playgroundSlice.reducer;

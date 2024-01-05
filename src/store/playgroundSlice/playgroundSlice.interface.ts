@@ -3,4 +3,8 @@ export interface PlaygroundState {
   graphiqlApiUrl: string;
   isLoading: boolean;
   responseData: object | null;
+  apiSchema: object | undefined;
+  invalidApi: boolean;
+  headers: string;
+  variables: string;
 }

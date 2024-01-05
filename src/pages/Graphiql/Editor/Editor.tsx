@@ -1,16 +1,26 @@
-import CodeMirror from '@uiw/react-codemirror';
+import ReactCodeMirror from '@uiw/react-codemirror';
 import { graphql } from 'cm6-graphql';
 import { editorTheme } from '../../../utils/themes/editorTheme';
 import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 import { setEditorValue } from '../../../store/playgroundSlice/playgroundSlice';
-import { editorValueSelector } from '../../../store/playgroundSlice/playgroundSelectors';
+import {
+  apiSchemaSelector,
+  editorValueSelector,
+} from '../../../store/playgroundSlice/playgroundSelectors';
 import { getGraphiqlData } from '../../../store/playgroundSlice/playgroundThunks';
+import { GraphQLSchema } from 'graphql';
+import RequestToolbar from '../RequestToolbar/RequestToolbar';
 import executeQueryIcon from '@assets/icons/execute-query.svg';
 import prettifyIcon from '@assets/icons/prettify-query.svg';
 import styles from './Editor.module.scss';
+import { commonEditorTheme } from '../../../utils/themes/commonEditorTheme';
+import clsx from 'clsx';
+import { useState } from 'react';
 
 const Editor = () => {
   const value = useAppSelector(editorValueSelector);
+  const graphqlShema = useAppSelector(apiSchemaSelector);
+  const [isToolbarOpen, setIsToolbarOpen] = useState(false);
   const dispatch = useAppDispatch();
 
   const handleChange = (val: string) => {
@@ -51,24 +61,33 @@ const Editor = () => {
 
   return (
     <div className={styles.editor_gql}>
-      <div className={styles.codemirror_editor}>
-        <CodeMirror
+      <div className={styles.editor_inner}>
+        <ReactCodeMirror
+          className={clsx(styles.codemirror_editor, {
+            [styles.shrink]: isToolbarOpen,
+          })}
           value={value}
           placeholder={'# Welcome to GraphiQL'}
-          height="500px"
           theme={editorTheme}
-          extensions={[graphql()]}
           onChange={handleChange}
+          extensions={[
+            graphql(graphqlShema as GraphQLSchema),
+            commonEditorTheme,
+          ]}
         />
+        <div className={styles.tooll_bar}>
+          <button onClick={handleRequest}>
+            <img src={executeQueryIcon} alt="Execute Query icon" />
+          </button>
+          <button onClick={handleRequestPrettify}>
+            <img src={prettifyIcon} alt="Prettyfy icon" />
+          </button>
+        </div>
       </div>
-      <div className={styles.tooll_bar}>
-        <button onClick={handleRequest}>
-          <img src={executeQueryIcon} alt="Execute Query icon" />
-        </button>
-        <button onClick={handleRequestPrettify}>
-          <img src={prettifyIcon} alt="Prettyfy icon" />
-        </button>
-      </div>
+      <RequestToolbar
+        isToolbarOpen={isToolbarOpen}
+        onOpenToolbar={setIsToolbarOpen}
+      />
     </div>
   );
 };

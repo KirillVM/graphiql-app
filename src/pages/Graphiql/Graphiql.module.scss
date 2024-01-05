@@ -2,7 +2,7 @@
 @import '../../styles//vars.scss';
 
 .container {
-  padding: 2rem 4rem 6rem;
+  padding: 2rem 4rem 7rem;
 }
 
 .playground {
@@ -42,6 +42,13 @@
   width: 100%;
 }
 
+.editors {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 2rem;
+}
+
 @media (max-width: 1199px) {
   .container {
     padding: 1rem 2rem 4rem;
@@ -67,5 +74,13 @@
   .loader-container {
     width: 30rem;
     margin: 24rem 0 24rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .editors {
+    flex-wrap: wrap;
+    column-gap: 0;
+    row-gap: 3rem;
   }
 }
