@@ -21,6 +21,7 @@ describe('Selectors', () => {
       invalidApi: true,
       headers: 'Content-Type',
       variables: 'value',
+      isDocsExists: false,
     },
   };
 

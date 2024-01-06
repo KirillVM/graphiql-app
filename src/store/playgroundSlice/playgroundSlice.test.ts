@@ -18,6 +18,7 @@ describe('playgroundSlice', () => {
     invalidApi: false,
     headers: '',
     variables: '',
+    isDocsExists: false,
   };
 
   it('should handle setEditorValue', () => {
@@ -26,6 +27,7 @@ describe('playgroundSlice', () => {
       setEditorValue('new editor value')
     );
     expect(nextState.editorValue).toEqual('new editor value');
+    expect(nextState.isDocsExists).toEqual(initialState.isDocsExists);
   });
 
   it('should handle setGraphiqlApiUrl', () => {
@@ -37,6 +39,7 @@ describe('playgroundSlice', () => {
     expect(nextState.responseData).toBeNull();
     expect(nextState.apiSchema).toBeUndefined();
     expect(nextState.invalidApi).toBeFalsy();
+    expect(nextState.isDocsExists).toEqual(initialState.isDocsExists);
   });
 
   it('should handle setHeaders', () => {
@@ -45,6 +48,7 @@ describe('playgroundSlice', () => {
       setHeaders('new headers')
     );
     expect(nextState.headers).toEqual('new headers');
+    expect(nextState.isDocsExists).toEqual(initialState.isDocsExists);
   });
 
   it('should handle setVariables', () => {
@@ -53,11 +57,13 @@ describe('playgroundSlice', () => {
       setVariables('new variables')
     );
     expect(nextState.variables).toEqual('new variables');
+    expect(nextState.isDocsExists).toEqual(initialState.isDocsExists);
   });
 
   it('should handle getGraphiqlData.pending', () => {
     const nextState = playgroundReducer(initialState, getGraphiqlData.pending);
     expect(nextState.isLoading).toBeTruthy();
+    expect(nextState.isDocsExists).toEqual(initialState.isDocsExists);
   });
 
   it('should handle getGraphiqlData.fulfilled', () => {
@@ -76,6 +82,7 @@ describe('playgroundSlice', () => {
 
     expect(nextState.isLoading).toBeFalsy();
     expect(nextState.responseData).toEqual(payload);
+    expect(nextState.isDocsExists).toBeTruthy();
   });
 
   it('should handle getApiShema.fulfilled', () => {
@@ -105,11 +112,13 @@ describe('playgroundSlice', () => {
 
     expect(nextState.apiSchema).toEqual(testSchema);
     expect(nextState.invalidApi).toBeFalsy();
+    expect(nextState.isDocsExists).toBeTruthy();
   });
 
   it('should handle getApiShema.rejected', () => {
     const nextState = playgroundReducer(initialState, getApiShema.rejected);
     expect(nextState.apiSchema).toBeUndefined();
     expect(nextState.invalidApi).toBeTruthy();
+    expect(nextState.isDocsExists).toBeFalsy();
   });
 });
