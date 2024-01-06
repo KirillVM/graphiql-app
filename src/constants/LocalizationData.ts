@@ -144,7 +144,7 @@ export const localization = {
       submitButton: 'Submit',
     },
 
-    validationMessage: {
+    validationErrorMessage: {
       requered: 'Field is requered',
       email: 'Incorrect email',
       oneLowercaseChar: 'Should contain at least one lowercase character',
@@ -183,6 +183,18 @@ export const localization = {
     errorBoundary: {
       header: 'SOMETHING WENT WRONG',
       reloadButtonText: 'Reload Page',
+    },
+
+    firebaseErrors: {
+      'auth/user-not-found': `User doesn't exist`,
+      'auth/internal-error': 'Internal error on server',
+      'auth/email-already-exists': 'This email already exist',
+      'auth/invalid-credentials': 'Invalid user Credentials',
+      'auth/invalid-email': 'Invalid user Email',
+      'auth/invalid-password': 'Invalid user Password',
+      'auth/network-request-failed':
+        'There are some problems with the internet connection',
+      'auth/email-already-in-use': 'User with this email already exists',
     },
   },
 
@@ -331,7 +343,7 @@ export const localization = {
       submitButton: 'Отправить',
     },
 
-    validationMessage: {
+    validationErrorMessage: {
       requered: 'Поле обязательно для заполнения',
       email: 'Некорректный имейл',
       oneLowercaseChar: 'Введите хотя бы один символ в нижнем регистре',
@@ -371,8 +383,16 @@ export const localization = {
       header: 'Что-то пошло не так',
       reloadButtonText: 'Перезагрузить страницу',
     },
+
+    firebaseErrors: {
+      'auth/user-not-found': 'Пользователь не найден',
+      'auth/internal-error': 'Внутренняя ошибка сервера',
+      'auth/email-already-exists': 'Почта уже существует',
+      'auth/invalid-credentials': 'Недействительные учетные данные',
+      'auth/invalid-email': 'Недействительная электронная почта',
+      'auth/invalid-password': 'Недействительный пароль',
+      'auth/network-request-failed': 'Отсутствует интернет соединение',
+      'auth/email-already-in-use': 'Пользователь с такой почтой уже существует',
+    },
   },
 };
-
-export type LocalizationKey = keyof typeof localization;
-export type LocalizationData = (typeof localization)[LocalizationKey];

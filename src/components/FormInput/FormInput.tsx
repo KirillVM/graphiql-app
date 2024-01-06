@@ -14,7 +14,7 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
   const [onFocus, setOnFocus] = useState<boolean>(false);
 
   const { localizationData } = useLocalization();
-  const { validationMessage } = localizationData;
+  const { validationErrorMessage } = localizationData;
 
   const onFocusHandler = () => setOnFocus(true);
   const onBlurHandler = () => setOnFocus(false);
@@ -102,7 +102,11 @@ const FormInput = (formInputProps: FormInputProps): JSX.Element => {
       )}
       {!isValidValue && typeof isInvalid?.message == 'string' ? (
         <p className={clsx(classes.error)}>
-          {(validationMessage as Record<string, string>)[isInvalid.message]}
+          {
+            (validationErrorMessage as Record<string, string>)[
+              isInvalid.message
+            ]
+          }
         </p>
       ) : (
         <p className={clsx(classes.error)}> </p>

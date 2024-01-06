@@ -25,7 +25,7 @@ const LoginForm = (): JSX.Element => {
   } = methods;
 
   const { localizationData } = useLocalization();
-  const { form } = localizationData;
+  const { form, firebaseErrors } = localizationData;
 
   const [signInWithEmailAndPassword, , loading, error] =
     useSignInWithEmailAndPassword(auth);
@@ -37,7 +37,7 @@ const LoginForm = (): JSX.Element => {
   const isError = Object.keys(errors).length > 0;
 
   useEffect(() => {
-    error && toast.error(error.message);
+    error && toast.error(firebaseErrors[error.code] || error.code);
   }, [error]);
 
   if (loading) {

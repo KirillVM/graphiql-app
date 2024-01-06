@@ -40,17 +40,19 @@ const RequestToolbar = ({
   const { localizationData } = useLocalization();
   const { requestToolbar } = localizationData;
 
-  const titles = requestToolbar.sections.map((title) => (
-    <div
-      className={clsx(styles.title, {
-        [styles.active]: title === activeSection && isToolbarOpen,
-      })}
-      key={title}
-      onClick={() => handleSectionToogle(title)}
-    >
-      {title}
-    </div>
-  ));
+  const titles: JSX.Element[] = requestToolbar.sections.map(
+    (title: string): JSX.Element => (
+      <div
+        className={clsx(styles.title, {
+          [styles.active]: title === activeSection && isToolbarOpen,
+        })}
+        key={title}
+        onClick={() => handleSectionToogle(title)}
+      >
+        {title}
+      </div>
+    )
+  );
 
   return (
     <div className={styles.toolbar}>

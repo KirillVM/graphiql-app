@@ -1,4 +1,4 @@
-interface Developer {
+export interface Developer {
   id: number;
   name: string;
   biography: string;

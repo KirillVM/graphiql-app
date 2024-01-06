@@ -29,7 +29,7 @@ const RegistrationForm = (): JSX.Element => {
   } = methods;
 
   const { localizationData } = useLocalization();
-  const { form } = localizationData;
+  const { form, firebaseErrors } = localizationData;
 
   const [createUserWithEmailAndPassword, , loading, error] =
     useCreateUserWithEmailAndPassword(auth);
@@ -43,7 +43,7 @@ const RegistrationForm = (): JSX.Element => {
   };
 
   useEffect(() => {
-    if (error) toast.error(error?.message);
+    error && toast.error(firebaseErrors[error.code] || error.code);
   }, [error]);
 
   const isDirtyFields = Object.values(dirtyFields).length < FIELDS_COUNT;
