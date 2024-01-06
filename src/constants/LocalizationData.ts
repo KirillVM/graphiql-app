@@ -175,6 +175,15 @@ export const localization = {
       yourEndpoint: 'Your Endpoint',
       sendButtonText: 'Send',
     },
+
+    requestToolbar: {
+      sections: ['variables', 'headers'],
+    },
+
+    errorBoundary: {
+      header: 'SOMETHING WENT WRONG',
+      reloadButtonText: 'Reload Page',
+    },
   },
 
   //Russian
@@ -352,6 +361,15 @@ export const localization = {
     apiInput: {
       yourEndpoint: 'Ваш адрес',
       sendButtonText: 'Отправить',
+    },
+
+    requestToolbar: {
+      sections: ['Переменные', 'Заголовки'],
+    },
+
+    errorBoundary: {
+      header: 'Что-то пошло не так',
+      reloadButtonText: 'Перезагрузить страницу',
     },
   },
 };

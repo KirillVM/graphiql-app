@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import clsx from 'clsx';
-import { sections } from '../../../constants/playground';
 import { RequestToolbarProps, sectionType } from './RequestToolbar.interface';
 import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 import {
@@ -13,6 +12,7 @@ import {
 } from '../../../store/playgroundSlice/playgroundSlice';
 import styles from './RequestToolbar.module.scss';
 import ToolbarEditor from '../Editor/ToolbarEditor/ToolbarEditor';
+import { useLocalization } from '@src/hooks/useLocalization';
 
 const RequestToolbar = ({
   isToolbarOpen,
@@ -37,7 +37,10 @@ const RequestToolbar = ({
     dispatch(setHeaders(value));
   };
 
-  const titles = sections.map((title) => (
+  const { localizationData } = useLocalization();
+  const { requestToolbar } = localizationData;
+
+  const titles = requestToolbar.sections.map((title) => (
     <div
       className={clsx(styles.title, {
         [styles.active]: title === activeSection && isToolbarOpen,
