@@ -36,13 +36,19 @@ export const getGraphiqlData = createAsyncThunk<
       return { 'Headers are invalid JSON': error.message };
   }
 
-  const response = await graphiqlApi.baseQuery({
-    url: state.playground.graphiqlApiUrl,
-    data: state.playground.editorValue,
-    headers: headers,
-    variables: variables,
-  });
-  return response;
+  try {
+    const response = await graphiqlApi.baseQuery({
+      url: state.playground.graphiqlApiUrl,
+      data: state.playground.editorValue,
+      headers: headers,
+      variables: variables,
+    });
+    return response;
+  } catch (error) {
+    if (error instanceof Error) {
+      return { 'Graphiql API request failed': error.message };
+    }
+  }
 });
 
 export const getApiShema = createAsyncThunk<GraphQLSchema, string>(

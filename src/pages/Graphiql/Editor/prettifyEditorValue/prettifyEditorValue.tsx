@@ -20,7 +20,8 @@ const prettifyEditorValue = (
 
       const isInBrackets = before === '{' || after === '}';
       return isInBrackets || offset === 0 ? match : `\n${match}`;
-    });
+    })
+    .replace(/^query\s\n/, 'query ');
 
   const lines = formattedValue.split('\n');
   let formattedQuery = '';
