@@ -7,4 +7,5 @@ export interface PlaygroundState {
   invalidApi: boolean;
   headers: string;
   variables: string;
+  isDocsExists: boolean;
 }

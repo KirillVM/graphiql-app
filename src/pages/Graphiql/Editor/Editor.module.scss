@@ -39,14 +39,6 @@
   background-color: $color-secondary;
   border-left: 2px solid $color-background;
 
-  &::before {
-    content: '';
-    background-image: url(./../../../assets/icons/play.svg);
-    background-repeat: no-repeat;
-    width: 1.4rem;
-    height: 1.8rem;
-    transition: all 0.3s ease;
-  }
   button {
     @include graphiql-btn;
 

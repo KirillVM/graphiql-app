@@ -29,18 +29,24 @@ const GraphiqlPage = () => {
   const graphiqlApiUrl = useSelector(
     (state: RootState) => state.playground.graphiqlApiUrl
   );
+
+  const isDocsExists = useSelector(
+    (state: RootState) => state.playground.isDocsExists
+  );
+
   useEffect(() => {
     if (isSignIn) {
       toast.success(toastMessages.successSignIn);
       setIsSignIn(false);
     }
   }, [isSignIn, setIsSignIn, toastMessages.successSignIn]);
+
   return (
     <>
       <div className={styles.container}>
         <ApiInput />
         <div className={styles.playground}>
-          {graphiqlApiUrl &&
+          {isDocsExists &&
             (showDocs ? (
               <div className={styles['button-container']}>
                 <button className={styles['docs-button']} onClick={handleClick}>
@@ -53,17 +59,19 @@ const GraphiqlPage = () => {
                 <img src={docs} alt="Docs" />
               </button>
             ))}
-          <Suspense
-            fallback={
-              <div className={styles['loader-container']}>
-                <div className={styles.loader}>
-                  <Loader />
+          {isDocsExists && (
+            <Suspense
+              fallback={
+                <div className={styles['loader-container']}>
+                  <div className={styles.loader}>
+                    <Loader />
+                  </div>
                 </div>
-              </div>
-            }
-          >
-            {showDocs && <LazyDocumentation url={graphiqlApiUrl} />}
-          </Suspense>
+              }
+            >
+              {showDocs && <LazyDocumentation url={graphiqlApiUrl} />}
+            </Suspense>
+          )}
           <div className={styles.editors}>
             <Editor />
             <Viewer />
