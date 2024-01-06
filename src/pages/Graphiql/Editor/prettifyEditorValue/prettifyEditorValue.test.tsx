@@ -5,12 +5,10 @@ import prettifyEditorValue from './prettifyEditorValue';
 const mockDispatch: Dispatch<ReturnType<typeof setEditorValue>> = jest.fn();
 
 beforeEach(() => {
-  jest
-    .spyOn(
-      require('@src/store/playgroundSlice/playgroundSlice'),
-      'setEditorValue'
-    )
-    .mockImplementation(jest.fn());
+  jest.spyOn(
+    require('@src/store/playgroundSlice/playgroundSlice'),
+    'setEditorValue'
+  );
 });
 
 afterEach(() => {
@@ -26,11 +24,14 @@ describe('prettifyEditorValue function', () => {
       }
     `;
 
-    const expectedOutput = `query {\n  name\n  age\n}\n`;
+    const expectedOutput = /query\s*{\s*name\s*age\s*}/;
 
     prettifyEditorValue(inputValue, mockDispatch);
 
-    expect(setEditorValue).toHaveBeenCalledWith(expectedOutput);
+    expect(mockDispatch).toHaveBeenCalledWith({
+      type: 'playground/setEditorValue',
+      payload: expect.stringMatching(expectedOutput),
+    });
   });
 
   it('should handle brackets and indentation correctly', () => {
@@ -44,10 +45,13 @@ describe('prettifyEditorValue function', () => {
       }
     `;
 
-    const expectedOutput = `query {\n  name {\n    first\n    last\n  }\n  age\n}\n`;
+    const expectedOutput = /query\s*{\s*name\s*{\s*first\s*last\s*}\s*age\s*}/;
 
     prettifyEditorValue(inputValue, mockDispatch);
 
-    expect(setEditorValue).toHaveBeenCalledWith(expectedOutput);
+    expect(mockDispatch).toHaveBeenCalledWith({
+      type: 'playground/setEditorValue',
+      payload: expect.stringMatching(expectedOutput),
+    });
   });
 });

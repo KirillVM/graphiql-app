@@ -6,10 +6,12 @@ const prettifyEditorValue = (
   dispatch: Dispatch<ReturnType<typeof setEditorValue>>
 ): void => {
   const formattedValue = value
+    .replaceAll('\n', ' ')
+    .replace(/\s+/g, ' ')
     .replace(/}/g, '}\n')
-    .replace(/{/g, '{\n')
+    .replace(/{/g, ' {\n')
     .replace(/}/g, '\n}')
-    .replace(/(\b\w+\b)/g, (match, p1, offset, string) => {
+    .replace(/(\b(?!query\b)\w+\b(?!\(|:|,|\)))/g, (match, offset, string) => {
       const before = offset > 0 ? string[offset - 1] : '';
       const after =
         offset + match.length < string.length
