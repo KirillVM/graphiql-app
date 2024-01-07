@@ -125,6 +125,7 @@ export const localization = {
       successSignIn: 'You succsessfuly sign in!',
       invalidEndpoint: 'The endpoint is invalind',
       successSignOut: 'You succsessfuly sign out!',
+      errorSignOut: 'Sign out error:',
     },
 
     notFoundPage: {
@@ -324,6 +325,7 @@ export const localization = {
       successSignIn: 'Вы успешно вошли в систему!',
       invalidEndpoint: 'Некорректный адрес',
       successSignOut: 'Вы успешно вышли из системы!',
+      errorSignOut: 'Ошибка при выходе из системы:',
     },
 
     notFoundPage: {

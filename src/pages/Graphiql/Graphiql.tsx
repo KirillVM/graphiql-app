@@ -50,7 +50,7 @@ const GraphiqlPage = () => {
   useEffect(() => {
     const isValidRefreshToken =
       user && user?.refreshToken != localStorage.getItem('refreshToken');
-    if (isValidRefreshToken || !user) {
+    if (isValidRefreshToken) {
       signOut(() => navigate(ROUTES.ROOT));
     }
   }, [user, signOut, navigate]);
