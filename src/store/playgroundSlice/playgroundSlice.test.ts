@@ -82,7 +82,6 @@ describe('playgroundSlice', () => {
 
     expect(nextState.isLoading).toBeFalsy();
     expect(nextState.responseData).toEqual(payload);
-    expect(nextState.isDocsExists).toBeTruthy();
   });
 
   it('should handle getApiShema.fulfilled', () => {

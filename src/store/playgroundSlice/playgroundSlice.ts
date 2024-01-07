@@ -42,7 +42,6 @@ export const playgroundSlice = createSlice({
     builder.addCase(getGraphiqlData.fulfilled, (state, action) => {
       state.isLoading = false;
       state.responseData = action.payload;
-      state.isDocsExists = true;
     });
     builder.addCase(
       getApiShema.fulfilled,

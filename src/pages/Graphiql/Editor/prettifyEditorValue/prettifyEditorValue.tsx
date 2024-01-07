@@ -5,26 +5,42 @@ const prettifyEditorValue = (
   value: string,
   dispatch: Dispatch<ReturnType<typeof setEditorValue>>
 ): void => {
-  const formattedValue = value
+  let formattedValue = '';
+  let isFields = false;
+  let isParams = false;
+
+  value
     .replaceAll('\n', ' ')
     .replace(/\s+/g, ' ')
-    .replace(/}/g, '}\n')
-    .replace(/{/g, ' {\n')
-    .replace(/}/g, '\n}')
-    .replace(
-      /(\b(?!query\b)\w+\b(?!\(|:|,|\)|\]))/g,
-      (match, offset, string) => {
-        const before = offset > 0 ? string[offset - 1] : '';
-        const after =
-          offset + match.length < string.length
-            ? string[offset + match.length]
-            : '';
-
-        const isInBrackets = before === '{' || after === '}';
-        return isInBrackets || offset === 0 ? match : `\n${match}`;
+    .replace(/\s+{/g, '{')
+    .replace(/\s+}/g, '}')
+    .replace(/\s+\(/g, '(')
+    .replace(/\s+\)/g, ')')
+    .split('')
+    .forEach((char) => {
+      if (char === '{') {
+        isFields = true;
+        formattedValue += isParams ? ' {' : ' {\n';
+      } else if (!isParams && char === '}') {
+        isFields = false;
+        formattedValue += '\n}\n';
+      } else if (char === '(') {
+        isParams = true;
+        formattedValue += char;
+      } else if (char === ')') {
+        isParams = false;
+        formattedValue += char;
+      } else if (!isParams && char === ' ') {
+        formattedValue += isFields ? '\n ' : ' ';
+      } else if (
+        formattedValue[formattedValue.length - 1] === '{' &&
+        char === ' '
+      ) {
+        formattedValue += '';
+      } else {
+        formattedValue += char;
       }
-    )
-    .replace(/^query\s\n/, 'query ');
+    });
 
   const lines = formattedValue.split('\n');
   let formattedQuery = '';
