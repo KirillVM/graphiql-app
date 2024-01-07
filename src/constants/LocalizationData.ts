@@ -3,7 +3,6 @@ import kirill from '../assets/images/kirill.png';
 import svetlana from '../assets/images/svetlana.png';
 
 export const localization = {
-  //English
   en: {
     welcomePage: {
       headerWelcomePage: `Welcome Page`,
@@ -198,7 +197,6 @@ export const localization = {
     },
   },
 
-  //Russian
   ru: {
     welcomePage: {
       headerWelcomePage: `Добро пожаловать`,
