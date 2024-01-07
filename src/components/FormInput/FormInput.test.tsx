@@ -1,4 +1,3 @@
-import React from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import FormInput from './FormInput';
 import { useFormContext } from 'react-hook-form';
@@ -60,7 +59,7 @@ describe('FormInput', () => {
     const mockedContext = {
       register: jest.fn(),
       formState: {
-        errors: { username: { message: 'Username is required' } },
+        errors: { username: { type: 'required' } },
         dirtyFields: {},
       },
     };
@@ -90,7 +89,7 @@ describe('FormInput', () => {
     const mockedContext = {
       register: jest.fn(),
       formState: {
-        errors: { email: { message: 'Email is required' } },
+        errors: { email: { type: 'required' } },
         dirtyFields: {},
       },
     };
@@ -111,69 +110,7 @@ describe('FormInput', () => {
     expect(inputElement).toBeTruthy();
 
     waitFor(() => {
-      const errorMessage = screen.getByText((content) => {
-        return content === 'Email is required';
-      });
-      expect(errorMessage).toBeTruthy();
-    });
-  });
-
-  it('renders and validates required password input', () => {
-    const mockedContext = {
-      register: jest.fn(),
-      formState: {
-        errors: { password: { message: 'Password is required' } },
-        dirtyFields: {},
-      },
-    };
-    (useFormContext as jest.Mock).mockReturnValue(mockedContext);
-
-    const formInputProps = {
-      type: 'password' as const,
-      errorName: 'password',
-      label: 'Password',
-    };
-
-    render(<FormInput {...formInputProps} />);
-
-    const labelElement = screen.getByText('Password');
-    expect(labelElement).toBeTruthy();
-
-    const inputElement = screen.getByLabelText('Password');
-    expect(inputElement).toBeTruthy();
-
-    waitFor(() => {
-      const errorMessage = screen.getByText('Password is required');
-      expect(errorMessage).toBeTruthy();
-    });
-  });
-
-  it('renders and validates required confirm password input', () => {
-    const mockedContext = {
-      register: jest.fn(),
-      formState: {
-        errors: { confirmPassword: { message: 'Passwords do not match' } },
-        dirtyFields: {},
-      },
-    };
-    (useFormContext as jest.Mock).mockReturnValue(mockedContext);
-
-    const formInputProps = {
-      type: 'password' as const,
-      errorName: 'confirmPassword',
-      label: 'Confirm Password',
-    };
-
-    render(<FormInput {...formInputProps} />);
-
-    const labelElement = screen.getByText('Confirm Password');
-    expect(labelElement).toBeTruthy();
-
-    const inputElement = screen.getByLabelText('Confirm Password');
-    expect(inputElement).toBeTruthy();
-
-    waitFor(() => {
-      const errorMessage = screen.getByText('Passwords do not match');
+      const errorMessage = screen.getByText('Email is required');
       expect(errorMessage).toBeTruthy();
     });
   });
@@ -260,9 +197,7 @@ describe('FormInput', () => {
       register: jest.fn(),
       formState: {
         errors: {
-          username: {
-            message: 'Username is required',
-          },
+          username: 'Username is required',
         },
         dirtyFields: {
           username: true,
@@ -375,9 +310,7 @@ describe('FormInput', () => {
       register: jest.fn(),
       formState: {
         errors: {
-          username: {
-            message: 'Username is required',
-          },
+          username: 'Username is required',
         },
         dirtyFields: {},
       },

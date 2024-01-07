@@ -2,6 +2,16 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import RequestToolbar from './RequestToolbar';
 import { RootState } from '@src/store/store';
 
+jest.mock('@src/hooks/useLocalization', () => ({
+  useLocalization: jest.fn(() => ({
+    localizationData: {
+      requestToolbar: {
+        sections: ['variables', 'headers'],
+      },
+    },
+  })),
+}));
+
 jest.mock('../../../store/playgroundSlice/playgroundSlice', () => ({
   setVariables: jest.fn(),
   setHeaders: jest.fn(),

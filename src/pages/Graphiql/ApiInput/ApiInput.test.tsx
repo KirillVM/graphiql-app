@@ -5,6 +5,20 @@ import { store } from '../../../store/store';
 import { setGraphiqlApiUrl } from '../../../store/playgroundSlice/playgroundSlice';
 import { getApiShema } from '../../../store/playgroundSlice/playgroundThunks';
 
+jest.mock('@src/hooks/useLocalization', () => ({
+  useLocalization: jest.fn(() => ({
+    localizationData: {
+      apiInput: {
+        yourEndpoint: 'Your Endpoint',
+        sendButtonText: 'Send',
+      },
+      toastMessages: {
+        invalidEndpoint: 'Invalid Endpoint',
+      },
+    },
+  })),
+}));
+
 jest.mock('../../../store/store', () => ({
   ...jest.requireActual('../../../store/store'),
   store: {
