@@ -3,7 +3,7 @@ import Viewer from './Viewer/Viewer';
 import styles from './Graphiql.module.scss';
 import { useAuth } from '@src/hooks/useAuth';
 import { Suspense, lazy, useEffect, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ApiInput from './ApiInput/ApiInput';
 import docs from '@assets/icons/docs.svg';
@@ -11,13 +11,19 @@ import Loader from '@src/components/Loader/Loader';
 import { RootState } from '@src/store/store';
 import { useSelector } from 'react-redux';
 import { useLocalization } from '@src/hooks/useLocalization';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '@src/services/firebaseApi/firebaseApi';
+import { useNavigate } from 'react-router-dom';
+import ROUTES from '@src/router/routes';
 
 const LazyDocumentation = lazy(
   () => import('@src/components/Documentation/Documentation')
 );
 
 const GraphiqlPage = () => {
-  const { isSignIn, setIsSignIn } = useAuth();
+  const navigate = useNavigate();
+  const [user] = useAuthState(auth);
+  const { isSignIn, setIsSignIn, signOut } = useAuth();
   const { localizationData } = useLocalization();
   const { toastMessages, grahpiql } = localizationData;
   const [showDocs, setShowDocs] = useState(false);
@@ -40,6 +46,14 @@ const GraphiqlPage = () => {
       setIsSignIn(false);
     }
   }, [isSignIn, setIsSignIn, toastMessages.successSignIn]);
+
+  useEffect(() => {
+    const isValidRefreshToken =
+      user && user?.refreshToken != localStorage.getItem('refreshToken');
+    if (isValidRefreshToken || !user) {
+      signOut(() => navigate(ROUTES.ROOT));
+    }
+  }, [user, signOut, navigate]);
 
   return (
     <>
@@ -78,7 +92,6 @@ const GraphiqlPage = () => {
           </div>
         </div>
       </div>
-      <ToastContainer className={'toast'} />
     </>
   );
 };

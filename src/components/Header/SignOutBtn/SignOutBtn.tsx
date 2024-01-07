@@ -6,16 +6,18 @@ import ROUTES from '../../../router/routes';
 import styles from './SignOutBtn.module.scss';
 import { signOutUser } from '@src/services/firebaseApi/firebaseApi';
 import { useLocalization } from '@src/hooks/useLocalization';
+import { toast } from 'react-toastify';
 
 const SignOutBtn = () => {
   const navigate = useNavigate();
   const { signOut } = useAuth();
   const { localizationData } = useLocalization();
-  const { sign } = localizationData;
+  const { sign, toastMessages } = localizationData;
   const handleClick = () => {
     signOutUser();
     localStorage.removeItem('refreshToken');
     signOut(() => navigate(ROUTES.ROOT));
+    toast.success(toastMessages.successSignOut);
   };
 
   return (
