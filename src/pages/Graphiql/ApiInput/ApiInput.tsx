@@ -7,7 +7,7 @@ import {
 } from '../../../store/playgroundSlice/playgroundSelectors';
 import { setGraphiqlApiUrl } from '../../../store/playgroundSlice/playgroundSlice';
 import { getApiShema } from '../../../store/playgroundSlice/playgroundThunks';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import styles from './ApiInput.module.scss';
 import { useLocalization } from '@src/hooks/useLocalization';
 
@@ -51,7 +51,6 @@ const ApiInput = () => {
           {apiInput.sendButtonText}
         </CustomButton>
       </form>
-      <ToastContainer className={'toast'} />
     </>
   );
 };

@@ -124,6 +124,7 @@ export const localization = {
     toastMessages: {
       successSignIn: 'You succsessfuly sign in!',
       invalidEndpoint: 'The endpoint is invalind',
+      successSignOut: 'You succsessfuly sign out!',
     },
 
     notFoundPage: {
@@ -322,6 +323,7 @@ export const localization = {
     toastMessages: {
       successSignIn: 'Вы успешно вошли в систему!',
       invalidEndpoint: 'Некорректный адрес',
+      successSignOut: 'Вы успешно вышли из системы!',
     },
 
     notFoundPage: {

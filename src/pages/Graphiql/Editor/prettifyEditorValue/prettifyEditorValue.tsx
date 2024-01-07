@@ -11,16 +11,19 @@ const prettifyEditorValue = (
     .replace(/}/g, '}\n')
     .replace(/{/g, ' {\n')
     .replace(/}/g, '\n}')
-    .replace(/(\b(?!query\b)\w+\b(?!\(|:|,|\)))/g, (match, offset, string) => {
-      const before = offset > 0 ? string[offset - 1] : '';
-      const after =
-        offset + match.length < string.length
-          ? string[offset + match.length]
-          : '';
+    .replace(
+      /(\b(?!query\b)\w+\b(?!\(|:|,|\)|\]))/g,
+      (match, offset, string) => {
+        const before = offset > 0 ? string[offset - 1] : '';
+        const after =
+          offset + match.length < string.length
+            ? string[offset + match.length]
+            : '';
 
-      const isInBrackets = before === '{' || after === '}';
-      return isInBrackets || offset === 0 ? match : `\n${match}`;
-    })
+        const isInBrackets = before === '{' || after === '}';
+        return isInBrackets || offset === 0 ? match : `\n${match}`;
+      }
+    )
     .replace(/^query\s\n/, 'query ');
 
   const lines = formattedValue.split('\n');

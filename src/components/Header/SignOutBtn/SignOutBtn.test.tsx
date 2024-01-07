@@ -8,6 +8,9 @@ jest.mock('../../../hooks/useLocalization', () => ({
     activeLang: 'en',
     setActiveLang: jest.fn(),
     localizationData: {
+      toastMessages: {
+        successSignOut: 'Success sign out!',
+      },
       sign: {
         out: 'Sign Out',
       },
