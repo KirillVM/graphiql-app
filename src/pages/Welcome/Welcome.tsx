@@ -16,7 +16,7 @@ const WelcomePage = () => {
       <div className={styles.team}>
         <h3>{welcomePage.headerOurTeam}</h3>
         <div className={styles.developers}>
-          {developers.map((developer: Developer) => (
+          {Object.values(developers).map((developer: Developer) => (
             <DeveloperCard key={developer.id} developer={developer} />
           ))}
         </div>

@@ -37,7 +37,10 @@ const LoginForm = (): JSX.Element => {
   const isError = Object.keys(errors).length > 0;
 
   useEffect(() => {
-    error && toast.error(firebaseErrors[error.code] || error.code);
+    error &&
+      toast.error(
+        firebaseErrors[error.code as keyof typeof firebaseErrors] || error.code
+      );
   }, [error]);
 
   if (loading) {

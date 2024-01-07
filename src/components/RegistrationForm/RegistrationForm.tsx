@@ -43,7 +43,10 @@ const RegistrationForm = (): JSX.Element => {
   };
 
   useEffect(() => {
-    error && toast.error(firebaseErrors[error.code] || error.code);
+    error &&
+      toast.error(
+        firebaseErrors[error.code as keyof typeof firebaseErrors] || error.code
+      );
   }, [error]);
 
   const isDirtyFields = Object.values(dirtyFields).length < FIELDS_COUNT;
