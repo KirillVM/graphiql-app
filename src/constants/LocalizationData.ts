@@ -396,3 +396,6 @@ export const localization = {
     },
   },
 };
+
+export type LocalizationKey = keyof typeof localization;
+export type LocalizationData = (typeof localization)[LocalizationKey];
