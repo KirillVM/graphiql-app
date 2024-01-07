@@ -21,7 +21,8 @@ const ApiInput = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    invalidApi && toast.error(toastMessages.invalidEndpoint);
+    invalidApi &&
+      toast.error(toastMessages.invalidEndpoint, { draggable: false });
   }, [invalidApi, toastMessages.invalidEndpoint]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

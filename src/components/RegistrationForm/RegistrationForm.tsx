@@ -45,7 +45,8 @@ const RegistrationForm = (): JSX.Element => {
   useEffect(() => {
     error &&
       toast.error(
-        firebaseErrors[error.code as keyof typeof firebaseErrors] || error.code
+        firebaseErrors[error.code as keyof typeof firebaseErrors] || error.code,
+        { draggable: false }
       );
   }, [error, firebaseErrors]);
 

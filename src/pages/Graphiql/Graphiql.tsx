@@ -36,7 +36,7 @@ const GraphiqlPage = () => {
 
   useEffect(() => {
     if (isSignIn) {
-      toast.success(toastMessages.successSignIn);
+      toast.success(toastMessages.successSignIn, { draggable: false });
       setIsSignIn(false);
     }
   }, [isSignIn, setIsSignIn, toastMessages.successSignIn]);
