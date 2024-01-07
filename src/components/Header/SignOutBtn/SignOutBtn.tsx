@@ -14,6 +14,7 @@ const SignOutBtn = () => {
   const { sign } = localizationData;
   const handleClick = () => {
     signOutUser();
+    localStorage.removeItem('refreshToken');
     signOut(() => navigate(ROUTES.ROOT));
   };
 

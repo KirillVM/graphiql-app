@@ -4,18 +4,22 @@ import Footer from './components/Footer/Footer';
 import { AuthProvider } from './context/AuthContext/AuthContext';
 import { LocalizationProvider } from './context/LocalizationContext/LocalizationContext';
 import styles from './App.module.scss';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
+import ErrorBoundaryFallback from './pages/ErrorBoundaryFallback/ErrorBoundaryFallback';
 
 const App = () => {
   return (
     <LocalizationProvider>
       <AuthProvider>
-        <div className={styles.app}>
-          <Header />
-          <main className={styles.main}>
-            <Outlet />
-          </main>
-          <Footer />
-        </div>
+        <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
+          <div className={styles.app}>
+            <Header />
+            <main className={styles.main}>
+              <Outlet />
+            </main>
+            <Footer />
+          </div>
+        </ErrorBoundary>
       </AuthProvider>
     </LocalizationProvider>
   );
