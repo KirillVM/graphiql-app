@@ -8,8 +8,7 @@ export const auth = getAuth(app);
 
 // Sign out with token
 export const signOutUser = async (): Promise<void> => {
-  signOut(auth).catch((error) => {
-    const errorMessage = error.message;
-    console.error(errorMessage);
+  signOut(auth).catch((error: Error): Error => {
+    return error;
   });
 };

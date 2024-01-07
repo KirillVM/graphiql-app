@@ -4,7 +4,7 @@ This project is the final assignment for Rolling Scopes School's React course.
 
 Task: [GraphiQL](https://github.com/rolling-scopes-school/tasks/blob/master/react/modules/graphiql.md)
 
-Deploy: [Playground GraphiQL](https://github.com/rolling-scopes-school/tasks/blob/master/react/modules/graphiql.md)
+Deploy: [Playground GraphiQL](https://659a80185fbe6977b078c141--rs-graphiql-playground.netlify.app/)
 
 ## Description
 
@@ -12,7 +12,7 @@ The GraphiQL application is a GraphQL playground/IDE. It includes authorization 
 
 The structure consists of a welcome page, a sticky header with animated changes, and a persistent footer. The main page (GraphiQL) is a private route with sections for query editing, variables, headers, documentation, and a read-only response area. Users can switch GraphQL endpoints with the "Change Endpoint" button.
 
-Project include at least 80% test coverage, ESLint, Prettier, and Husky hooks.
+Project include at least 90% test coverage, ESLint, Prettier, and Husky hooks.
 
 Design-wise, the app prioritizes attention to detail, adaptive layout, interactivity, and a unified style. App handles API errors in a user-friendly format and implements localization in at two languages (Russian and English).
 

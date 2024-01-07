@@ -1,6 +1,19 @@
 import { render, screen } from '@testing-library/react';
 import Footer from './Footer';
 
+jest.mock('@src/hooks/useLocalization', () => ({
+  useLocalization: jest.fn(() => ({
+    localizationData: {
+      developers: [
+        { github: 'mockedUser1' },
+        { github: 'mockedUser2' },
+        { github: 'mockedUser3' },
+        { github: 'mockedUser4' },
+      ],
+    },
+  })),
+}));
+
 jest.mock('@src/constants/developers', () => ({
   GITHUB_USERS: ['mockedUser1', 'mockedUser2', 'mockedUser3', 'mockedUser4'],
 }));

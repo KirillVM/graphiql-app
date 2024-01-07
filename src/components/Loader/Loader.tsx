@@ -2,8 +2,8 @@ import styles from './Loader.module.scss';
 
 function Loader() {
   return (
-    <div className={styles.loader_container}>
-      <span className={styles.loader}></span>
+    <div data-testid="loader-container" className={styles.loader_container}>
+      <span data-testid="loader" className={styles.loader}></span>
     </div>
   );
 }

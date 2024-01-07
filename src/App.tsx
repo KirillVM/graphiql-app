@@ -6,6 +6,7 @@ import { LocalizationProvider } from './context/LocalizationContext/Localization
 import styles from './App.module.scss';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import ErrorBoundaryFallback from './pages/ErrorBoundaryFallback/ErrorBoundaryFallback';
+import { ToastContainer } from 'react-toastify';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
               <Outlet />
             </main>
             <Footer />
+            <ToastContainer className={'toast'} />
           </div>
         </ErrorBoundary>
       </AuthProvider>

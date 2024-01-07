@@ -1,7 +1,8 @@
 import { Dispatch, SetStateAction } from 'react';
-import { sections } from '../../../constants/playground';
+import { LocalizationData } from '../../../constants/LocalizationData';
 
-export type sectionType = (typeof sections)[number];
+export type sectionType =
+  LocalizationData['requestToolbar']['sections'][number];
 
 export interface RequestToolbarProps {
   isToolbarOpen: boolean;

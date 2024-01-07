@@ -25,7 +25,7 @@ body {
     user-select: none;
   }
 
-::selection {
+  ::selection {
     background-color: $color-accent-light;
     color: $color-black;
     border-radius: 50px;

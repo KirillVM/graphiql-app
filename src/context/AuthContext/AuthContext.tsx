@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }: AuthContextProps) => {
     cb();
     setIsSignIn(true);
   };
+
   const signOut = (cb: () => void) => {
     setUserToken(null);
     cb();

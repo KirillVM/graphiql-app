@@ -2,6 +2,17 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import NotFoundPage from './NotFound';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
+jest.mock('@src/hooks/useLocalization', () => ({
+  useLocalization: jest.fn(() => ({
+    localizationData: {
+      notFoundPage: {
+        message: 'There are no playground for graphQL requests here',
+        linkToWelcome: 'Go to welcome page',
+      },
+    },
+  })),
+}));
+
 describe('NotFoundPage component', () => {
   it('renders the not found page correctly', () => {
     render(

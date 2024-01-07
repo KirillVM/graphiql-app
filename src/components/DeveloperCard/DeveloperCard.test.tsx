@@ -1,6 +1,20 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import DeveloperCard from './DeveloperCard';
 
+jest.mock('@src/hooks/useLocalization', () => ({
+  useLocalization: jest.fn(() => ({
+    localizationData: {
+      developerCard: {
+        showDetailsButton: 'Show details',
+        hideDetailsButton: 'Hide details',
+        headerBiography: 'Biography:',
+        headerContribution: 'Contribution:',
+        headerGithub: 'Github:',
+      },
+    },
+  })),
+}));
+
 const mockDeveloper = {
   id: 1,
   name: 'John Doe',

@@ -7,6 +7,7 @@ import styles from './ToolbarEditor.module.scss';
 const ToolbarEditor = ({ value, onChange }: ToolbarEditorPros) => {
   return (
     <ReactCodeMirror
+      data-testid="toolbar-editor"
       className={styles.editor}
       value={value}
       extensions={[json()]}

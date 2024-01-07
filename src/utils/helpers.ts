@@ -1,1 +1,1 @@
-export const serializeToJSON = (data) => JSON.stringify(data, null, 2);
+export const serializeToJSON = (data: unknown) => JSON.stringify(data, null, 2);

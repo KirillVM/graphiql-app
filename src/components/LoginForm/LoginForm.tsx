@@ -8,7 +8,7 @@ import FormInput from '@components/FormInput/FormInput';
 import { auth } from '@src/services/firebaseApi/firebaseApi';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useEffect } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import Loader from '../Loader/Loader';
 import { useLocalization } from '@src/hooks/useLocalization';
 
@@ -37,8 +37,12 @@ const LoginForm = (): JSX.Element => {
   const isError = Object.keys(errors).length > 0;
 
   useEffect(() => {
-    error && toast.error(firebaseErrors[error.code] || error.code);
-  }, [error]);
+    error &&
+      toast.error(
+        firebaseErrors[error.code as keyof typeof firebaseErrors] || error.code,
+        { draggable: false }
+      );
+  }, [error, firebaseErrors]);
 
   if (loading) {
     return <Loader />;
@@ -67,7 +71,6 @@ const LoginForm = (): JSX.Element => {
           {form.submitButton}
         </button>
       </form>
-      <ToastContainer className={'toast'} />
     </>
   );
 };

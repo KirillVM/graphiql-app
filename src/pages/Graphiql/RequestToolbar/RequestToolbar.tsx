@@ -18,6 +18,8 @@ const RequestToolbar = ({
   isToolbarOpen,
   onOpenToolbar,
 }: RequestToolbarProps) => {
+  const { localizationData } = useLocalization();
+  const { requestToolbar } = localizationData;
   const [activeSection, setActiveSection] = useState<sectionType>('variables');
   const headers = useAppSelector(headersSelector);
   const variables = useAppSelector(variablesSelector);
@@ -37,9 +39,6 @@ const RequestToolbar = ({
     dispatch(setHeaders(value));
   };
 
-  const { localizationData } = useLocalization();
-  const { requestToolbar } = localizationData;
-
   const titles: JSX.Element[] = requestToolbar.sections.map(
     (title: string): JSX.Element => (
       <div
@@ -55,10 +54,11 @@ const RequestToolbar = ({
   );
 
   return (
-    <div className={styles.toolbar}>
+    <div data-testid="request-toolbar" className={styles.toolbar}>
       <div className={styles.toolbar_inner}>
         <div className={styles.titles}>{...titles}</div>
         <div
+          data-testid="toggle-button"
           className={clsx(styles.toggle_btn, {
             [styles.open]: isToolbarOpen,
           })}
@@ -70,7 +70,7 @@ const RequestToolbar = ({
           [styles.open]: isToolbarOpen,
         })}
       >
-        {activeSection === 'variables' ? (
+        {activeSection === requestToolbar.sections[0] ? (
           <ToolbarEditor value={variables} onChange={handleVariablesChange} />
         ) : (
           <ToolbarEditor value={headers} onChange={handleHeadersChange} />

@@ -2,6 +2,22 @@ import { render, screen } from '@testing-library/react';
 import WelcomePage from './Welcome';
 import { DeveloperCardProps } from '@src/components/DeveloperCard/DeveloperCard.interface';
 
+jest.mock('@src/hooks/useLocalization', () => ({
+  useLocalization: jest.fn(() => ({
+    localizationData: {
+      welcomePage: {
+        headerWelcomePage: 'Welcome Page',
+        headerOurTeam: 'Our team',
+      },
+      developers: [
+        { id: 1, name: 'John Doe', roles: ['Developer'] },
+        { id: 2, name: 'Jane Doe', roles: ['Developer, Team Leader'] },
+        { id: 3, name: 'Jack Doe', roles: ['Developer, Designer'] },
+      ],
+    },
+  })),
+}));
+
 jest.mock('@src/components/EducationalProgram/EducationalProgram', () => () => (
   <div data-testid="mocked-educational-program">Mocked Educational Program</div>
 ));

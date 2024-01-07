@@ -21,6 +21,7 @@ const Viewer = () => {
 
   return (
     <CodeMirror
+      data-testid="code-mirror"
       className={styles.editor_json}
       value={value}
       theme={viewerTheme}

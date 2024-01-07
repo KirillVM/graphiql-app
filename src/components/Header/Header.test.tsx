@@ -2,6 +2,20 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Header from './Header';
 
+jest.mock('@src/hooks/useLocalization', () => ({
+  useLocalization: jest.fn(() => ({
+    localizationData: {
+      activeLang: 'en',
+      headerLinks: {
+        '/': 'GraphiQL',
+      },
+      sign: {
+        out: 'Sign Out',
+      },
+    },
+  })),
+}));
+
 jest.mock('../../hooks/useAuth', () => ({
   useAuth: jest.fn(() => ({ userToken: 'mockedToken' })),
 }));

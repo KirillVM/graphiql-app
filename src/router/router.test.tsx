@@ -2,6 +2,10 @@ import { act, render, screen } from '@testing-library/react';
 import { RouterProvider } from 'react-router-dom';
 import router from './router';
 
+jest.mock('cm6-graphql', () => ({
+  graphql: jest.fn(),
+}));
+
 describe('router', () => {
   it('renders WelcomePage when navigating to the root path', () => {
     act(() => {

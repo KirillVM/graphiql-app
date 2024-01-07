@@ -12,6 +12,7 @@ const initialState: PlaygroundState = {
   invalidApi: false,
   headers: '',
   variables: '',
+  isDocsExists: false,
 };
 
 export const playgroundSlice = createSlice({
@@ -47,11 +48,13 @@ export const playgroundSlice = createSlice({
       (state, action: PayloadAction<GraphQLSchema>) => {
         state.apiSchema = action.payload;
         state.invalidApi = false;
+        state.isDocsExists = true;
       }
     );
     builder.addCase(getApiShema.rejected, (state) => {
       state.apiSchema = undefined;
       state.invalidApi = true;
+      state.isDocsExists = false;
     });
   },
 });

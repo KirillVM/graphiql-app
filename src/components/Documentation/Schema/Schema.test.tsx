@@ -8,6 +8,23 @@ import {
 import Schema from './Schema';
 import { SchemaData, Type, QueryType } from './Schema.interface';
 
+jest.mock('../../../hooks/useLocalization', () => ({
+  useLocalization: jest.fn(() => ({
+    localizationData: {
+      documentationSchema: {
+        rootTypesTitle: 'Root Types',
+        allTypesTitle: 'All Types',
+        implementsTitle: 'Implements',
+        enumValuesTitle: 'Enum Values',
+        fieldsTitle: 'Fields',
+        implementationsTitle: 'Implementations',
+        docs: 'Docs',
+        noDescription: 'No description available',
+      },
+    },
+  })),
+}));
+
 const mockType: Type = {
   name: 'MockType',
   description: 'This is a mock type.',

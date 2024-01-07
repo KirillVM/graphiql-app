@@ -3,7 +3,6 @@ import kirill from '../assets/images/kirill.png';
 import svetlana from '../assets/images/svetlana.png';
 
 export const localization = {
-  //English
   en: {
     welcomePage: {
       headerWelcomePage: `Welcome Page`,
@@ -125,6 +124,8 @@ export const localization = {
     toastMessages: {
       successSignIn: 'You succsessfuly sign in!',
       invalidEndpoint: 'The endpoint is invalind',
+      successSignOut: 'You succsessfuly sign out!',
+      errorSignOut: 'Sign out error:',
     },
 
     notFoundPage: {
@@ -189,7 +190,7 @@ export const localization = {
       'auth/user-not-found': `User doesn't exist`,
       'auth/internal-error': 'Internal error on server',
       'auth/email-already-exists': 'This email already exist',
-      'auth/invalid-credentials': 'Invalid user Credentials',
+      'auth/invalid-credential': 'Invalid user Credentials',
       'auth/invalid-email': 'Invalid user Email',
       'auth/invalid-password': 'Invalid user Password',
       'auth/network-request-failed':
@@ -198,7 +199,6 @@ export const localization = {
     },
   },
 
-  //Russian
   ru: {
     welcomePage: {
       headerWelcomePage: `Добро пожаловать`,
@@ -324,6 +324,8 @@ export const localization = {
     toastMessages: {
       successSignIn: 'Вы успешно вошли в систему!',
       invalidEndpoint: 'Некорректный адрес',
+      successSignOut: 'Вы успешно вышли из системы!',
+      errorSignOut: 'Ошибка при выходе из системы:',
     },
 
     notFoundPage: {
@@ -388,7 +390,7 @@ export const localization = {
       'auth/user-not-found': 'Пользователь не найден',
       'auth/internal-error': 'Внутренняя ошибка сервера',
       'auth/email-already-exists': 'Почта уже существует',
-      'auth/invalid-credentials': 'Недействительные учетные данные',
+      'auth/invalid-credential': 'Недействительные учетные данные',
       'auth/invalid-email': 'Недействительная электронная почта',
       'auth/invalid-password': 'Недействительный пароль',
       'auth/network-request-failed': 'Отсутствует интернет соединение',
@@ -396,3 +398,6 @@ export const localization = {
     },
   },
 };
+
+export type LocalizationKey = keyof typeof localization;
+export type LocalizationData = (typeof localization)[LocalizationKey];

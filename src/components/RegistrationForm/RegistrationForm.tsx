@@ -5,7 +5,7 @@ import registrationFormSchema from './RegistrationForm.schema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import clsx from 'clsx';
 import FormInput from '@components/FormInput/FormInput';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {
   useCreateUserWithEmailAndPassword,
@@ -43,8 +43,12 @@ const RegistrationForm = (): JSX.Element => {
   };
 
   useEffect(() => {
-    error && toast.error(firebaseErrors[error.code] || error.code);
-  }, [error]);
+    error &&
+      toast.error(
+        firebaseErrors[error.code as keyof typeof firebaseErrors] || error.code,
+        { draggable: false }
+      );
+  }, [error, firebaseErrors]);
 
   const isDirtyFields = Object.values(dirtyFields).length < FIELDS_COUNT;
   const isError = Object.keys(errors).length > 0;
@@ -81,7 +85,6 @@ const RegistrationForm = (): JSX.Element => {
           {form.submitButton}
         </button>
       </form>
-      <ToastContainer className={'toast'} />
     </>
   );
 };
